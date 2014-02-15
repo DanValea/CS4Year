@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+
+<db:DBOntology db:name="http://food.com/ontology" xmlns:db="http://kaon2.semanticweb.org/db#">
+
+   <db:Database db:connectionString="jdbc:mysql://localhost/dietforelders" db:userName="root" db:password="" db:driverClassName="com.mysql.jdbc.Driver" />
+
+   <!-- ================================================================================================= -->
+   <!-- ================================== Ingredient class and properties ============================== -->
+   <!-- ================================================================================================= -->
+
+   <db:OWLClass db:name="http://food.com/ontology#Ingredient">
+      <db:Table db:tableName="ingredient">
+         <db:IndividualInteger db:fieldName="idIngredient" db:uriPrefix="http://food.com/ontology#ing" db:primaryKey="true" />
+      </db:Table>
+   </db:OWLClass>
+
+   <db:DatatypeProperty db:name="http://food.com/ontology#ingredientName">
+      <db:Table db:tableName="ingredient">
+         <db:IndividualInteger db:fieldName="idIngredient" db:uriPrefix="http://food.com/ontology#ing" db:primaryKey="true" />
+         <db:String db:fieldName="name" />
+      </db:Table>
+   </db:DatatypeProperty>
+
+   <db:DatatypeProperty db:name="http://food.com/ontology#calories">
+      <db:Table db:tableName="ingredient">
+         <db:IndividualInteger db:fieldName="idIngredient" db:uriPrefix="http://food.com/ontology#ing" db:primaryKey="true" />
+         <db:Double db:fieldName="calories" />
+      </db:Table>
+   </db:DatatypeProperty>
+
+   <db:DatatypeProperty db:name="http://food.com/ontology#proteins">
+      <db:Table db:tableName="ingredient">
+         <db:IndividualInteger db:fieldName="idIngredient" db:uriPrefix="http://food.com/ontology#ing" db:primaryKey="true" />
+         <db:Double db:fieldName="proteins" />
+      </db:Table>
+   </db:DatatypeProperty>
+
+   <db:DatatypeProperty db:name="http://food.com/ontology#fats">
+      <db:Table db:tableName="ingredient">
+         <db:IndividualInteger db:fieldName="idIngredient" db:uriPrefix="http://food.com/ontology#ing" db:primaryKey="true" />
+         <db:Double db:fieldName="fats" />
+      </db:Table>
+   </db:DatatypeProperty>
+
+   <db:DatatypeProperty db:name="http://food.com/ontology#carbohydrates">
+      <db:Table db:tableName="ingredient">
+         <db:IndividualInteger db:fieldName="idIngredient" db:uriPrefix="http://food.com/ontology#ing" db:primaryKey="true" />
+         <db:Double db:fieldName="carbohydrates" />
+      </db:Table>
+   </db:DatatypeProperty>
+
+   <db:DatatypeProperty db:name="http://food.com/ontology#calcium">
+      <db:Table db:tableName="ingredient">
+         <db:IndividualInteger db:fieldName="idIngredient" db:uriPrefix="http://food.com/ontology#ing" db:primaryKey="true" />
+         <db:Double db:fieldName="calcium" />
+      </db:Table>
+   </db:DatatypeProperty>
+
+   <db:DatatypeProperty db:name="http://food.com/ontology#iron">
+      <db:Table db:tableName="ingredient">
+         <db:IndividualInteger db:fieldName="idIngredient" db:uriPrefix="http://food.com/ontology#ing" db:primaryKey="true" />
+         <db:Double db:fieldName="iron" />
+      </db:Table>
+   </db:DatatypeProperty>
+
+   <db:DatatypeProperty db:name="http://food.com/ontology#sodium">
+      <db:Table db:tableName="ingredient">
+         <db:IndividualInteger db:fieldName="idIngredient" db:uriPrefix="http://food.com/ontology#ing" db:primaryKey="true" />
+         <db:Double db:fieldName="sodium" />
+      </db:Table>
+   </db:DatatypeProperty>
+
+   <db:DatatypeProperty db:name="http://food.com/ontology#vitaminA">
+      <db:Table db:tableName="ingredient">
+         <db:IndividualInteger db:fieldName="idIngredient" db:uriPrefix="http://food.com/ontology#ing" db:primaryKey="true" />
+         <db:Double db:fieldName="vitaminA" />
+      </db:Table>
+   </db:DatatypeProperty>
+
+   <db:DatatypeProperty db:name="http://food.com/ontology#vitaminB">
+      <db:Table db:tableName="ingredient">
+         <db:IndividualInteger db:fieldName="idIngredient" db:uriPrefix="http://food.com/ontology#ing" db:primaryKey="true" />
+         <db:Double db:fieldName="vitaminB" />
+      </db:Table>
+   </db:DatatypeProperty>
+
+   <db:DatatypeProperty db:name="http://food.com/ontology#vitaminC">
+      <db:Table db:tableName="ingredient">
+         <db:IndividualInteger db:fieldName="idIngredient" db:uriPrefix="http://food.com/ontology#ing" db:primaryKey="true" />
+         <db:Double db:fieldName="vitaminC" />
+      </db:Table>
+   </db:DatatypeProperty>
+
+   <!-- ================================================================================================= -->
+   <!-- ================================== Food class and properties ==================================== -->
+   <!-- ================================================================================================= -->
+
+
+   <db:OWLClass db:name="http://food.com/ontology#Food">
+      <db:Table db:tableName="food">
+         <db:IndividualInteger db:fieldName="idFood" db:uriPrefix="http://food.com/ontology#food" db:primaryKey="true" />
+      </db:Table>
+   </db:OWLClass>
+
+   <db:DatatypeProperty db:name="http://food.com/ontology#foodName">
+      <db:Table db:tableName="food">
+         <db:IndividualInteger db:fieldName="idFood" db:uriPrefix="http://food.com/ontology#food" db:primaryKey="true" />
+         <db:String db:fieldName="name" />
+      </db:Table>
+   </db:DatatypeProperty>
+
+   <db:DatatypeProperty db:name="http://food.com/ontology#description">
+      <db:Table db:tableName="food">
+         <db:IndividualInteger db:fieldName="idFood" db:uriPrefix="http://food.com/ontology#food" db:primaryKey="true" />
+         <db:String db:fieldName="description" />
+      </db:Table>
+   </db:DatatypeProperty>
+
+   <!-- ================================================================================================= -->
+   <!-- ================================== Object properties ============================================ -->
+   <!-- ================================================================================================= -->
+
+   <db:ObjectProperty db:name="http://food.com/ontology#contains">
+      <db:Table db:tableName="foodentry">
+         <db:IndividualInteger db:fieldName="idFood" db:uriPrefix="http://food.com/ontology#food" />
+         <db:IndividualInteger db:fieldName="idIngredient" db:uriPrefix="http://food.com/ontology#ing" />
+          
+      </db:Table>
+   </db:ObjectProperty>
+
+</db:DBOntology>

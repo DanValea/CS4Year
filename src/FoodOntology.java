@@ -1,4 +1,5 @@
 import java.io.File;
+import java.io.IOException;
 import java.util.HashMap;
 
 import org.semanticweb.kaon2.api.*;
@@ -7,46 +8,60 @@ import org.semanticweb.kaon2.api.reasoner.*;
 
 public class FoodOntology
 {
-	/** The URI of the ontology descriptor. */
-	public static String VIRTUAL_ONTOLOGY_DESCRIPTOR_URI;
-	public static String REAL_ONTOLOGY_DESCRIPTOR_URI;
-	
-	public static void main(String[] args) throws Exception
-	{
-		File virtualOntologyFile = new File("files/ontology_descriptor.xml");
-		VIRTUAL_ONTOLOGY_DESCRIPTOR_URI = virtualOntologyFile.toURI().toString();
+	public String virtualOntologyURI;
+	public String realOntologyURI;
 
-		File realOntologyFile = new File("files/Test.owl");
-		REAL_ONTOLOGY_DESCRIPTOR_URI = realOntologyFile.toURI().toString();
-		
-		DefaultOntologyResolver resolver = new DefaultOntologyResolver();
+	private DefaultOntologyResolver resolver;
+	private Ontology virtualOntology;
+	private Ontology realOntology;
+	private OntologyManager ontologyManager;
+
+	public FoodOntology() throws KAON2Exception, InterruptedException, IOException
+	{
+		loadOntologies();
+	}
+
+	private void loadOntologies() throws KAON2Exception, InterruptedException
+	{
+		File virtualOntologyFile = new File(PropertiesLoader.virtualOntologyFile);
+		String VIRTUAL_ONTOLOGY_DESCRIPTOR_URI = virtualOntologyFile.toURI().toString();
+
+		File realOntologyFile = new File(PropertiesLoader.realOntologyFile);
+		String REAL_ONTOLOGY_DESCRIPTOR_URI = realOntologyFile.toURI().toString();
+
+		resolver = new DefaultOntologyResolver();
 		String virtualOntologyURI = resolver.registerOntology(VIRTUAL_ONTOLOGY_DESCRIPTOR_URI);
-		System.out.println(virtualOntologyURI);
+		System.out.println("Virtual ontology URI" + virtualOntologyURI);
 		String realOntologyURI = resolver.registerOntology(REAL_ONTOLOGY_DESCRIPTOR_URI);
-		System.out.println(realOntologyURI);
+		System.out.println("Real ontology URI: " + realOntologyURI);
 		resolver.registerReplacement(realOntologyURI, REAL_ONTOLOGY_DESCRIPTOR_URI);
 
-		OntologyManager ontologyManager = KAON2Manager.newOntologyManager();
+		ontologyManager = KAON2Manager.newOntologyManager();
 		ontologyManager.setOntologyResolver(resolver);
 
-		// Load virtual ontology
-		Ontology virtualOntology = ontologyManager.openOntology(virtualOntologyURI, new HashMap<String, Object>());
+		// Load ontologies
+		virtualOntology = ontologyManager.openOntology(virtualOntologyURI, new HashMap<String, Object>());
+		realOntology = ontologyManager.openOntology(realOntologyURI, new HashMap<String, Object>());
 
-		// Load real ontology
-		Ontology realOntology = ontologyManager.openOntology(realOntologyURI, new HashMap<String, Object>());
-
+		// Add virtual ontology to the real one
 		realOntology.addToImports(virtualOntology);
+	}
 
+	public void doSomething() throws KAON2Exception, InterruptedException
+	{
 		// Once you opened an ontology, you can access it just like you would access an ordinary ontology.
 		// For example, you can ask some queries:
 		System.out.println("  Query results:");
 		System.out.println("-----------------------------------");
 		Reasoner reasoner = realOntology.createReasoner();
+		//Query query=reasoner.createQuery(Namespaces.INSTANCE,"SELECT ?x ?y ?z ?w WHERE { ?x rdf:type <http://food.com/ontology#Person> ; <http://food.com/ontology#personHasName> ?y ; <http://food.com/ontology#personHasParent> ?z . ?z <http://food.com/ontology#personHasName> ?w }");
 		Query query = reasoner
 				.createQuery(
 						Namespaces.INSTANCE,
-						"SELECT ?x ?y ?z ?w WHERE { ?x rdf:type <http://www.owl-ontologies.com/Ontology1392222449.owl#Person> ; <http://www.owl-ontologies.com/Ontology1392222449.owl#personHasName> ?y ; <http://www.owl-ontologies.com/Ontology1392222449.owl#personHasParent> ?z . ?z <http://www.owl-ontologies.com/Ontology1392222449.owl#personHasName> ?w }");
+						"SELECT ?x ?y WHERE { ?x rdf:type <http://food.com/ontology#Ingredient> ; <http://food.com/ontology#ingredientName> ?y ;}");
+
 		query.open();
+
 		Term[] tupleBuffer = query.tupleBuffer();
 		while (!query.afterLast())
 		{
@@ -59,44 +74,52 @@ public class FoodOntology
 			System.out.println(" ]");
 			query.next();
 		}
-		System.out.println("-----------------------------------");
-		query.dispose();
-		reasoner.dispose();
-
-		// You can also iterate through the axioms in the ontology:
-		System.out.println();
-		System.out.println("  Axioms of the ontology:");
-		System.out.println("-----------------------------------");
-		Cursor<Axiom> cursor1 = realOntology.createAxiomRequest().openCursor();
-		while (cursor1.hasNext())
-		{
-			Axiom axiom = cursor1.next();
-			System.out.println(axiom.toString());
-		}
-		System.out.println("-----------------------------------");
-		cursor1.close();
-
-		// The retrieval functionality works as usual. For example, you can select the axioms just for some objects:
-		System.out.println();
-		System.out.println("  Facts about 'http://test.com/ontology#p1':");
-		System.out.println("-----------------------------------");
-		Cursor<Literal> cursor2 = realOntology.createAxiomRequest(Literal.class)
-				.setCondition("argument", 0, KAON2Manager.factory().individual("http://test.com/ontology#p1"))
-				.openCursor();
-		while (cursor2.hasNext())
-		{
-			Axiom axiom = cursor2.next();
-			System.out.println(axiom.toString());
-		}
-		System.out.println("-----------------------------------");
-		cursor2.close();
 
 		// Do not forget to clean-up, or your connections to the database will not be released!
 		ontologyManager.close();
+	}
 
+	public static void main(String[] args) throws Exception
+	{
+		// load config file
+		new PropertiesLoader();
+		FoodOntology foodOntology = new FoodOntology();
+		foodOntology.doSomething();
 	}
 
 }
+
+/*
+ * System.out.println("-----------------------------------");
+ * query.dispose();
+ * reasoner.dispose();
+ * // You can also iterate through the axioms in the ontology:
+ * System.out.println();
+ * System.out.println("  Axioms of the ontology:");
+ * System.out.println("-----------------------------------");
+ * Cursor<Axiom> cursor1 = realOntology.createAxiomRequest().openCursor();
+ * while (cursor1.hasNext())
+ * {
+ * Axiom axiom = cursor1.next();
+ * System.out.println(axiom.toString());
+ * }
+ * System.out.println("-----------------------------------");
+ * cursor1.close();
+ * // The retrieval functionality works as usual. For example, you can select the axioms just for some objects:
+ * System.out.println();
+ * System.out.println("  Facts about 'http://test.com/ontology#p1':");
+ * System.out.println("-----------------------------------");
+ * Cursor<Literal> cursor2 = realOntology.createAxiomRequest(Literal.class)
+ * .setCondition("argument", 0, KAON2Manager.factory().individual("http://test.com/ontology#p1"))
+ * .openCursor();
+ * while (cursor2.hasNext())
+ * {
+ * Axiom axiom = cursor2.next();
+ * System.out.println(axiom.toString());
+ * }
+ * System.out.println("-----------------------------------");
+ * cursor2.close();
+ */
 
 // Assume that you have a database containing a large amount of data, which you'd like to
 // convert into an ontology and access it by KAON2. You might do it by writing a prorpietary
