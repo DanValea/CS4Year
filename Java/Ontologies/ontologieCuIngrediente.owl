@@ -1,0 +1,2297 @@
+<?xml version="1.0"?>
+<rdf:RDF
+    xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+    xmlns:protege="http://protege.stanford.edu/plugins/owl/protege#"
+    xmlns:xsp="http://www.owl-ontologies.com/2005/08/07/xsp.owl#"
+    xmlns:owl="http://www.w3.org/2002/07/owl#"
+    xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+    xmlns:swrl="http://www.w3.org/2003/11/swrl#"
+    xmlns:food="http://www.pips.eu.org/ontologies/food#"
+    xmlns:swrlb="http://www.w3.org/2003/11/swrlb#"
+    xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+  xml:base="http://www.pips.eu.org/ontologies/food">
+  <owl:Ontology rdf:about=""/>
+  <owl:Class rdf:ID="Beef_meat">
+    <rdfs:subClassOf>
+      <owl:Class rdf:ID="Meat"/>
+    </rdfs:subClassOf>
+    <owl:disjointWith>
+      <owl:Class rdf:ID="Pork_meat"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:ID="Lamb_meat"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:ID="Turkey"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:ID="Liver"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:ID="Chicken_meat"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:ID="Meat_products"/>
+    </owl:disjointWith>
+  </owl:Class>
+  <owl:Class rdf:ID="Cucumbers">
+    <rdfs:subClassOf>
+      <owl:Class rdf:ID="Vegetables"/>
+    </rdfs:subClassOf>
+    <owl:disjointWith>
+      <owl:Class rdf:ID="Beans"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:ID="Cabbage"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:ID="Pepper"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:ID="Potatoes"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:ID="Vegetable_mixture"/>
+    </owl:disjointWith>
+  </owl:Class>
+  <owl:Class rdf:ID="Soft_cheese">
+    <rdfs:subClassOf>
+      <owl:Class rdf:ID="Milk_products"/>
+    </rdfs:subClassOf>
+    <owl:disjointWith>
+      <owl:Class rdf:ID="Yogurt"/>
+    </owl:disjointWith>
+  </owl:Class>
+  <owl:Class rdf:ID="Cardio">
+    <rdfs:subClassOf>
+      <owl:Class rdf:ID="Disease"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:ID="Tomatoes">
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#Vegetables"/>
+    </rdfs:subClassOf>
+    <owl:disjointWith rdf:resource="#Cucumbers"/>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#Beans"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#Cabbage"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#Pepper"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#Potatoes"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#Vegetable_mixture"/>
+    </owl:disjointWith>
+  </owl:Class>
+  <owl:Class rdf:about="#Vegetable_mixture">
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#Vegetables"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:about="#Liver">
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#Meat"/>
+    </rdfs:subClassOf>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#Meat_products"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#Lamb_meat"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#Pork_meat"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#Turkey"/>
+    </owl:disjointWith>
+  </owl:Class>
+  <owl:Class rdf:ID="Bread_products">
+    <rdfs:subClassOf>
+      <owl:Class rdf:ID="Grain_products"/>
+    </rdfs:subClassOf>
+    <owl:disjointWith>
+      <owl:Class rdf:ID="Wheat_basic_products"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:ID="Sweet_puddings"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:ID="Rice_products"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:ID="Pasta_and_noodles"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:ID="Breakfast_cereals"/>
+    </owl:disjointWith>
+  </owl:Class>
+  <owl:Class rdf:ID="Chocolate">
+    <owl:disjointWith>
+      <owl:Class rdf:ID="Honey"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:ID="Jams"/>
+    </owl:disjointWith>
+    <rdfs:subClassOf>
+      <owl:Class rdf:ID="Sugar_products"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:about="#Chicken_meat">
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#Meat"/>
+    </rdfs:subClassOf>
+    <owl:disjointWith rdf:resource="#Liver"/>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#Meat_products"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#Turkey"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#Lamb_meat"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#Pork_meat"/>
+    </owl:disjointWith>
+  </owl:Class>
+  <owl:Class rdf:about="#Sugar_products">
+    <rdfs:subClassOf>
+      <owl:Class rdf:ID="Food"/>
+    </rdfs:subClassOf>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#Vegetables"/>
+    </owl:disjointWith>
+  </owl:Class>
+  <owl:Class rdf:about="#Jams">
+    <rdfs:subClassOf rdf:resource="#Sugar_products"/>
+  </owl:Class>
+  <owl:Class rdf:about="#Cabbage">
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#Vegetables"/>
+    </rdfs:subClassOf>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#Pepper"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#Potatoes"/>
+    </owl:disjointWith>
+    <owl:disjointWith rdf:resource="#Vegetable_mixture"/>
+  </owl:Class>
+  <owl:Class rdf:ID="Fungi">
+    <owl:disjointWith>
+      <owl:Class rdf:about="#Beans"/>
+    </owl:disjointWith>
+    <owl:disjointWith rdf:resource="#Tomatoes"/>
+    <owl:disjointWith rdf:resource="#Cabbage"/>
+    <owl:disjointWith rdf:resource="#Cucumbers"/>
+    <owl:disjointWith rdf:resource="#Vegetable_mixture"/>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#Potatoes"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#Pepper"/>
+    </owl:disjointWith>
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#Vegetables"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:about="#Yogurt">
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#Milk_products"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:ID="Milk">
+    <owl:disjointWith rdf:resource="#Soft_cheese"/>
+    <owl:disjointWith rdf:resource="#Yogurt"/>
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#Milk_products"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:about="#Meat">
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#Food"/>
+    </rdfs:subClassOf>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#Milk_products"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:ID="Sea_Food"/>
+    </owl:disjointWith>
+    <owl:disjointWith rdf:resource="#Sugar_products"/>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#Vegetables"/>
+    </owl:disjointWith>
+  </owl:Class>
+  <owl:Class rdf:about="#Beans">
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#Vegetables"/>
+    </rdfs:subClassOf>
+    <owl:disjointWith rdf:resource="#Cabbage"/>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#Pepper"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#Potatoes"/>
+    </owl:disjointWith>
+    <owl:disjointWith rdf:resource="#Vegetable_mixture"/>
+  </owl:Class>
+  <owl:Class rdf:about="#Breakfast_cereals">
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#Grain_products"/>
+    </rdfs:subClassOf>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#Wheat_basic_products"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#Pasta_and_noodles"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#Rice_products"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#Sweet_puddings"/>
+    </owl:disjointWith>
+  </owl:Class>
+  <owl:Class rdf:ID="Ingredient"/>
+  <owl:Class rdf:about="#Potatoes">
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#Vegetables"/>
+    </rdfs:subClassOf>
+    <owl:disjointWith rdf:resource="#Vegetable_mixture"/>
+  </owl:Class>
+  <owl:Class rdf:about="#Rice_products">
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#Grain_products"/>
+    </rdfs:subClassOf>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#Sweet_puddings"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#Wheat_basic_products"/>
+    </owl:disjointWith>
+  </owl:Class>
+  <owl:Class rdf:ID="Pears">
+    <rdfs:subClassOf>
+      <owl:Class rdf:ID="Fruits"/>
+    </rdfs:subClassOf>
+    <owl:disjointWith>
+      <owl:Class rdf:ID="Bananas"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:ID="Apples"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:ID="Plums"/>
+    </owl:disjointWith>
+  </owl:Class>
+  <owl:Class rdf:about="#Apples">
+    <owl:disjointWith>
+      <owl:Class rdf:about="#Plums"/>
+    </owl:disjointWith>
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#Fruits"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:ID="Hepato">
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#Disease"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:about="#Meat_products">
+    <rdfs:subClassOf rdf:resource="#Meat"/>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#Lamb_meat"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#Pork_meat"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#Turkey"/>
+    </owl:disjointWith>
+  </owl:Class>
+  <owl:Class rdf:ID="Citrus_fruit">
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#Fruits"/>
+    </rdfs:subClassOf>
+    <owl:disjointWith>
+      <owl:Class rdf:ID="Fruit_mixture"/>
+    </owl:disjointWith>
+    <owl:disjointWith rdf:resource="#Pears"/>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#Bananas"/>
+    </owl:disjointWith>
+    <owl:disjointWith rdf:resource="#Apples"/>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#Plums"/>
+    </owl:disjointWith>
+  </owl:Class>
+  <owl:Class rdf:about="#Pasta_and_noodles">
+    <owl:disjointWith rdf:resource="#Rice_products"/>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#Sweet_puddings"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#Wheat_basic_products"/>
+    </owl:disjointWith>
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#Grain_products"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:about="#Food">
+    <owl:disjointWith rdf:resource="#Ingredient"/>
+    <owl:disjointWith>
+      <owl:Class rdf:ID="Person"/>
+    </owl:disjointWith>
+  </owl:Class>
+  <owl:Class rdf:about="#Fruit_mixture">
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#Fruits"/>
+    </rdfs:subClassOf>
+    <owl:disjointWith rdf:resource="#Pears"/>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#Bananas"/>
+    </owl:disjointWith>
+    <owl:disjointWith rdf:resource="#Apples"/>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#Plums"/>
+    </owl:disjointWith>
+  </owl:Class>
+  <owl:Class rdf:ID="Endo">
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#Disease"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:about="#Bananas">
+    <owl:disjointWith rdf:resource="#Apples"/>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#Plums"/>
+    </owl:disjointWith>
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#Fruits"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:about="#Milk_products">
+    <rdfs:subClassOf rdf:resource="#Food"/>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#Sea_Food"/>
+    </owl:disjointWith>
+    <owl:disjointWith rdf:resource="#Sugar_products"/>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#Vegetables"/>
+    </owl:disjointWith>
+  </owl:Class>
+  <owl:Class rdf:about="#Plums">
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#Fruits"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:about="#Turkey">
+    <rdfs:subClassOf rdf:resource="#Meat"/>
+  </owl:Class>
+  <owl:Class rdf:about="#Fruits">
+    <rdfs:subClassOf rdf:resource="#Food"/>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#Sea_Food"/>
+    </owl:disjointWith>
+    <owl:disjointWith rdf:resource="#Sugar_products"/>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#Vegetables"/>
+    </owl:disjointWith>
+    <owl:disjointWith rdf:resource="#Milk_products"/>
+    <owl:disjointWith rdf:resource="#Meat"/>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#Grain_products"/>
+    </owl:disjointWith>
+  </owl:Class>
+  <owl:Class rdf:ID="Gastro">
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#Disease"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:ID="Cream">
+    <rdfs:subClassOf rdf:resource="#Milk_products"/>
+    <owl:disjointWith rdf:resource="#Milk"/>
+    <owl:disjointWith>
+      <owl:Class rdf:ID="Cheese"/>
+    </owl:disjointWith>
+    <owl:disjointWith rdf:resource="#Soft_cheese"/>
+    <owl:disjointWith rdf:resource="#Yogurt"/>
+  </owl:Class>
+  <owl:Class rdf:ID="FruitAllergy">
+    <rdfs:subClassOf>
+      <owl:Class rdf:ID="Allergy"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:about="#Wheat_basic_products">
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#Grain_products"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:about="#Pepper">
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#Vegetables"/>
+    </rdfs:subClassOf>
+    <owl:disjointWith rdf:resource="#Potatoes"/>
+    <owl:disjointWith rdf:resource="#Vegetable_mixture"/>
+  </owl:Class>
+  <owl:Class rdf:ID="Egg_products">
+    <rdfs:subClassOf rdf:resource="#Food"/>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#Vegetables"/>
+    </owl:disjointWith>
+    <owl:disjointWith rdf:resource="#Milk_products"/>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#Grain_products"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#Sea_Food"/>
+    </owl:disjointWith>
+    <owl:disjointWith rdf:resource="#Sugar_products"/>
+    <owl:disjointWith rdf:resource="#Meat"/>
+    <owl:disjointWith rdf:resource="#Fruits"/>
+  </owl:Class>
+  <owl:Class rdf:about="#Grain_products">
+    <rdfs:subClassOf rdf:resource="#Food"/>
+    <owl:disjointWith rdf:resource="#Meat"/>
+    <owl:disjointWith rdf:resource="#Milk_products"/>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#Sea_Food"/>
+    </owl:disjointWith>
+    <owl:disjointWith rdf:resource="#Sugar_products"/>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#Vegetables"/>
+    </owl:disjointWith>
+  </owl:Class>
+  <owl:Class rdf:about="#Vegetables">
+    <rdfs:subClassOf rdf:resource="#Food"/>
+  </owl:Class>
+  <owl:Class rdf:about="#Sea_Food">
+    <owl:disjointWith rdf:resource="#Sugar_products"/>
+    <owl:disjointWith rdf:resource="#Vegetables"/>
+    <rdfs:subClassOf rdf:resource="#Food"/>
+  </owl:Class>
+  <owl:Class rdf:about="#Honey">
+    <owl:disjointWith rdf:resource="#Jams"/>
+    <rdfs:subClassOf rdf:resource="#Sugar_products"/>
+  </owl:Class>
+  <owl:Class rdf:about="#Allergy">
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#Disease"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:ID="MilkAllergy">
+    <rdfs:subClassOf rdf:resource="#Allergy"/>
+  </owl:Class>
+  <owl:Class rdf:ID="GlutenAllergy">
+    <rdfs:subClassOf rdf:resource="#Allergy"/>
+  </owl:Class>
+  <owl:Class rdf:ID="Berries">
+    <owl:disjointWith rdf:resource="#Citrus_fruit"/>
+    <owl:disjointWith rdf:resource="#Fruit_mixture"/>
+    <owl:disjointWith rdf:resource="#Pears"/>
+    <owl:disjointWith rdf:resource="#Bananas"/>
+    <owl:disjointWith rdf:resource="#Apples"/>
+    <owl:disjointWith rdf:resource="#Plums"/>
+    <rdfs:subClassOf rdf:resource="#Fruits"/>
+  </owl:Class>
+  <owl:Class rdf:about="#Cheese">
+    <owl:disjointWith rdf:resource="#Yogurt"/>
+    <owl:disjointWith rdf:resource="#Milk"/>
+    <owl:disjointWith rdf:resource="#Soft_cheese"/>
+    <rdfs:subClassOf rdf:resource="#Milk_products"/>
+  </owl:Class>
+  <owl:Class rdf:ID="Semolina">
+    <rdfs:subClassOf rdf:resource="#Grain_products"/>
+    <owl:disjointWith rdf:resource="#Breakfast_cereals"/>
+    <owl:disjointWith rdf:resource="#Wheat_basic_products"/>
+    <owl:disjointWith rdf:resource="#Pasta_and_noodles"/>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#Sweet_puddings"/>
+    </owl:disjointWith>
+    <owl:disjointWith rdf:resource="#Rice_products"/>
+    <owl:disjointWith rdf:resource="#Bread_products"/>
+  </owl:Class>
+  <owl:Class rdf:ID="WheatAllergy">
+    <rdfs:subClassOf rdf:resource="#Allergy"/>
+  </owl:Class>
+  <owl:Class rdf:about="#Lamb_meat">
+    <owl:disjointWith>
+      <owl:Class rdf:about="#Pork_meat"/>
+    </owl:disjointWith>
+    <owl:disjointWith rdf:resource="#Turkey"/>
+    <rdfs:subClassOf rdf:resource="#Meat"/>
+  </owl:Class>
+  <owl:Class rdf:about="#Sweet_puddings">
+    <owl:disjointWith rdf:resource="#Wheat_basic_products"/>
+    <rdfs:subClassOf rdf:resource="#Grain_products"/>
+  </owl:Class>
+  <owl:Class rdf:ID="FoodComponent"/>
+  <owl:Class rdf:about="#Disease">
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:onProperty>
+          <owl:FunctionalProperty rdf:ID="diseaseName"/>
+        </owl:onProperty>
+        <owl:someValuesFrom rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+  </owl:Class>
+  <owl:Class rdf:about="#Pork_meat">
+    <owl:disjointWith rdf:resource="#Turkey"/>
+    <rdfs:subClassOf rdf:resource="#Meat"/>
+  </owl:Class>
+  <owl:Class rdf:ID="Neuro">
+    <rdfs:subClassOf rdf:resource="#Disease"/>
+  </owl:Class>
+  <owl:Class rdf:about="#Person">
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:onProperty>
+          <owl:DatatypeProperty rdf:ID="weight"/>
+        </owl:onProperty>
+        <owl:someValuesFrom rdf:resource="http://www.w3.org/2001/XMLSchema#double"/>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:onProperty>
+          <owl:DatatypeProperty rdf:ID="height"/>
+        </owl:onProperty>
+        <owl:someValuesFrom rdf:resource="http://www.w3.org/2001/XMLSchema#double"/>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:someValuesFrom rdf:resource="http://www.w3.org/2001/XMLSchema#dateTime"/>
+        <owl:onProperty>
+          <owl:DatatypeProperty rdf:ID="date_of_birth"/>
+        </owl:onProperty>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:someValuesFrom rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+        <owl:onProperty>
+          <owl:DatatypeProperty rdf:ID="name"/>
+        </owl:onProperty>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:onProperty>
+          <owl:DatatypeProperty rdf:ID="gender"/>
+        </owl:onProperty>
+        <owl:someValuesFrom rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:ID="Fish_products">
+    <rdfs:subClassOf rdf:resource="#Sea_Food"/>
+  </owl:Class>
+  <owl:Class rdf:ID="Hemato">
+    <rdfs:subClassOf rdf:resource="#Disease"/>
+  </owl:Class>
+  <owl:ObjectProperty rdf:ID="hasIntoleranceTo">
+    <rdfs:range rdf:resource="#Food"/>
+    <rdfs:domain rdf:resource="#Allergy"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:ID="contains">
+    <rdfs:range>
+      <owl:Class>
+        <owl:unionOf rdf:parseType="Collection">
+          <owl:Class rdf:about="#FoodComponent"/>
+          <owl:Class rdf:about="#Ingredient"/>
+        </owl:unionOf>
+      </owl:Class>
+    </rdfs:range>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#TransitiveProperty"/>
+    <rdfs:domain>
+      <owl:Class>
+        <owl:unionOf rdf:parseType="Collection">
+          <owl:Class rdf:about="#Food"/>
+          <owl:Class rdf:about="#FoodComponent"/>
+        </owl:unionOf>
+      </owl:Class>
+    </rdfs:domain>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:ID="hasDiseases">
+    <rdfs:domain rdf:resource="#Person"/>
+    <rdfs:range rdf:resource="#Disease"/>
+  </owl:ObjectProperty>
+  <owl:DatatypeProperty rdf:ID="da"/>
+  <owl:DatatypeProperty rdf:ID="minCarbohydrates">
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#double"/>
+    <rdfs:domain rdf:resource="#Endo"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:about="#weight">
+    <rdfs:domain rdf:resource="#Person"/>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >the weight of a person</rdfs:comment>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#double"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:about="#gender">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:domain rdf:resource="#Person"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:ID="minCalcium">
+    <rdfs:domain rdf:resource="#Endo"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#double"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:about="#name">
+    <rdfs:domain>
+      <owl:Class>
+        <owl:unionOf rdf:parseType="Collection">
+          <owl:Class rdf:about="#Ingredient"/>
+          <owl:Class rdf:about="#Food"/>
+        </owl:unionOf>
+      </owl:Class>
+    </rdfs:domain>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >the name of an Ingredient</rdfs:comment>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:ID="daily_energy_expenditure">
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Daily energy expenditure computed by a specific index and stored  into the VE</rdfs:comment>
+    <rdfs:domain rdf:resource="#Person"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#double"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:ID="quantity">
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#double"/>
+    <rdfs:domain rdf:resource="#FoodComponent"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:about="#height">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >the height of a person</rdfs:comment>
+    <rdfs:domain rdf:resource="#Person"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#double"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:ID="maxCalcium">
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#double"/>
+    <rdfs:domain rdf:resource="#Endo"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:ID="provider">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:domain rdf:resource="#Food"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:ID="first_name">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+    <rdfs:domain rdf:resource="#Person"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:ID="last_name">
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:domain rdf:resource="#Person"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:about="#date_of_birth">
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >the date of birth of a person</rdfs:comment>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#dateTime"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+    <rdfs:domain rdf:resource="#Person"/>
+  </owl:DatatypeProperty>
+  <owl:FunctionalProperty rdf:ID="iron">
+    <rdfs:domain rdf:resource="#Ingredient"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#double"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:ID="proteins">
+    <rdfs:domain rdf:resource="#Ingredient"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#double"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:ID="maxCarbohydrates">
+    <rdfs:domain>
+      <owl:Class>
+        <owl:unionOf rdf:parseType="Collection">
+          <owl:Class rdf:about="#Hepato"/>
+          <owl:Class rdf:about="#Endo"/>
+        </owl:unionOf>
+      </owl:Class>
+    </rdfs:domain>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#double"/>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:ID="vitaminC">
+    <rdfs:domain rdf:resource="#Ingredient"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#double"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:ID="vitaminB">
+    <rdfs:domain rdf:resource="#Ingredient"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#double"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:ID="vitaminA">
+    <rdfs:domain rdf:resource="#Ingredient"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#double"/>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:ID="sodium">
+    <rdfs:domain rdf:resource="#Ingredient"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#double"/>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:ID="fats">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:domain rdf:resource="#Ingredient"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#double"/>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:ID="minSodium">
+    <rdfs:domain rdf:resource="#Cardio"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#double"/>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:ID="carbohydrates">
+    <rdfs:domain rdf:resource="#Ingredient"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#double"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:ID="calories">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#double"/>
+    <rdfs:domain rdf:resource="#Ingredient"/>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:ID="maxSodium">
+    <rdfs:domain rdf:resource="#Cardio"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#double"/>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:ID="calcium">
+    <rdfs:domain rdf:resource="#Ingredient"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#double"/>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:about="#diseaseName">
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:domain rdf:resource="#Disease"/>
+  </owl:FunctionalProperty>
+  <food:Person rdf:ID="PopMaria">
+    <food:gender rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >female</food:gender>
+    <food:first_name rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Maria</food:first_name>
+    <food:weight rdf:datatype="http://www.w3.org/2001/XMLSchema#double"
+    >58</food:weight>
+    <food:last_name rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Pop</food:last_name>
+    <food:date_of_birth rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime"
+    >1942-06-14T00:00:00</food:date_of_birth>
+    <food:height rdf:datatype="http://www.w3.org/2001/XMLSchema#double"
+    >157</food:height>
+    <food:hasDiseases>
+      <food:Endo rdf:ID="DiabetesType1">
+        <food:maxCarbohydrates rdf:datatype="http://www.w3.org/2001/XMLSchema#double"
+        >180000</food:maxCarbohydrates>
+        <food:diseaseName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >Diabetes Type I</food:diseaseName>
+        <food:minCarbohydrates rdf:datatype="http://www.w3.org/2001/XMLSchema#double"
+        >135000</food:minCarbohydrates>
+      </food:Endo>
+    </food:hasDiseases>
+  </food:Person>
+  <food:Person rdf:ID="IonescuElena">
+    <food:weight rdf:datatype="http://www.w3.org/2001/XMLSchema#double"
+    >54</food:weight>
+    <food:first_name rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Elena</food:first_name>
+    <food:last_name rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Ionescu</food:last_name>
+    <food:hasDiseases>
+      <food:Endo rdf:ID="Osteoporosis">
+        <food:diseaseName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >Osteoporosis</food:diseaseName>
+        <food:minCalcium rdf:datatype="http://www.w3.org/2001/XMLSchema#double"
+        >0</food:minCalcium>
+        <food:maxCalcium rdf:datatype="http://www.w3.org/2001/XMLSchema#double"
+        >2000</food:maxCalcium>
+      </food:Endo>
+    </food:hasDiseases>
+    <food:gender rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >female</food:gender>
+    <food:height rdf:datatype="http://www.w3.org/2001/XMLSchema#double"
+    >158</food:height>
+    <food:date_of_birth rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime"
+    >1948-05-09T00:00:00</food:date_of_birth>
+  </food:Person>
+  <owl:AnnotationProperty rdf:about="http://www.w3.org/2000/01/rdf-schema#comment"/>
+  <food:Person rdf:ID="PopescuIoana">
+    <food:gender rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >female</food:gender>
+    <food:first_name rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Ioana</food:first_name>
+    <food:hasDiseases rdf:resource="#Osteoporosis"/>
+    <food:hasDiseases>
+      <food:Cardio rdf:ID="Hypertension">
+        <food:maxSodium rdf:datatype="http://www.w3.org/2001/XMLSchema#double"
+        >1500</food:maxSodium>
+        <food:diseaseName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >Hypertension</food:diseaseName>
+        <food:minSodium rdf:datatype="http://www.w3.org/2001/XMLSchema#double"
+        >500</food:minSodium>
+      </food:Cardio>
+    </food:hasDiseases>
+    <food:last_name rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Popescu</food:last_name>
+    <food:weight rdf:datatype="http://www.w3.org/2001/XMLSchema#double"
+    >45</food:weight>
+    <food:date_of_birth rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime"
+    >1945-07-23T00:00:00</food:date_of_birth>
+    <food:height rdf:datatype="http://www.w3.org/2001/XMLSchema#double"
+    >164</food:height>
+  </food:Person>
+  <food:Person rdf:ID="EnescuAndrei">
+    <food:weight rdf:datatype="http://www.w3.org/2001/XMLSchema#double"
+    >70</food:weight>
+    <food:height rdf:datatype="http://www.w3.org/2001/XMLSchema#double"
+    >165</food:height>
+    <food:gender rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >male</food:gender>
+    <food:first_name rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Andrei</food:first_name>
+    <food:last_name rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Enescu</food:last_name>
+    <food:date_of_birth rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime"
+    >1945-02-08T00:00:00</food:date_of_birth>
+    <food:hasDiseases rdf:resource="#DiabetesType1"/>
+    <food:hasDiseases rdf:resource="#Hypertension"/>
+  </food:Person>
+  <owl:AnnotationProperty rdf:about="http://www.w3.org/2000/01/rdf-schema#label"/>
+  <food:Person rdf:ID="PopIoan">
+    <food:gender rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >male</food:gender>
+    <food:first_name rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Ioan</food:first_name>
+    <food:hasDiseases rdf:resource="#Hypertension"/>
+    <food:last_name rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Pop</food:last_name>
+    <food:height rdf:datatype="http://www.w3.org/2001/XMLSchema#double"
+    >160</food:height>
+    <food:date_of_birth rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime"
+    >1952-03-12T00:00:00</food:date_of_birth>
+    <food:weight rdf:datatype="http://www.w3.org/2001/XMLSchema#double"
+    >66</food:weight>
+  </food:Person>
+  <food:Ingredient rdf:about="#1">
+    <food:name rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Turkey</food:name>
+    <food:calories rdf:datatype="http://www.w3.org/2001/XMLSchema#double">179</food:calories>
+    <food:fats rdf:datatype="http://www.w3.org/2001/XMLSchema#double">8.5</food:fats>
+    <food:proteins rdf:datatype="http://www.w3.org/2001/XMLSchema#double">24.5</food:proteins>
+    <food:carbohydrates rdf:datatype="http://www.w3.org/2001/XMLSchema#double">0</food:carbohydrates>
+    <food:calcium rdf:datatype="http://www.w3.org/2001/XMLSchema#double">110</food:calcium>
+    <food:sodium rdf:datatype="http://www.w3.org/2001/XMLSchema#double">750</food:sodium>
+    <food:iron rdf:datatype="http://www.w3.org/2001/XMLSchema#double">0</food:iron>
+    <food:vitaminA rdf:datatype="http://www.w3.org/2001/XMLSchema#double">0</food:vitaminA>
+    <food:vitaminB rdf:datatype="http://www.w3.org/2001/XMLSchema#double">0.29</food:vitaminB>
+    <food:vitaminC rdf:datatype="http://www.w3.org/2001/XMLSchema#double">14.5</food:vitaminC>
+  </food:Ingredient>
+  <food:Ingredient rdf:about="#2">
+    <food:name rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Lamb</food:name>
+    <food:calories rdf:datatype="http://www.w3.org/2001/XMLSchema#double">260</food:calories>
+    <food:fats rdf:datatype="http://www.w3.org/2001/XMLSchema#double">20</food:fats>
+    <food:proteins rdf:datatype="http://www.w3.org/2001/XMLSchema#double">18</food:proteins>
+    <food:carbohydrates rdf:datatype="http://www.w3.org/2001/XMLSchema#double">0</food:carbohydrates>
+    <food:calcium rdf:datatype="http://www.w3.org/2001/XMLSchema#double">9</food:calcium>
+    <food:sodium rdf:datatype="http://www.w3.org/2001/XMLSchema#double">85</food:sodium>
+    <food:iron rdf:datatype="http://www.w3.org/2001/XMLSchema#double">2.4</food:iron>
+    <food:vitaminA rdf:datatype="http://www.w3.org/2001/XMLSchema#double">0</food:vitaminA>
+    <food:vitaminB rdf:datatype="http://www.w3.org/2001/XMLSchema#double">0.15</food:vitaminB>
+    <food:vitaminC rdf:datatype="http://www.w3.org/2001/XMLSchema#double">1.5</food:vitaminC>
+  </food:Ingredient>
+  <food:Ingredient rdf:about="#3">
+    <food:name rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Mutton</food:name>
+    <food:calories rdf:datatype="http://www.w3.org/2001/XMLSchema#double">181</food:calories>
+    <food:fats rdf:datatype="http://www.w3.org/2001/XMLSchema#double">12</food:fats>
+    <food:proteins rdf:datatype="http://www.w3.org/2001/XMLSchema#double">17</food:proteins>
+    <food:carbohydrates rdf:datatype="http://www.w3.org/2001/XMLSchema#double">0</food:carbohydrates>
+    <food:calcium rdf:datatype="http://www.w3.org/2001/XMLSchema#double">13</food:calcium>
+    <food:sodium rdf:datatype="http://www.w3.org/2001/XMLSchema#double">84</food:sodium>
+    <food:iron rdf:datatype="http://www.w3.org/2001/XMLSchema#double">0</food:iron>
+    <food:vitaminA rdf:datatype="http://www.w3.org/2001/XMLSchema#double">0</food:vitaminA>
+    <food:vitaminB rdf:datatype="http://www.w3.org/2001/XMLSchema#double">0.1</food:vitaminB>
+    <food:vitaminC rdf:datatype="http://www.w3.org/2001/XMLSchema#double">0.5</food:vitaminC>
+  </food:Ingredient>
+  <food:Ingredient rdf:about="#4">
+    <food:name rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Pork, high fat</food:name>
+    <food:calories rdf:datatype="http://www.w3.org/2001/XMLSchema#double">340</food:calories>
+    <food:fats rdf:datatype="http://www.w3.org/2001/XMLSchema#double">30</food:fats>
+    <food:proteins rdf:datatype="http://www.w3.org/2001/XMLSchema#double">15</food:proteins>
+    <food:carbohydrates rdf:datatype="http://www.w3.org/2001/XMLSchema#double">0</food:carbohydrates>
+    <food:calcium rdf:datatype="http://www.w3.org/2001/XMLSchema#double">8</food:calcium>
+    <food:sodium rdf:datatype="http://www.w3.org/2001/XMLSchema#double">40</food:sodium>
+    <food:iron rdf:datatype="http://www.w3.org/2001/XMLSchema#double">2.2</food:iron>
+    <food:vitaminA rdf:datatype="http://www.w3.org/2001/XMLSchema#double">0</food:vitaminA>
+    <food:vitaminB rdf:datatype="http://www.w3.org/2001/XMLSchema#double">0.75</food:vitaminB>
+    <food:vitaminC rdf:datatype="http://www.w3.org/2001/XMLSchema#double">0.5</food:vitaminC>
+  </food:Ingredient>
+  <food:Ingredient rdf:about="#5">
+    <food:name rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Pork, low fat</food:name>
+    <food:calories rdf:datatype="http://www.w3.org/2001/XMLSchema#double">142</food:calories>
+    <food:fats rdf:datatype="http://www.w3.org/2001/XMLSchema#double">6.3</food:fats>
+    <food:proteins rdf:datatype="http://www.w3.org/2001/XMLSchema#double">20.4</food:proteins>
+    <food:carbohydrates rdf:datatype="http://www.w3.org/2001/XMLSchema#double">0</food:carbohydrates>
+    <food:calcium rdf:datatype="http://www.w3.org/2001/XMLSchema#double">10</food:calcium>
+    <food:sodium rdf:datatype="http://www.w3.org/2001/XMLSchema#double">65</food:sodium>
+    <food:iron rdf:datatype="http://www.w3.org/2001/XMLSchema#double">0</food:iron>
+    <food:vitaminA rdf:datatype="http://www.w3.org/2001/XMLSchema#double">0</food:vitaminA>
+    <food:vitaminB rdf:datatype="http://www.w3.org/2001/XMLSchema#double">0.75</food:vitaminB>
+    <food:vitaminC rdf:datatype="http://www.w3.org/2001/XMLSchema#double">0.5</food:vitaminC>
+  </food:Ingredient>
+  <food:Ingredient rdf:about="#6">
+    <food:name rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Chicken</food:name>
+    <food:calories rdf:datatype="http://www.w3.org/2001/XMLSchema#double">142</food:calories>
+    <food:fats rdf:datatype="http://www.w3.org/2001/XMLSchema#double">6</food:fats>
+    <food:proteins rdf:datatype="http://www.w3.org/2001/XMLSchema#double">21</food:proteins>
+    <food:carbohydrates rdf:datatype="http://www.w3.org/2001/XMLSchema#double">0</food:carbohydrates>
+    <food:calcium rdf:datatype="http://www.w3.org/2001/XMLSchema#double">10</food:calcium>
+    <food:sodium rdf:datatype="http://www.w3.org/2001/XMLSchema#double">85</food:sodium>
+    <food:iron rdf:datatype="http://www.w3.org/2001/XMLSchema#double">2</food:iron>
+    <food:vitaminA rdf:datatype="http://www.w3.org/2001/XMLSchema#double">0</food:vitaminA>
+    <food:vitaminB rdf:datatype="http://www.w3.org/2001/XMLSchema#double">0.18</food:vitaminB>
+    <food:vitaminC rdf:datatype="http://www.w3.org/2001/XMLSchema#double">0</food:vitaminC>
+  </food:Ingredient>
+  <food:Ingredient rdf:about="#7">
+    <food:name rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Beef, high fat</food:name>
+    <food:calories rdf:datatype="http://www.w3.org/2001/XMLSchema#double">277</food:calories>
+    <food:fats rdf:datatype="http://www.w3.org/2001/XMLSchema#double">24.5</food:fats>
+    <food:proteins rdf:datatype="http://www.w3.org/2001/XMLSchema#double">12</food:proteins>
+    <food:carbohydrates rdf:datatype="http://www.w3.org/2001/XMLSchema#double">0</food:carbohydrates>
+    <food:calcium rdf:datatype="http://www.w3.org/2001/XMLSchema#double">10</food:calcium>
+    <food:sodium rdf:datatype="http://www.w3.org/2001/XMLSchema#double">70</food:sodium>
+    <food:iron rdf:datatype="http://www.w3.org/2001/XMLSchema#double">0</food:iron>
+    <food:vitaminA rdf:datatype="http://www.w3.org/2001/XMLSchema#double">0</food:vitaminA>
+    <food:vitaminB rdf:datatype="http://www.w3.org/2001/XMLSchema#double">0.15</food:vitaminB>
+    <food:vitaminC rdf:datatype="http://www.w3.org/2001/XMLSchema#double">0.5</food:vitaminC>
+  </food:Ingredient>
+  <food:Ingredient rdf:about="#8">
+    <food:name rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Beef, low fat</food:name>
+    <food:calories rdf:datatype="http://www.w3.org/2001/XMLSchema#double">104</food:calories>
+    <food:fats rdf:datatype="http://www.w3.org/2001/XMLSchema#double">2.2</food:fats>
+    <food:proteins rdf:datatype="http://www.w3.org/2001/XMLSchema#double">20.4</food:proteins>
+    <food:carbohydrates rdf:datatype="http://www.w3.org/2001/XMLSchema#double">0</food:carbohydrates>
+    <food:calcium rdf:datatype="http://www.w3.org/2001/XMLSchema#double">10</food:calcium>
+    <food:sodium rdf:datatype="http://www.w3.org/2001/XMLSchema#double">70</food:sodium>
+    <food:iron rdf:datatype="http://www.w3.org/2001/XMLSchema#double">4</food:iron>
+    <food:vitaminA rdf:datatype="http://www.w3.org/2001/XMLSchema#double">0</food:vitaminA>
+    <food:vitaminB rdf:datatype="http://www.w3.org/2001/XMLSchema#double">0.15</food:vitaminB>
+    <food:vitaminC rdf:datatype="http://www.w3.org/2001/XMLSchema#double">0.5</food:vitaminC>
+  </food:Ingredient>
+  <food:Ingredient rdf:about="#9">
+    <food:name rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Carp</food:name>
+    <food:calories rdf:datatype="http://www.w3.org/2001/XMLSchema#double">104</food:calories>
+    <food:fats rdf:datatype="http://www.w3.org/2001/XMLSchema#double">2.8</food:fats>
+    <food:proteins rdf:datatype="http://www.w3.org/2001/XMLSchema#double">18.9</food:proteins>
+    <food:carbohydrates rdf:datatype="http://www.w3.org/2001/XMLSchema#double">0</food:carbohydrates>
+    <food:calcium rdf:datatype="http://www.w3.org/2001/XMLSchema#double">60</food:calcium>
+    <food:sodium rdf:datatype="http://www.w3.org/2001/XMLSchema#double">750</food:sodium>
+    <food:iron rdf:datatype="http://www.w3.org/2001/XMLSchema#double">45</food:iron>
+    <food:vitaminA rdf:datatype="http://www.w3.org/2001/XMLSchema#double">0</food:vitaminA>
+    <food:vitaminB rdf:datatype="http://www.w3.org/2001/XMLSchema#double">0.69</food:vitaminB>
+    <food:vitaminC rdf:datatype="http://www.w3.org/2001/XMLSchema#double">24.7</food:vitaminC>
+  </food:Ingredient>
+  <food:Ingredient rdf:about="#10">
+    <food:name rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Pork liver</food:name>
+    <food:calories rdf:datatype="http://www.w3.org/2001/XMLSchema#double">146.2</food:calories>
+    <food:fats rdf:datatype="http://www.w3.org/2001/XMLSchema#double">3</food:fats>
+    <food:proteins rdf:datatype="http://www.w3.org/2001/XMLSchema#double">19</food:proteins>
+    <food:carbohydrates rdf:datatype="http://www.w3.org/2001/XMLSchema#double">6</food:carbohydrates>
+    <food:calcium rdf:datatype="http://www.w3.org/2001/XMLSchema#double">10</food:calcium>
+    <food:sodium rdf:datatype="http://www.w3.org/2001/XMLSchema#double">0</food:sodium>
+    <food:iron rdf:datatype="http://www.w3.org/2001/XMLSchema#double">12</food:iron>
+    <food:vitaminA rdf:datatype="http://www.w3.org/2001/XMLSchema#double">0</food:vitaminA>
+    <food:vitaminB rdf:datatype="http://www.w3.org/2001/XMLSchema#double">0.3</food:vitaminB>
+    <food:vitaminC rdf:datatype="http://www.w3.org/2001/XMLSchema#double">26</food:vitaminC>
+  </food:Ingredient>
+  <food:Ingredient rdf:about="#11">
+    <food:name rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Herring in tomato sauce</food:name>
+    <food:calories rdf:datatype="http://www.w3.org/2001/XMLSchema#double">170</food:calories>
+    <food:fats rdf:datatype="http://www.w3.org/2001/XMLSchema#double">10.4</food:fats>
+    <food:proteins rdf:datatype="http://www.w3.org/2001/XMLSchema#double">16.2</food:proteins>
+    <food:carbohydrates rdf:datatype="http://www.w3.org/2001/XMLSchema#double">1.8</food:carbohydrates>
+    <food:calcium rdf:datatype="http://www.w3.org/2001/XMLSchema#double">20</food:calcium>
+    <food:sodium rdf:datatype="http://www.w3.org/2001/XMLSchema#double">675</food:sodium>
+    <food:iron rdf:datatype="http://www.w3.org/2001/XMLSchema#double">45</food:iron>
+    <food:vitaminA rdf:datatype="http://www.w3.org/2001/XMLSchema#double">0</food:vitaminA>
+    <food:vitaminB rdf:datatype="http://www.w3.org/2001/XMLSchema#double">0.27</food:vitaminB>
+    <food:vitaminC rdf:datatype="http://www.w3.org/2001/XMLSchema#double">10.2</food:vitaminC>
+  </food:Ingredient>
+  <food:Ingredient rdf:about="#12">
+    <food:name rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Herrings</food:name>
+    <food:calories rdf:datatype="http://www.w3.org/2001/XMLSchema#double">167</food:calories>
+    <food:fats rdf:datatype="http://www.w3.org/2001/XMLSchema#double">10</food:fats>
+    <food:proteins rdf:datatype="http://www.w3.org/2001/XMLSchema#double">18</food:proteins>
+    <food:carbohydrates rdf:datatype="http://www.w3.org/2001/XMLSchema#double">0</food:carbohydrates>
+    <food:calcium rdf:datatype="http://www.w3.org/2001/XMLSchema#double">57</food:calcium>
+    <food:sodium rdf:datatype="http://www.w3.org/2001/XMLSchema#double">118</food:sodium>
+    <food:iron rdf:datatype="http://www.w3.org/2001/XMLSchema#double">1.1</food:iron>
+    <food:vitaminA rdf:datatype="http://www.w3.org/2001/XMLSchema#double">0.04</food:vitaminA>
+    <food:vitaminB rdf:datatype="http://www.w3.org/2001/XMLSchema#double">0.06</food:vitaminB>
+    <food:vitaminC rdf:datatype="http://www.w3.org/2001/XMLSchema#double">0.5</food:vitaminC>
+  </food:Ingredient>
+  <food:Ingredient rdf:about="#13">
+    <food:name rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Herring in oil</food:name>
+    <food:calories rdf:datatype="http://www.w3.org/2001/XMLSchema#double">325</food:calories>
+    <food:fats rdf:datatype="http://www.w3.org/2001/XMLSchema#double">28.9</food:fats>
+    <food:proteins rdf:datatype="http://www.w3.org/2001/XMLSchema#double">13.7</food:proteins>
+    <food:carbohydrates rdf:datatype="http://www.w3.org/2001/XMLSchema#double">0</food:carbohydrates>
+    <food:calcium rdf:datatype="http://www.w3.org/2001/XMLSchema#double">30</food:calcium>
+    <food:sodium rdf:datatype="http://www.w3.org/2001/XMLSchema#double">1000</food:sodium>
+    <food:iron rdf:datatype="http://www.w3.org/2001/XMLSchema#double">1</food:iron>
+    <food:vitaminA rdf:datatype="http://www.w3.org/2001/XMLSchema#double">0.05</food:vitaminA>
+    <food:vitaminB rdf:datatype="http://www.w3.org/2001/XMLSchema#double">0</food:vitaminB>
+    <food:vitaminC rdf:datatype="http://www.w3.org/2001/XMLSchema#double">0</food:vitaminC>
+  </food:Ingredient>
+  <food:Ingredient rdf:about="#14">
+    <food:name rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Carp roe</food:name>
+    <food:calories rdf:datatype="http://www.w3.org/2001/XMLSchema#double">192</food:calories>
+    <food:fats rdf:datatype="http://www.w3.org/2001/XMLSchema#double">12.1</food:fats>
+    <food:proteins rdf:datatype="http://www.w3.org/2001/XMLSchema#double">19.5</food:proteins>
+    <food:carbohydrates rdf:datatype="http://www.w3.org/2001/XMLSchema#double">0</food:carbohydrates>
+    <food:calcium rdf:datatype="http://www.w3.org/2001/XMLSchema#double">60</food:calcium>
+    <food:sodium rdf:datatype="http://www.w3.org/2001/XMLSchema#double">350</food:sodium>
+    <food:iron rdf:datatype="http://www.w3.org/2001/XMLSchema#double">60</food:iron>
+    <food:vitaminA rdf:datatype="http://www.w3.org/2001/XMLSchema#double">0</food:vitaminA>
+    <food:vitaminB rdf:datatype="http://www.w3.org/2001/XMLSchema#double">0.48</food:vitaminB>
+    <food:vitaminC rdf:datatype="http://www.w3.org/2001/XMLSchema#double">14.4</food:vitaminC>
+  </food:Ingredient>
+  <food:Ingredient rdf:about="#15">
+    <food:name rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Mackerel in tomato sauce</food:name>
+    <food:calories rdf:datatype="http://www.w3.org/2001/XMLSchema#double">164</food:calories>
+    <food:fats rdf:datatype="http://www.w3.org/2001/XMLSchema#double">10.6</food:fats>
+    <food:proteins rdf:datatype="http://www.w3.org/2001/XMLSchema#double">14.5</food:proteins>
+    <food:carbohydrates rdf:datatype="http://www.w3.org/2001/XMLSchema#double">1.6</food:carbohydrates>
+    <food:calcium rdf:datatype="http://www.w3.org/2001/XMLSchema#double">10</food:calcium>
+    <food:sodium rdf:datatype="http://www.w3.org/2001/XMLSchema#double">575</food:sodium>
+    <food:iron rdf:datatype="http://www.w3.org/2001/XMLSchema#double">60</food:iron>
+    <food:vitaminA rdf:datatype="http://www.w3.org/2001/XMLSchema#double">0</food:vitaminA>
+    <food:vitaminB rdf:datatype="http://www.w3.org/2001/XMLSchema#double">0.42</food:vitaminB>
+    <food:vitaminC rdf:datatype="http://www.w3.org/2001/XMLSchema#double">1</food:vitaminC>
+  </food:Ingredient>
+  <food:Ingredient rdf:about="#16">
+    <food:name rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Mackerel in oil</food:name>
+    <food:calories rdf:datatype="http://www.w3.org/2001/XMLSchema#double">259</food:calories>
+    <food:fats rdf:datatype="http://www.w3.org/2001/XMLSchema#double">20.7</food:fats>
+    <food:proteins rdf:datatype="http://www.w3.org/2001/XMLSchema#double">16.2</food:proteins>
+    <food:carbohydrates rdf:datatype="http://www.w3.org/2001/XMLSchema#double">0</food:carbohydrates>
+    <food:calcium rdf:datatype="http://www.w3.org/2001/XMLSchema#double">130</food:calcium>
+    <food:sodium rdf:datatype="http://www.w3.org/2001/XMLSchema#double">550</food:sodium>
+    <food:iron rdf:datatype="http://www.w3.org/2001/XMLSchema#double">60</food:iron>
+    <food:vitaminA rdf:datatype="http://www.w3.org/2001/XMLSchema#double">0</food:vitaminA>
+    <food:vitaminB rdf:datatype="http://www.w3.org/2001/XMLSchema#double">0.38</food:vitaminB>
+    <food:vitaminC rdf:datatype="http://www.w3.org/2001/XMLSchema#double">9.5</food:vitaminC>
+  </food:Ingredient>
+  <food:Ingredient rdf:about="#17">
+    <food:name rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Baloney</food:name>
+    <food:calories rdf:datatype="http://www.w3.org/2001/XMLSchema#double">290</food:calories>
+    <food:fats rdf:datatype="http://www.w3.org/2001/XMLSchema#double">26.8</food:fats>
+    <food:proteins rdf:datatype="http://www.w3.org/2001/XMLSchema#double">10.2</food:proteins>
+    <food:carbohydrates rdf:datatype="http://www.w3.org/2001/XMLSchema#double">0</food:carbohydrates>
+    <food:calcium rdf:datatype="http://www.w3.org/2001/XMLSchema#double">0</food:calcium>
+    <food:sodium rdf:datatype="http://www.w3.org/2001/XMLSchema#double">1000</food:sodium>
+    <food:iron rdf:datatype="http://www.w3.org/2001/XMLSchema#double">0</food:iron>
+    <food:vitaminA rdf:datatype="http://www.w3.org/2001/XMLSchema#double">0</food:vitaminA>
+    <food:vitaminB rdf:datatype="http://www.w3.org/2001/XMLSchema#double">0.2</food:vitaminB>
+    <food:vitaminC rdf:datatype="http://www.w3.org/2001/XMLSchema#double">0</food:vitaminC>
+  </food:Ingredient>
+  <food:Ingredient rdf:about="#18">
+    <food:name rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Liver pate</food:name>
+    <food:calories rdf:datatype="http://www.w3.org/2001/XMLSchema#double">261</food:calories>
+    <food:fats rdf:datatype="http://www.w3.org/2001/XMLSchema#double">19.5</food:fats>
+    <food:proteins rdf:datatype="http://www.w3.org/2001/XMLSchema#double">19.6</food:proteins>
+    <food:carbohydrates rdf:datatype="http://www.w3.org/2001/XMLSchema#double">0</food:carbohydrates>
+    <food:calcium rdf:datatype="http://www.w3.org/2001/XMLSchema#double">30</food:calcium>
+    <food:sodium rdf:datatype="http://www.w3.org/2001/XMLSchema#double">545</food:sodium>
+    <food:iron rdf:datatype="http://www.w3.org/2001/XMLSchema#double">2.5</food:iron>
+    <food:vitaminA rdf:datatype="http://www.w3.org/2001/XMLSchema#double">0</food:vitaminA>
+    <food:vitaminB rdf:datatype="http://www.w3.org/2001/XMLSchema#double">0.33</food:vitaminB>
+    <food:vitaminC rdf:datatype="http://www.w3.org/2001/XMLSchema#double">18.8</food:vitaminC>
+  </food:Ingredient>
+  <food:Ingredient rdf:about="#19">
+    <food:name rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Summer sausage</food:name>
+    <food:calories rdf:datatype="http://www.w3.org/2001/XMLSchema#double">519</food:calories>
+    <food:fats rdf:datatype="http://www.w3.org/2001/XMLSchema#double">47</food:fats>
+    <food:proteins rdf:datatype="http://www.w3.org/2001/XMLSchema#double">20</food:proteins>
+    <food:carbohydrates rdf:datatype="http://www.w3.org/2001/XMLSchema#double">0</food:carbohydrates>
+    <food:calcium rdf:datatype="http://www.w3.org/2001/XMLSchema#double">0</food:calcium>
+    <food:sodium rdf:datatype="http://www.w3.org/2001/XMLSchema#double">1200</food:sodium>
+    <food:iron rdf:datatype="http://www.w3.org/2001/XMLSchema#double">0</food:iron>
+    <food:vitaminA rdf:datatype="http://www.w3.org/2001/XMLSchema#double">0</food:vitaminA>
+    <food:vitaminB rdf:datatype="http://www.w3.org/2001/XMLSchema#double">0</food:vitaminB>
+    <food:vitaminC rdf:datatype="http://www.w3.org/2001/XMLSchema#double">0</food:vitaminC>
+  </food:Ingredient>
+  <food:Ingredient rdf:about="#20">
+    <food:name rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Horse mackerel</food:name>
+    <food:calories rdf:datatype="http://www.w3.org/2001/XMLSchema#double">114</food:calories>
+    <food:fats rdf:datatype="http://www.w3.org/2001/XMLSchema#double">3</food:fats>
+    <food:proteins rdf:datatype="http://www.w3.org/2001/XMLSchema#double">21</food:proteins>
+    <food:carbohydrates rdf:datatype="http://www.w3.org/2001/XMLSchema#double">0</food:carbohydrates>
+    <food:calcium rdf:datatype="http://www.w3.org/2001/XMLSchema#double">200</food:calcium>
+    <food:sodium rdf:datatype="http://www.w3.org/2001/XMLSchema#double">475</food:sodium>
+    <food:iron rdf:datatype="http://www.w3.org/2001/XMLSchema#double">15</food:iron>
+    <food:vitaminA rdf:datatype="http://www.w3.org/2001/XMLSchema#double">0</food:vitaminA>
+    <food:vitaminB rdf:datatype="http://www.w3.org/2001/XMLSchema#double">0.98</food:vitaminB>
+    <food:vitaminC rdf:datatype="http://www.w3.org/2001/XMLSchema#double">18.1</food:vitaminC>
+  </food:Ingredient>
+  <food:Ingredient rdf:about="#21">
+    <food:name rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Horse mackerel in tomato sauce</food:name>
+    <food:calories rdf:datatype="http://www.w3.org/2001/XMLSchema#double">125</food:calories>
+    <food:fats rdf:datatype="http://www.w3.org/2001/XMLSchema#double">6.6</food:fats>
+    <food:proteins rdf:datatype="http://www.w3.org/2001/XMLSchema#double">15.5</food:proteins>
+    <food:carbohydrates rdf:datatype="http://www.w3.org/2001/XMLSchema#double">0</food:carbohydrates>
+    <food:calcium rdf:datatype="http://www.w3.org/2001/XMLSchema#double">30</food:calcium>
+    <food:sodium rdf:datatype="http://www.w3.org/2001/XMLSchema#double">25</food:sodium>
+    <food:iron rdf:datatype="http://www.w3.org/2001/XMLSchema#double">0</food:iron>
+    <food:vitaminA rdf:datatype="http://www.w3.org/2001/XMLSchema#double">0</food:vitaminA>
+    <food:vitaminB rdf:datatype="http://www.w3.org/2001/XMLSchema#double">0.41</food:vitaminB>
+    <food:vitaminC rdf:datatype="http://www.w3.org/2001/XMLSchema#double">24.8</food:vitaminC>
+  </food:Ingredient>
+  <food:Ingredient rdf:about="#22">
+    <food:name rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Cherries</food:name>
+    <food:calories rdf:datatype="http://www.w3.org/2001/XMLSchema#double">21</food:calories>
+    <food:fats rdf:datatype="http://www.w3.org/2001/XMLSchema#double">0.3</food:fats>
+    <food:proteins rdf:datatype="http://www.w3.org/2001/XMLSchema#double">1</food:proteins>
+    <food:carbohydrates rdf:datatype="http://www.w3.org/2001/XMLSchema#double">18</food:carbohydrates>
+    <food:calcium rdf:datatype="http://www.w3.org/2001/XMLSchema#double">0</food:calcium>
+    <food:sodium rdf:datatype="http://www.w3.org/2001/XMLSchema#double">0</food:sodium>
+    <food:iron rdf:datatype="http://www.w3.org/2001/XMLSchema#double">0</food:iron>
+    <food:vitaminA rdf:datatype="http://www.w3.org/2001/XMLSchema#double">0</food:vitaminA>
+    <food:vitaminB rdf:datatype="http://www.w3.org/2001/XMLSchema#double">0.22</food:vitaminB>
+    <food:vitaminC rdf:datatype="http://www.w3.org/2001/XMLSchema#double">22</food:vitaminC>
+  </food:Ingredient>
+  <food:Ingredient rdf:about="#23">
+    <food:name rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Grapefruit</food:name>
+    <food:calories rdf:datatype="http://www.w3.org/2001/XMLSchema#double">30</food:calories>
+    <food:fats rdf:datatype="http://www.w3.org/2001/XMLSchema#double">0.2</food:fats>
+    <food:proteins rdf:datatype="http://www.w3.org/2001/XMLSchema#double">0.5</food:proteins>
+    <food:carbohydrates rdf:datatype="http://www.w3.org/2001/XMLSchema#double">6.5</food:carbohydrates>
+    <food:calcium rdf:datatype="http://www.w3.org/2001/XMLSchema#double">19</food:calcium>
+    <food:sodium rdf:datatype="http://www.w3.org/2001/XMLSchema#double">2</food:sodium>
+    <food:iron rdf:datatype="http://www.w3.org/2001/XMLSchema#double">0.3</food:iron>
+    <food:vitaminA rdf:datatype="http://www.w3.org/2001/XMLSchema#double">0</food:vitaminA>
+    <food:vitaminB rdf:datatype="http://www.w3.org/2001/XMLSchema#double">0.06</food:vitaminB>
+    <food:vitaminC rdf:datatype="http://www.w3.org/2001/XMLSchema#double">40</food:vitaminC>
+  </food:Ingredient>
+  <food:Ingredient rdf:about="#24">
+    <food:name rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Lemons</food:name>
+    <food:calories rdf:datatype="http://www.w3.org/2001/XMLSchema#double">36</food:calories>
+    <food:fats rdf:datatype="http://www.w3.org/2001/XMLSchema#double">0.7</food:fats>
+    <food:proteins rdf:datatype="http://www.w3.org/2001/XMLSchema#double">0.9</food:proteins>
+    <food:carbohydrates rdf:datatype="http://www.w3.org/2001/XMLSchema#double">6.2</food:carbohydrates>
+    <food:calcium rdf:datatype="http://www.w3.org/2001/XMLSchema#double">12</food:calcium>
+    <food:sodium rdf:datatype="http://www.w3.org/2001/XMLSchema#double">0</food:sodium>
+    <food:iron rdf:datatype="http://www.w3.org/2001/XMLSchema#double">45</food:iron>
+    <food:vitaminA rdf:datatype="http://www.w3.org/2001/XMLSchema#double">0</food:vitaminA>
+    <food:vitaminB rdf:datatype="http://www.w3.org/2001/XMLSchema#double">0.17</food:vitaminB>
+    <food:vitaminC rdf:datatype="http://www.w3.org/2001/XMLSchema#double">23.8</food:vitaminC>
+  </food:Ingredient>
+  <food:Ingredient rdf:about="#25">
+    <food:name rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Tangerines</food:name>
+    <food:calories rdf:datatype="http://www.w3.org/2001/XMLSchema#double">40</food:calories>
+    <food:fats rdf:datatype="http://www.w3.org/2001/XMLSchema#double">0.1</food:fats>
+    <food:proteins rdf:datatype="http://www.w3.org/2001/XMLSchema#double">0.8</food:proteins>
+    <food:carbohydrates rdf:datatype="http://www.w3.org/2001/XMLSchema#double">8.7</food:carbohydrates>
+    <food:calcium rdf:datatype="http://www.w3.org/2001/XMLSchema#double">23</food:calcium>
+    <food:sodium rdf:datatype="http://www.w3.org/2001/XMLSchema#double">0</food:sodium>
+    <food:iron rdf:datatype="http://www.w3.org/2001/XMLSchema#double">0.3</food:iron>
+    <food:vitaminA rdf:datatype="http://www.w3.org/2001/XMLSchema#double">0</food:vitaminA>
+    <food:vitaminB rdf:datatype="http://www.w3.org/2001/XMLSchema#double">0.9</food:vitaminB>
+    <food:vitaminC rdf:datatype="http://www.w3.org/2001/XMLSchema#double">15.5</food:vitaminC>
+  </food:Ingredient>
+  <food:Ingredient rdf:about="#26">
+    <food:name rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Apples</food:name>
+    <food:calories rdf:datatype="http://www.w3.org/2001/XMLSchema#double">67</food:calories>
+    <food:fats rdf:datatype="http://www.w3.org/2001/XMLSchema#double">0.5</food:fats>
+    <food:proteins rdf:datatype="http://www.w3.org/2001/XMLSchema#double">0.3</food:proteins>
+    <food:carbohydrates rdf:datatype="http://www.w3.org/2001/XMLSchema#double">15</food:carbohydrates>
+    <food:calcium rdf:datatype="http://www.w3.org/2001/XMLSchema#double">6</food:calcium>
+    <food:sodium rdf:datatype="http://www.w3.org/2001/XMLSchema#double">1</food:sodium>
+    <food:iron rdf:datatype="http://www.w3.org/2001/XMLSchema#double">0.35</food:iron>
+    <food:vitaminA rdf:datatype="http://www.w3.org/2001/XMLSchema#double">0.03</food:vitaminA>
+    <food:vitaminB rdf:datatype="http://www.w3.org/2001/XMLSchema#double">0.04</food:vitaminB>
+    <food:vitaminC rdf:datatype="http://www.w3.org/2001/XMLSchema#double">9</food:vitaminC>
+  </food:Ingredient>
+  <food:Ingredient rdf:about="#27">
+    <food:name rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Pears</food:name>
+    <food:calories rdf:datatype="http://www.w3.org/2001/XMLSchema#double">79</food:calories>
+    <food:fats rdf:datatype="http://www.w3.org/2001/XMLSchema#double">1</food:fats>
+    <food:proteins rdf:datatype="http://www.w3.org/2001/XMLSchema#double">1</food:proteins>
+    <food:carbohydrates rdf:datatype="http://www.w3.org/2001/XMLSchema#double">16</food:carbohydrates>
+    <food:calcium rdf:datatype="http://www.w3.org/2001/XMLSchema#double">13</food:calcium>
+    <food:sodium rdf:datatype="http://www.w3.org/2001/XMLSchema#double">3</food:sodium>
+    <food:iron rdf:datatype="http://www.w3.org/2001/XMLSchema#double">0.3</food:iron>
+    <food:vitaminA rdf:datatype="http://www.w3.org/2001/XMLSchema#double">0.01</food:vitaminA>
+    <food:vitaminB rdf:datatype="http://www.w3.org/2001/XMLSchema#double">0.02</food:vitaminB>
+    <food:vitaminC rdf:datatype="http://www.w3.org/2001/XMLSchema#double">6.1</food:vitaminC>
+  </food:Ingredient>
+  <food:Ingredient rdf:about="#28">
+    <food:name rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Oranges</food:name>
+    <food:calories rdf:datatype="http://www.w3.org/2001/XMLSchema#double">47</food:calories>
+    <food:fats rdf:datatype="http://www.w3.org/2001/XMLSchema#double">0.2</food:fats>
+    <food:proteins rdf:datatype="http://www.w3.org/2001/XMLSchema#double">0.8</food:proteins>
+    <food:carbohydrates rdf:datatype="http://www.w3.org/2001/XMLSchema#double">10.1</food:carbohydrates>
+    <food:calcium rdf:datatype="http://www.w3.org/2001/XMLSchema#double">19</food:calcium>
+    <food:sodium rdf:datatype="http://www.w3.org/2001/XMLSchema#double">0</food:sodium>
+    <food:iron rdf:datatype="http://www.w3.org/2001/XMLSchema#double">0.3</food:iron>
+    <food:vitaminA rdf:datatype="http://www.w3.org/2001/XMLSchema#double">0</food:vitaminA>
+    <food:vitaminB rdf:datatype="http://www.w3.org/2001/XMLSchema#double">1.51</food:vitaminB>
+    <food:vitaminC rdf:datatype="http://www.w3.org/2001/XMLSchema#double">15</food:vitaminC>
+  </food:Ingredient>
+  <food:Ingredient rdf:about="#29">
+    <food:name rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Plums</food:name>
+    <food:calories rdf:datatype="http://www.w3.org/2001/XMLSchema#double">89</food:calories>
+    <food:fats rdf:datatype="http://www.w3.org/2001/XMLSchema#double">0.1</food:fats>
+    <food:proteins rdf:datatype="http://www.w3.org/2001/XMLSchema#double">0.6</food:proteins>
+    <food:carbohydrates rdf:datatype="http://www.w3.org/2001/XMLSchema#double">21</food:carbohydrates>
+    <food:calcium rdf:datatype="http://www.w3.org/2001/XMLSchema#double">16</food:calcium>
+    <food:sodium rdf:datatype="http://www.w3.org/2001/XMLSchema#double">25</food:sodium>
+    <food:iron rdf:datatype="http://www.w3.org/2001/XMLSchema#double">0.5</food:iron>
+    <food:vitaminA rdf:datatype="http://www.w3.org/2001/XMLSchema#double">0.1</food:vitaminA>
+    <food:vitaminB rdf:datatype="http://www.w3.org/2001/XMLSchema#double">0.8</food:vitaminB>
+    <food:vitaminC rdf:datatype="http://www.w3.org/2001/XMLSchema#double">0</food:vitaminC>
+  </food:Ingredient>
+  <food:Ingredient rdf:about="#30">
+    <food:name rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Grapes</food:name>
+    <food:calories rdf:datatype="http://www.w3.org/2001/XMLSchema#double">93</food:calories>
+    <food:fats rdf:datatype="http://www.w3.org/2001/XMLSchema#double">1.7</food:fats>
+    <food:proteins rdf:datatype="http://www.w3.org/2001/XMLSchema#double">2.1</food:proteins>
+    <food:carbohydrates rdf:datatype="http://www.w3.org/2001/XMLSchema#double">18</food:carbohydrates>
+    <food:calcium rdf:datatype="http://www.w3.org/2001/XMLSchema#double">19</food:calcium>
+    <food:sodium rdf:datatype="http://www.w3.org/2001/XMLSchema#double">2</food:sodium>
+    <food:iron rdf:datatype="http://www.w3.org/2001/XMLSchema#double">0.5</food:iron>
+    <food:vitaminA rdf:datatype="http://www.w3.org/2001/XMLSchema#double">0.03</food:vitaminA>
+    <food:vitaminB rdf:datatype="http://www.w3.org/2001/XMLSchema#double">0.05</food:vitaminB>
+    <food:vitaminC rdf:datatype="http://www.w3.org/2001/XMLSchema#double">5</food:vitaminC>
+  </food:Ingredient>
+  <food:Ingredient rdf:about="#31">
+    <food:name rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Raisins</food:name>
+    <food:calories rdf:datatype="http://www.w3.org/2001/XMLSchema#double">306</food:calories>
+    <food:fats rdf:datatype="http://www.w3.org/2001/XMLSchema#double">0.5</food:fats>
+    <food:proteins rdf:datatype="http://www.w3.org/2001/XMLSchema#double">2.5</food:proteins>
+    <food:carbohydrates rdf:datatype="http://www.w3.org/2001/XMLSchema#double">71</food:carbohydrates>
+    <food:calcium rdf:datatype="http://www.w3.org/2001/XMLSchema#double">60</food:calcium>
+    <food:sodium rdf:datatype="http://www.w3.org/2001/XMLSchema#double">27</food:sodium>
+    <food:iron rdf:datatype="http://www.w3.org/2001/XMLSchema#double">3.3</food:iron>
+    <food:vitaminA rdf:datatype="http://www.w3.org/2001/XMLSchema#double">0.02</food:vitaminA>
+    <food:vitaminB rdf:datatype="http://www.w3.org/2001/XMLSchema#double">0.15</food:vitaminB>
+    <food:vitaminC rdf:datatype="http://www.w3.org/2001/XMLSchema#double">0</food:vitaminC>
+  </food:Ingredient>
+  <food:Ingredient rdf:about="#32">
+    <food:name rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Margarine</food:name>
+    <food:calories rdf:datatype="http://www.w3.org/2001/XMLSchema#double">764</food:calories>
+    <food:fats rdf:datatype="http://www.w3.org/2001/XMLSchema#double">82.5</food:fats>
+    <food:proteins rdf:datatype="http://www.w3.org/2001/XMLSchema#double">0</food:proteins>
+    <food:carbohydrates rdf:datatype="http://www.w3.org/2001/XMLSchema#double">0</food:carbohydrates>
+    <food:calcium rdf:datatype="http://www.w3.org/2001/XMLSchema#double">0</food:calcium>
+    <food:sodium rdf:datatype="http://www.w3.org/2001/XMLSchema#double">0.1</food:sodium>
+    <food:iron rdf:datatype="http://www.w3.org/2001/XMLSchema#double">0.08</food:iron>
+    <food:vitaminA rdf:datatype="http://www.w3.org/2001/XMLSchema#double">0</food:vitaminA>
+    <food:vitaminB rdf:datatype="http://www.w3.org/2001/XMLSchema#double">0</food:vitaminB>
+    <food:vitaminC rdf:datatype="http://www.w3.org/2001/XMLSchema#double">0</food:vitaminC>
+  </food:Ingredient>
+  <food:Ingredient rdf:about="#33">
+    <food:name rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Cream</food:name>
+    <food:calories rdf:datatype="http://www.w3.org/2001/XMLSchema#double">297</food:calories>
+    <food:fats rdf:datatype="http://www.w3.org/2001/XMLSchema#double">29.5</food:fats>
+    <food:proteins rdf:datatype="http://www.w3.org/2001/XMLSchema#double">2.5</food:proteins>
+    <food:carbohydrates rdf:datatype="http://www.w3.org/2001/XMLSchema#double">3</food:carbohydrates>
+    <food:calcium rdf:datatype="http://www.w3.org/2001/XMLSchema#double">110</food:calcium>
+    <food:sodium rdf:datatype="http://www.w3.org/2001/XMLSchema#double">80</food:sodium>
+    <food:iron rdf:datatype="http://www.w3.org/2001/XMLSchema#double">0.17</food:iron>
+    <food:vitaminA rdf:datatype="http://www.w3.org/2001/XMLSchema#double">0</food:vitaminA>
+    <food:vitaminB rdf:datatype="http://www.w3.org/2001/XMLSchema#double">0.03</food:vitaminB>
+    <food:vitaminC rdf:datatype="http://www.w3.org/2001/XMLSchema#double">1</food:vitaminC>
+  </food:Ingredient>
+  <food:Ingredient rdf:about="#34">
+    <food:name rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Sunflower oil</food:name>
+    <food:calories rdf:datatype="http://www.w3.org/2001/XMLSchema#double">930</food:calories>
+    <food:fats rdf:datatype="http://www.w3.org/2001/XMLSchema#double">100</food:fats>
+    <food:proteins rdf:datatype="http://www.w3.org/2001/XMLSchema#double">0</food:proteins>
+    <food:carbohydrates rdf:datatype="http://www.w3.org/2001/XMLSchema#double">0</food:carbohydrates>
+    <food:calcium rdf:datatype="http://www.w3.org/2001/XMLSchema#double">0</food:calcium>
+    <food:sodium rdf:datatype="http://www.w3.org/2001/XMLSchema#double">0</food:sodium>
+    <food:iron rdf:datatype="http://www.w3.org/2001/XMLSchema#double">0</food:iron>
+    <food:vitaminA rdf:datatype="http://www.w3.org/2001/XMLSchema#double">0</food:vitaminA>
+    <food:vitaminB rdf:datatype="http://www.w3.org/2001/XMLSchema#double">0</food:vitaminB>
+    <food:vitaminC rdf:datatype="http://www.w3.org/2001/XMLSchema#double">0</food:vitaminC>
+  </food:Ingredient>
+  <food:Ingredient rdf:about="#35">
+    <food:name rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Olive oil</food:name>
+    <food:calories rdf:datatype="http://www.w3.org/2001/XMLSchema#double">900</food:calories>
+    <food:fats rdf:datatype="http://www.w3.org/2001/XMLSchema#double">100</food:fats>
+    <food:proteins rdf:datatype="http://www.w3.org/2001/XMLSchema#double">0</food:proteins>
+    <food:carbohydrates rdf:datatype="http://www.w3.org/2001/XMLSchema#double">0</food:carbohydrates>
+    <food:calcium rdf:datatype="http://www.w3.org/2001/XMLSchema#double">0.5</food:calcium>
+    <food:sodium rdf:datatype="http://www.w3.org/2001/XMLSchema#double">0.1</food:sodium>
+    <food:iron rdf:datatype="http://www.w3.org/2001/XMLSchema#double">0.08</food:iron>
+    <food:vitaminA rdf:datatype="http://www.w3.org/2001/XMLSchema#double">0</food:vitaminA>
+    <food:vitaminB rdf:datatype="http://www.w3.org/2001/XMLSchema#double">0</food:vitaminB>
+    <food:vitaminC rdf:datatype="http://www.w3.org/2001/XMLSchema#double">0</food:vitaminC>
+  </food:Ingredient>
+  <food:Ingredient rdf:about="#36">
+    <food:name rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Butter</food:name>
+    <food:calories rdf:datatype="http://www.w3.org/2001/XMLSchema#double">721</food:calories>
+    <food:fats rdf:datatype="http://www.w3.org/2001/XMLSchema#double">74</food:fats>
+    <food:proteins rdf:datatype="http://www.w3.org/2001/XMLSchema#double">6</food:proteins>
+    <food:carbohydrates rdf:datatype="http://www.w3.org/2001/XMLSchema#double">2</food:carbohydrates>
+    <food:calcium rdf:datatype="http://www.w3.org/2001/XMLSchema#double">16</food:calcium>
+    <food:sodium rdf:datatype="http://www.w3.org/2001/XMLSchema#double">10</food:sodium>
+    <food:iron rdf:datatype="http://www.w3.org/2001/XMLSchema#double">0.19</food:iron>
+    <food:vitaminA rdf:datatype="http://www.w3.org/2001/XMLSchema#double">1</food:vitaminA>
+    <food:vitaminB rdf:datatype="http://www.w3.org/2001/XMLSchema#double">0</food:vitaminB>
+    <food:vitaminC rdf:datatype="http://www.w3.org/2001/XMLSchema#double">0</food:vitaminC>
+  </food:Ingredient>
+  <food:Ingredient rdf:about="#37">
+    <food:name rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Lard</food:name>
+    <food:calories rdf:datatype="http://www.w3.org/2001/XMLSchema#double">927</food:calories>
+    <food:fats rdf:datatype="http://www.w3.org/2001/XMLSchema#double">99.5</food:fats>
+    <food:proteins rdf:datatype="http://www.w3.org/2001/XMLSchema#double">0.2</food:proteins>
+    <food:carbohydrates rdf:datatype="http://www.w3.org/2001/XMLSchema#double">0</food:carbohydrates>
+    <food:calcium rdf:datatype="http://www.w3.org/2001/XMLSchema#double">30</food:calcium>
+    <food:sodium rdf:datatype="http://www.w3.org/2001/XMLSchema#double">250</food:sodium>
+    <food:iron rdf:datatype="http://www.w3.org/2001/XMLSchema#double">30</food:iron>
+    <food:vitaminA rdf:datatype="http://www.w3.org/2001/XMLSchema#double">0</food:vitaminA>
+    <food:vitaminB rdf:datatype="http://www.w3.org/2001/XMLSchema#double">0.14</food:vitaminB>
+    <food:vitaminC rdf:datatype="http://www.w3.org/2001/XMLSchema#double">1.2</food:vitaminC>
+  </food:Ingredient>
+  <food:Ingredient rdf:about="#39">
+    <food:name rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Cottage cheese</food:name>
+    <food:calories rdf:datatype="http://www.w3.org/2001/XMLSchema#double">155</food:calories>
+    <food:fats rdf:datatype="http://www.w3.org/2001/XMLSchema#double">9</food:fats>
+    <food:proteins rdf:datatype="http://www.w3.org/2001/XMLSchema#double">13</food:proteins>
+    <food:carbohydrates rdf:datatype="http://www.w3.org/2001/XMLSchema#double">4.5</food:carbohydrates>
+    <food:calcium rdf:datatype="http://www.w3.org/2001/XMLSchema#double">162</food:calcium>
+    <food:sodium rdf:datatype="http://www.w3.org/2001/XMLSchema#double">30</food:sodium>
+    <food:iron rdf:datatype="http://www.w3.org/2001/XMLSchema#double">0</food:iron>
+    <food:vitaminA rdf:datatype="http://www.w3.org/2001/XMLSchema#double">0</food:vitaminA>
+    <food:vitaminB rdf:datatype="http://www.w3.org/2001/XMLSchema#double">0.03</food:vitaminB>
+    <food:vitaminC rdf:datatype="http://www.w3.org/2001/XMLSchema#double">1.5</food:vitaminC>
+  </food:Ingredient>
+  <food:Ingredient rdf:about="#40">
+    <food:name rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Processed cheese</food:name>
+    <food:calories rdf:datatype="http://www.w3.org/2001/XMLSchema#double">366</food:calories>
+    <food:fats rdf:datatype="http://www.w3.org/2001/XMLSchema#double">36</food:fats>
+    <food:proteins rdf:datatype="http://www.w3.org/2001/XMLSchema#double">7</food:proteins>
+    <food:carbohydrates rdf:datatype="http://www.w3.org/2001/XMLSchema#double">0.9</food:carbohydrates>
+    <food:calcium rdf:datatype="http://www.w3.org/2001/XMLSchema#double">10</food:calcium>
+    <food:sodium rdf:datatype="http://www.w3.org/2001/XMLSchema#double">0</food:sodium>
+    <food:iron rdf:datatype="http://www.w3.org/2001/XMLSchema#double">15</food:iron>
+    <food:vitaminA rdf:datatype="http://www.w3.org/2001/XMLSchema#double">0</food:vitaminA>
+    <food:vitaminB rdf:datatype="http://www.w3.org/2001/XMLSchema#double">0.85</food:vitaminB>
+    <food:vitaminC rdf:datatype="http://www.w3.org/2001/XMLSchema#double">9</food:vitaminC>
+  </food:Ingredient>
+  <food:Ingredient rdf:about="#41">
+    <food:name rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Pressed cheese</food:name>
+    <food:calories rdf:datatype="http://www.w3.org/2001/XMLSchema#double">233</food:calories>
+    <food:fats rdf:datatype="http://www.w3.org/2001/XMLSchema#double">19</food:fats>
+    <food:proteins rdf:datatype="http://www.w3.org/2001/XMLSchema#double">25</food:proteins>
+    <food:carbohydrates rdf:datatype="http://www.w3.org/2001/XMLSchema#double">1</food:carbohydrates>
+    <food:calcium rdf:datatype="http://www.w3.org/2001/XMLSchema#double">708</food:calcium>
+    <food:sodium rdf:datatype="http://www.w3.org/2001/XMLSchema#double">1400</food:sodium>
+    <food:iron rdf:datatype="http://www.w3.org/2001/XMLSchema#double">1</food:iron>
+    <food:vitaminA rdf:datatype="http://www.w3.org/2001/XMLSchema#double">0</food:vitaminA>
+    <food:vitaminB rdf:datatype="http://www.w3.org/2001/XMLSchema#double">0.06</food:vitaminB>
+    <food:vitaminC rdf:datatype="http://www.w3.org/2001/XMLSchema#double">0</food:vitaminC>
+  </food:Ingredient>
+  <food:Ingredient rdf:about="#42">
+    <food:name rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Yogurt</food:name>
+    <food:calories rdf:datatype="http://www.w3.org/2001/XMLSchema#double">50</food:calories>
+    <food:fats rdf:datatype="http://www.w3.org/2001/XMLSchema#double">2.6</food:fats>
+    <food:proteins rdf:datatype="http://www.w3.org/2001/XMLSchema#double">3.2</food:proteins>
+    <food:carbohydrates rdf:datatype="http://www.w3.org/2001/XMLSchema#double">4</food:carbohydrates>
+    <food:calcium rdf:datatype="http://www.w3.org/2001/XMLSchema#double">125</food:calcium>
+    <food:sodium rdf:datatype="http://www.w3.org/2001/XMLSchema#double">50</food:sodium>
+    <food:iron rdf:datatype="http://www.w3.org/2001/XMLSchema#double">0.05</food:iron>
+    <food:vitaminA rdf:datatype="http://www.w3.org/2001/XMLSchema#double">0</food:vitaminA>
+    <food:vitaminB rdf:datatype="http://www.w3.org/2001/XMLSchema#double">0.03</food:vitaminB>
+    <food:vitaminC rdf:datatype="http://www.w3.org/2001/XMLSchema#double">0</food:vitaminC>
+  </food:Ingredient>
+  <food:Ingredient rdf:about="#43">
+    <food:name rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Cow milk</food:name>
+    <food:calories rdf:datatype="http://www.w3.org/2001/XMLSchema#double">65</food:calories>
+    <food:fats rdf:datatype="http://www.w3.org/2001/XMLSchema#double">3.5</food:fats>
+    <food:proteins rdf:datatype="http://www.w3.org/2001/XMLSchema#double">3.5</food:proteins>
+    <food:carbohydrates rdf:datatype="http://www.w3.org/2001/XMLSchema#double">4.5</food:carbohydrates>
+    <food:calcium rdf:datatype="http://www.w3.org/2001/XMLSchema#double">125</food:calcium>
+    <food:sodium rdf:datatype="http://www.w3.org/2001/XMLSchema#double">50</food:sodium>
+    <food:iron rdf:datatype="http://www.w3.org/2001/XMLSchema#double">0.05</food:iron>
+    <food:vitaminA rdf:datatype="http://www.w3.org/2001/XMLSchema#double">0.02</food:vitaminA>
+    <food:vitaminB rdf:datatype="http://www.w3.org/2001/XMLSchema#double">0.04</food:vitaminB>
+    <food:vitaminC rdf:datatype="http://www.w3.org/2001/XMLSchema#double">1.5</food:vitaminC>
+  </food:Ingredient>
+  <food:Ingredient rdf:about="#44">
+    <food:name rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Milk powder</food:name>
+    <food:calories rdf:datatype="http://www.w3.org/2001/XMLSchema#double">498</food:calories>
+    <food:fats rdf:datatype="http://www.w3.org/2001/XMLSchema#double">24</food:fats>
+    <food:proteins rdf:datatype="http://www.w3.org/2001/XMLSchema#double">27</food:proteins>
+    <food:carbohydrates rdf:datatype="http://www.w3.org/2001/XMLSchema#double">40</food:carbohydrates>
+    <food:calcium rdf:datatype="http://www.w3.org/2001/XMLSchema#double">939</food:calcium>
+    <food:sodium rdf:datatype="http://www.w3.org/2001/XMLSchema#double">410</food:sodium>
+    <food:iron rdf:datatype="http://www.w3.org/2001/XMLSchema#double">0.6</food:iron>
+    <food:vitaminA rdf:datatype="http://www.w3.org/2001/XMLSchema#double">0</food:vitaminA>
+    <food:vitaminB rdf:datatype="http://www.w3.org/2001/XMLSchema#double">0.28</food:vitaminB>
+    <food:vitaminC rdf:datatype="http://www.w3.org/2001/XMLSchema#double">5</food:vitaminC>
+  </food:Ingredient>
+  <food:Ingredient rdf:about="#45">
+    <food:name rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Sheep salty cheese </food:name>
+    <food:calories rdf:datatype="http://www.w3.org/2001/XMLSchema#double">305</food:calories>
+    <food:fats rdf:datatype="http://www.w3.org/2001/XMLSchema#double">24</food:fats>
+    <food:proteins rdf:datatype="http://www.w3.org/2001/XMLSchema#double">18.9</food:proteins>
+    <food:carbohydrates rdf:datatype="http://www.w3.org/2001/XMLSchema#double">1</food:carbohydrates>
+    <food:calcium rdf:datatype="http://www.w3.org/2001/XMLSchema#double">380</food:calcium>
+    <food:sodium rdf:datatype="http://www.w3.org/2001/XMLSchema#double">2000</food:sodium>
+    <food:iron rdf:datatype="http://www.w3.org/2001/XMLSchema#double">0</food:iron>
+    <food:vitaminA rdf:datatype="http://www.w3.org/2001/XMLSchema#double">0</food:vitaminA>
+    <food:vitaminB rdf:datatype="http://www.w3.org/2001/XMLSchema#double">0</food:vitaminB>
+    <food:vitaminC rdf:datatype="http://www.w3.org/2001/XMLSchema#double">0</food:vitaminC>
+  </food:Ingredient>
+  <food:Ingredient rdf:about="#46">
+    <food:name rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Cow salty cheese </food:name>
+    <food:calories rdf:datatype="http://www.w3.org/2001/XMLSchema#double">273</food:calories>
+    <food:fats rdf:datatype="http://www.w3.org/2001/XMLSchema#double">20.4</food:fats>
+    <food:proteins rdf:datatype="http://www.w3.org/2001/XMLSchema#double">19.4</food:proteins>
+    <food:carbohydrates rdf:datatype="http://www.w3.org/2001/XMLSchema#double">1</food:carbohydrates>
+    <food:calcium rdf:datatype="http://www.w3.org/2001/XMLSchema#double">70</food:calcium>
+    <food:sodium rdf:datatype="http://www.w3.org/2001/XMLSchema#double">1875</food:sodium>
+    <food:iron rdf:datatype="http://www.w3.org/2001/XMLSchema#double">0</food:iron>
+    <food:vitaminA rdf:datatype="http://www.w3.org/2001/XMLSchema#double">0</food:vitaminA>
+    <food:vitaminB rdf:datatype="http://www.w3.org/2001/XMLSchema#double">0</food:vitaminB>
+    <food:vitaminC rdf:datatype="http://www.w3.org/2001/XMLSchema#double">0</food:vitaminC>
+  </food:Ingredient>
+  <food:Ingredient rdf:about="#47">
+    <food:name rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Pepper</food:name>
+    <food:calories rdf:datatype="http://www.w3.org/2001/XMLSchema#double">112</food:calories>
+    <food:fats rdf:datatype="http://www.w3.org/2001/XMLSchema#double">8</food:fats>
+    <food:proteins rdf:datatype="http://www.w3.org/2001/XMLSchema#double">1.2</food:proteins>
+    <food:carbohydrates rdf:datatype="http://www.w3.org/2001/XMLSchema#double">8</food:carbohydrates>
+    <food:calcium rdf:datatype="http://www.w3.org/2001/XMLSchema#double">35</food:calcium>
+    <food:sodium rdf:datatype="http://www.w3.org/2001/XMLSchema#double">0</food:sodium>
+    <food:iron rdf:datatype="http://www.w3.org/2001/XMLSchema#double">0.7</food:iron>
+    <food:vitaminA rdf:datatype="http://www.w3.org/2001/XMLSchema#double">0</food:vitaminA>
+    <food:vitaminB rdf:datatype="http://www.w3.org/2001/XMLSchema#double">0.08</food:vitaminB>
+    <food:vitaminC rdf:datatype="http://www.w3.org/2001/XMLSchema#double">100</food:vitaminC>
+  </food:Ingredient>
+  <food:Ingredient rdf:about="#48">
+    <food:name rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Tomato broth</food:name>
+    <food:calories rdf:datatype="http://www.w3.org/2001/XMLSchema#double">62</food:calories>
+    <food:fats rdf:datatype="http://www.w3.org/2001/XMLSchema#double">0</food:fats>
+    <food:proteins rdf:datatype="http://www.w3.org/2001/XMLSchema#double">3.6</food:proteins>
+    <food:carbohydrates rdf:datatype="http://www.w3.org/2001/XMLSchema#double">11.6</food:carbohydrates>
+    <food:calcium rdf:datatype="http://www.w3.org/2001/XMLSchema#double">130</food:calcium>
+    <food:sodium rdf:datatype="http://www.w3.org/2001/XMLSchema#double">175</food:sodium>
+    <food:iron rdf:datatype="http://www.w3.org/2001/XMLSchema#double">0</food:iron>
+    <food:vitaminA rdf:datatype="http://www.w3.org/2001/XMLSchema#double">0</food:vitaminA>
+    <food:vitaminB rdf:datatype="http://www.w3.org/2001/XMLSchema#double">0.01</food:vitaminB>
+    <food:vitaminC rdf:datatype="http://www.w3.org/2001/XMLSchema#double">5.6</food:vitaminC>
+  </food:Ingredient>
+  <food:Ingredient rdf:about="#49">
+    <food:name rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Cucumbers in vinegar</food:name>
+    <food:calories rdf:datatype="http://www.w3.org/2001/XMLSchema#double">9</food:calories>
+    <food:fats rdf:datatype="http://www.w3.org/2001/XMLSchema#double">0</food:fats>
+    <food:proteins rdf:datatype="http://www.w3.org/2001/XMLSchema#double">0.6</food:proteins>
+    <food:carbohydrates rdf:datatype="http://www.w3.org/2001/XMLSchema#double">1.5</food:carbohydrates>
+    <food:calcium rdf:datatype="http://www.w3.org/2001/XMLSchema#double">70</food:calcium>
+    <food:sodium rdf:datatype="http://www.w3.org/2001/XMLSchema#double">700</food:sodium>
+    <food:iron rdf:datatype="http://www.w3.org/2001/XMLSchema#double">60</food:iron>
+    <food:vitaminA rdf:datatype="http://www.w3.org/2001/XMLSchema#double">0</food:vitaminA>
+    <food:vitaminB rdf:datatype="http://www.w3.org/2001/XMLSchema#double">0.91</food:vitaminB>
+    <food:vitaminC rdf:datatype="http://www.w3.org/2001/XMLSchema#double">18.7</food:vitaminC>
+  </food:Ingredient>
+  <food:Ingredient rdf:about="#50">
+    <food:name rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Green beans</food:name>
+    <food:calories rdf:datatype="http://www.w3.org/2001/XMLSchema#double">18</food:calories>
+    <food:fats rdf:datatype="http://www.w3.org/2001/XMLSchema#double">0.4</food:fats>
+    <food:proteins rdf:datatype="http://www.w3.org/2001/XMLSchema#double">1.1</food:proteins>
+    <food:carbohydrates rdf:datatype="http://www.w3.org/2001/XMLSchema#double">2.5</food:carbohydrates>
+    <food:calcium rdf:datatype="http://www.w3.org/2001/XMLSchema#double">230</food:calcium>
+    <food:sodium rdf:datatype="http://www.w3.org/2001/XMLSchema#double">150</food:sodium>
+    <food:iron rdf:datatype="http://www.w3.org/2001/XMLSchema#double">30</food:iron>
+    <food:vitaminA rdf:datatype="http://www.w3.org/2001/XMLSchema#double">0</food:vitaminA>
+    <food:vitaminB rdf:datatype="http://www.w3.org/2001/XMLSchema#double">0.85</food:vitaminB>
+    <food:vitaminC rdf:datatype="http://www.w3.org/2001/XMLSchema#double">24.3</food:vitaminC>
+  </food:Ingredient>
+  <food:Ingredient rdf:about="#51">
+    <food:name rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Bell pepper in vinegar</food:name>
+    <food:calories rdf:datatype="http://www.w3.org/2001/XMLSchema#double">15</food:calories>
+    <food:fats rdf:datatype="http://www.w3.org/2001/XMLSchema#double">0</food:fats>
+    <food:proteins rdf:datatype="http://www.w3.org/2001/XMLSchema#double">0.7</food:proteins>
+    <food:carbohydrates rdf:datatype="http://www.w3.org/2001/XMLSchema#double">3</food:carbohydrates>
+    <food:calcium rdf:datatype="http://www.w3.org/2001/XMLSchema#double">0</food:calcium>
+    <food:sodium rdf:datatype="http://www.w3.org/2001/XMLSchema#double">25</food:sodium>
+    <food:iron rdf:datatype="http://www.w3.org/2001/XMLSchema#double">45</food:iron>
+    <food:vitaminA rdf:datatype="http://www.w3.org/2001/XMLSchema#double">0</food:vitaminA>
+    <food:vitaminB rdf:datatype="http://www.w3.org/2001/XMLSchema#double">0.29</food:vitaminB>
+    <food:vitaminC rdf:datatype="http://www.w3.org/2001/XMLSchema#double">23.8</food:vitaminC>
+  </food:Ingredient>
+  <food:Ingredient rdf:about="#52">
+    <food:name rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Pea green beans</food:name>
+    <food:calories rdf:datatype="http://www.w3.org/2001/XMLSchema#double">72</food:calories>
+    <food:fats rdf:datatype="http://www.w3.org/2001/XMLSchema#double">0.5</food:fats>
+    <food:proteins rdf:datatype="http://www.w3.org/2001/XMLSchema#double">6.5</food:proteins>
+    <food:carbohydrates rdf:datatype="http://www.w3.org/2001/XMLSchema#double">10.8</food:carbohydrates>
+    <food:calcium rdf:datatype="http://www.w3.org/2001/XMLSchema#double">160</food:calcium>
+    <food:sodium rdf:datatype="http://www.w3.org/2001/XMLSchema#double">625</food:sodium>
+    <food:iron rdf:datatype="http://www.w3.org/2001/XMLSchema#double">0</food:iron>
+    <food:vitaminA rdf:datatype="http://www.w3.org/2001/XMLSchema#double">0</food:vitaminA>
+    <food:vitaminB rdf:datatype="http://www.w3.org/2001/XMLSchema#double">0.91</food:vitaminB>
+    <food:vitaminC rdf:datatype="http://www.w3.org/2001/XMLSchema#double">20.3</food:vitaminC>
+  </food:Ingredient>
+  <food:Ingredient rdf:about="#53">
+    <food:name rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Tomato paste</food:name>
+    <food:calories rdf:datatype="http://www.w3.org/2001/XMLSchema#double">85</food:calories>
+    <food:fats rdf:datatype="http://www.w3.org/2001/XMLSchema#double">0</food:fats>
+    <food:proteins rdf:datatype="http://www.w3.org/2001/XMLSchema#double">5.4</food:proteins>
+    <food:carbohydrates rdf:datatype="http://www.w3.org/2001/XMLSchema#double">15.4</food:carbohydrates>
+    <food:calcium rdf:datatype="http://www.w3.org/2001/XMLSchema#double">160</food:calcium>
+    <food:sodium rdf:datatype="http://www.w3.org/2001/XMLSchema#double">650</food:sodium>
+    <food:iron rdf:datatype="http://www.w3.org/2001/XMLSchema#double">60</food:iron>
+    <food:vitaminA rdf:datatype="http://www.w3.org/2001/XMLSchema#double">0</food:vitaminA>
+    <food:vitaminB rdf:datatype="http://www.w3.org/2001/XMLSchema#double">0.31</food:vitaminB>
+    <food:vitaminC rdf:datatype="http://www.w3.org/2001/XMLSchema#double">10.1</food:vitaminC>
+  </food:Ingredient>
+  <food:Ingredient rdf:about="#54">
+    <food:name rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Vegetable stew</food:name>
+    <food:calories rdf:datatype="http://www.w3.org/2001/XMLSchema#double">73</food:calories>
+    <food:fats rdf:datatype="http://www.w3.org/2001/XMLSchema#double">6</food:fats>
+    <food:proteins rdf:datatype="http://www.w3.org/2001/XMLSchema#double">1</food:proteins>
+    <food:carbohydrates rdf:datatype="http://www.w3.org/2001/XMLSchema#double">3.1</food:carbohydrates>
+    <food:calcium rdf:datatype="http://www.w3.org/2001/XMLSchema#double">100</food:calcium>
+    <food:sodium rdf:datatype="http://www.w3.org/2001/XMLSchema#double">900</food:sodium>
+    <food:iron rdf:datatype="http://www.w3.org/2001/XMLSchema#double">45</food:iron>
+    <food:vitaminA rdf:datatype="http://www.w3.org/2001/XMLSchema#double">0</food:vitaminA>
+    <food:vitaminB rdf:datatype="http://www.w3.org/2001/XMLSchema#double">0.39</food:vitaminB>
+    <food:vitaminC rdf:datatype="http://www.w3.org/2001/XMLSchema#double">5.5</food:vitaminC>
+  </food:Ingredient>
+  <food:Ingredient rdf:about="#55">
+    <food:name rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Sour cabbage</food:name>
+    <food:calories rdf:datatype="http://www.w3.org/2001/XMLSchema#double">18</food:calories>
+    <food:fats rdf:datatype="http://www.w3.org/2001/XMLSchema#double">0</food:fats>
+    <food:proteins rdf:datatype="http://www.w3.org/2001/XMLSchema#double">1.2</food:proteins>
+    <food:carbohydrates rdf:datatype="http://www.w3.org/2001/XMLSchema#double">3.3</food:carbohydrates>
+    <food:calcium rdf:datatype="http://www.w3.org/2001/XMLSchema#double">140</food:calcium>
+    <food:sodium rdf:datatype="http://www.w3.org/2001/XMLSchema#double">575</food:sodium>
+    <food:iron rdf:datatype="http://www.w3.org/2001/XMLSchema#double">60</food:iron>
+    <food:vitaminA rdf:datatype="http://www.w3.org/2001/XMLSchema#double">0</food:vitaminA>
+    <food:vitaminB rdf:datatype="http://www.w3.org/2001/XMLSchema#double">0.74</food:vitaminB>
+    <food:vitaminC rdf:datatype="http://www.w3.org/2001/XMLSchema#double">6.2</food:vitaminC>
+  </food:Ingredient>
+  <food:Ingredient rdf:about="#56">
+    <food:name rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Eggplant</food:name>
+    <food:calories rdf:datatype="http://www.w3.org/2001/XMLSchema#double">22</food:calories>
+    <food:fats rdf:datatype="http://www.w3.org/2001/XMLSchema#double">0.3</food:fats>
+    <food:proteins rdf:datatype="http://www.w3.org/2001/XMLSchema#double">1.8</food:proteins>
+    <food:carbohydrates rdf:datatype="http://www.w3.org/2001/XMLSchema#double">2.4</food:carbohydrates>
+    <food:calcium rdf:datatype="http://www.w3.org/2001/XMLSchema#double">18</food:calcium>
+    <food:sodium rdf:datatype="http://www.w3.org/2001/XMLSchema#double">355</food:sodium>
+    <food:iron rdf:datatype="http://www.w3.org/2001/XMLSchema#double">0.9</food:iron>
+    <food:vitaminA rdf:datatype="http://www.w3.org/2001/XMLSchema#double">0.18</food:vitaminA>
+    <food:vitaminB rdf:datatype="http://www.w3.org/2001/XMLSchema#double">0.06</food:vitaminB>
+    <food:vitaminC rdf:datatype="http://www.w3.org/2001/XMLSchema#double">15</food:vitaminC>
+  </food:Ingredient>
+  <food:Ingredient rdf:about="#57">
+    <food:name rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Red bell pepper</food:name>
+    <food:calories rdf:datatype="http://www.w3.org/2001/XMLSchema#double">39</food:calories>
+    <food:fats rdf:datatype="http://www.w3.org/2001/XMLSchema#double">0.4</food:fats>
+    <food:proteins rdf:datatype="http://www.w3.org/2001/XMLSchema#double">1.3</food:proteins>
+    <food:carbohydrates rdf:datatype="http://www.w3.org/2001/XMLSchema#double">7.3</food:carbohydrates>
+    <food:calcium rdf:datatype="http://www.w3.org/2001/XMLSchema#double">1385</food:calcium>
+    <food:sodium rdf:datatype="http://www.w3.org/2001/XMLSchema#double">0</food:sodium>
+    <food:iron rdf:datatype="http://www.w3.org/2001/XMLSchema#double">15</food:iron>
+    <food:vitaminA rdf:datatype="http://www.w3.org/2001/XMLSchema#double">0</food:vitaminA>
+    <food:vitaminB rdf:datatype="http://www.w3.org/2001/XMLSchema#double">0</food:vitaminB>
+    <food:vitaminC rdf:datatype="http://www.w3.org/2001/XMLSchema#double">40</food:vitaminC>
+  </food:Ingredient>
+  <food:Ingredient rdf:about="#58">
+    <food:name rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Green bell pepper</food:name>
+    <food:calories rdf:datatype="http://www.w3.org/2001/XMLSchema#double">17</food:calories>
+    <food:fats rdf:datatype="http://www.w3.org/2001/XMLSchema#double">0.2</food:fats>
+    <food:proteins rdf:datatype="http://www.w3.org/2001/XMLSchema#double">1.1</food:proteins>
+    <food:carbohydrates rdf:datatype="http://www.w3.org/2001/XMLSchema#double">2.5</food:carbohydrates>
+    <food:calcium rdf:datatype="http://www.w3.org/2001/XMLSchema#double">20</food:calcium>
+    <food:sodium rdf:datatype="http://www.w3.org/2001/XMLSchema#double">0</food:sodium>
+    <food:iron rdf:datatype="http://www.w3.org/2001/XMLSchema#double">0.5</food:iron>
+    <food:vitaminA rdf:datatype="http://www.w3.org/2001/XMLSchema#double">0</food:vitaminA>
+    <food:vitaminB rdf:datatype="http://www.w3.org/2001/XMLSchema#double">0.56</food:vitaminB>
+    <food:vitaminC rdf:datatype="http://www.w3.org/2001/XMLSchema#double">24.3</food:vitaminC>
+  </food:Ingredient>
+  <food:Ingredient rdf:about="#59">
+    <food:name rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Potatoes</food:name>
+    <food:calories rdf:datatype="http://www.w3.org/2001/XMLSchema#double">88</food:calories>
+    <food:fats rdf:datatype="http://www.w3.org/2001/XMLSchema#double">0.2</food:fats>
+    <food:proteins rdf:datatype="http://www.w3.org/2001/XMLSchema#double">2</food:proteins>
+    <food:carbohydrates rdf:datatype="http://www.w3.org/2001/XMLSchema#double">19</food:carbohydrates>
+    <food:calcium rdf:datatype="http://www.w3.org/2001/XMLSchema#double">14</food:calcium>
+    <food:sodium rdf:datatype="http://www.w3.org/2001/XMLSchema#double">4</food:sodium>
+    <food:iron rdf:datatype="http://www.w3.org/2001/XMLSchema#double">0.9</food:iron>
+    <food:vitaminA rdf:datatype="http://www.w3.org/2001/XMLSchema#double">0.01</food:vitaminA>
+    <food:vitaminB rdf:datatype="http://www.w3.org/2001/XMLSchema#double">0.1</food:vitaminB>
+    <food:vitaminC rdf:datatype="http://www.w3.org/2001/XMLSchema#double">27</food:vitaminC>
+  </food:Ingredient>
+  <food:Ingredient rdf:about="#60">
+    <food:name rdf:datatype="http://www.w3.org/2001/XMLSchema#string">New potatoes</food:name>
+    <food:calories rdf:datatype="http://www.w3.org/2001/XMLSchema#double">80</food:calories>
+    <food:fats rdf:datatype="http://www.w3.org/2001/XMLSchema#double">0.2</food:fats>
+    <food:proteins rdf:datatype="http://www.w3.org/2001/XMLSchema#double">1.7</food:proteins>
+    <food:carbohydrates rdf:datatype="http://www.w3.org/2001/XMLSchema#double">17.4</food:carbohydrates>
+    <food:calcium rdf:datatype="http://www.w3.org/2001/XMLSchema#double">15</food:calcium>
+    <food:sodium rdf:datatype="http://www.w3.org/2001/XMLSchema#double">3</food:sodium>
+    <food:iron rdf:datatype="http://www.w3.org/2001/XMLSchema#double">1</food:iron>
+    <food:vitaminA rdf:datatype="http://www.w3.org/2001/XMLSchema#double">0.01</food:vitaminA>
+    <food:vitaminB rdf:datatype="http://www.w3.org/2001/XMLSchema#double">0.11</food:vitaminB>
+    <food:vitaminC rdf:datatype="http://www.w3.org/2001/XMLSchema#double">30</food:vitaminC>
+  </food:Ingredient>
+  <food:Ingredient rdf:about="#61">
+    <food:name rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Cucumber</food:name>
+    <food:calories rdf:datatype="http://www.w3.org/2001/XMLSchema#double">19</food:calories>
+    <food:fats rdf:datatype="http://www.w3.org/2001/XMLSchema#double">0.2</food:fats>
+    <food:proteins rdf:datatype="http://www.w3.org/2001/XMLSchema#double">1.3</food:proteins>
+    <food:carbohydrates rdf:datatype="http://www.w3.org/2001/XMLSchema#double">2.9</food:carbohydrates>
+    <food:calcium rdf:datatype="http://www.w3.org/2001/XMLSchema#double">21</food:calcium>
+    <food:sodium rdf:datatype="http://www.w3.org/2001/XMLSchema#double">3</food:sodium>
+    <food:iron rdf:datatype="http://www.w3.org/2001/XMLSchema#double">0.8</food:iron>
+    <food:vitaminA rdf:datatype="http://www.w3.org/2001/XMLSchema#double">0</food:vitaminA>
+    <food:vitaminB rdf:datatype="http://www.w3.org/2001/XMLSchema#double">0.05</food:vitaminB>
+    <food:vitaminC rdf:datatype="http://www.w3.org/2001/XMLSchema#double">9.6</food:vitaminC>
+  </food:Ingredient>
+  <food:Ingredient rdf:about="#62">
+    <food:name rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Dried onion</food:name>
+    <food:calories rdf:datatype="http://www.w3.org/2001/XMLSchema#double">40</food:calories>
+    <food:fats rdf:datatype="http://www.w3.org/2001/XMLSchema#double">0.2</food:fats>
+    <food:proteins rdf:datatype="http://www.w3.org/2001/XMLSchema#double">1.5</food:proteins>
+    <food:carbohydrates rdf:datatype="http://www.w3.org/2001/XMLSchema#double">8</food:carbohydrates>
+    <food:calcium rdf:datatype="http://www.w3.org/2001/XMLSchema#double">40</food:calcium>
+    <food:sodium rdf:datatype="http://www.w3.org/2001/XMLSchema#double">9</food:sodium>
+    <food:iron rdf:datatype="http://www.w3.org/2001/XMLSchema#double">0.5</food:iron>
+    <food:vitaminA rdf:datatype="http://www.w3.org/2001/XMLSchema#double">0.02</food:vitaminA>
+    <food:vitaminB rdf:datatype="http://www.w3.org/2001/XMLSchema#double">0.03</food:vitaminB>
+    <food:vitaminC rdf:datatype="http://www.w3.org/2001/XMLSchema#double">20</food:vitaminC>
+  </food:Ingredient>
+  <food:Ingredient rdf:about="#63">
+    <food:name rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Green onion</food:name>
+    <food:calories rdf:datatype="http://www.w3.org/2001/XMLSchema#double">20</food:calories>
+    <food:fats rdf:datatype="http://www.w3.org/2001/XMLSchema#double">0.2</food:fats>
+    <food:proteins rdf:datatype="http://www.w3.org/2001/XMLSchema#double">1</food:proteins>
+    <food:carbohydrates rdf:datatype="http://www.w3.org/2001/XMLSchema#double">3</food:carbohydrates>
+    <food:calcium rdf:datatype="http://www.w3.org/2001/XMLSchema#double">120</food:calcium>
+    <food:sodium rdf:datatype="http://www.w3.org/2001/XMLSchema#double">800</food:sodium>
+    <food:iron rdf:datatype="http://www.w3.org/2001/XMLSchema#double">30</food:iron>
+    <food:vitaminA rdf:datatype="http://www.w3.org/2001/XMLSchema#double">0</food:vitaminA>
+    <food:vitaminB rdf:datatype="http://www.w3.org/2001/XMLSchema#double">0.69</food:vitaminB>
+    <food:vitaminC rdf:datatype="http://www.w3.org/2001/XMLSchema#double">0</food:vitaminC>
+  </food:Ingredient>
+  <food:Ingredient rdf:about="#64">
+    <food:name rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Mushrooms</food:name>
+    <food:calories rdf:datatype="http://www.w3.org/2001/XMLSchema#double">35</food:calories>
+    <food:fats rdf:datatype="http://www.w3.org/2001/XMLSchema#double">0.5</food:fats>
+    <food:proteins rdf:datatype="http://www.w3.org/2001/XMLSchema#double">5</food:proteins>
+    <food:carbohydrates rdf:datatype="http://www.w3.org/2001/XMLSchema#double">2.3</food:carbohydrates>
+    <food:calcium rdf:datatype="http://www.w3.org/2001/XMLSchema#double">12</food:calcium>
+    <food:sodium rdf:datatype="http://www.w3.org/2001/XMLSchema#double">6</food:sodium>
+    <food:iron rdf:datatype="http://www.w3.org/2001/XMLSchema#double">1</food:iron>
+    <food:vitaminA rdf:datatype="http://www.w3.org/2001/XMLSchema#double">0</food:vitaminA>
+    <food:vitaminB rdf:datatype="http://www.w3.org/2001/XMLSchema#double">0.21</food:vitaminB>
+    <food:vitaminC rdf:datatype="http://www.w3.org/2001/XMLSchema#double">4</food:vitaminC>
+  </food:Ingredient>
+  <food:Ingredient rdf:about="#65">
+    <food:name rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Cauliflower</food:name>
+    <food:calories rdf:datatype="http://www.w3.org/2001/XMLSchema#double">30</food:calories>
+    <food:fats rdf:datatype="http://www.w3.org/2001/XMLSchema#double">0.3</food:fats>
+    <food:proteins rdf:datatype="http://www.w3.org/2001/XMLSchema#double">2.8</food:proteins>
+    <food:carbohydrates rdf:datatype="http://www.w3.org/2001/XMLSchema#double">3.9</food:carbohydrates>
+    <food:calcium rdf:datatype="http://www.w3.org/2001/XMLSchema#double">22</food:calcium>
+    <food:sodium rdf:datatype="http://www.w3.org/2001/XMLSchema#double">20</food:sodium>
+    <food:iron rdf:datatype="http://www.w3.org/2001/XMLSchema#double">1.1</food:iron>
+    <food:vitaminA rdf:datatype="http://www.w3.org/2001/XMLSchema#double">0.03</food:vitaminA>
+    <food:vitaminB rdf:datatype="http://www.w3.org/2001/XMLSchema#double">0.13</food:vitaminB>
+    <food:vitaminC rdf:datatype="http://www.w3.org/2001/XMLSchema#double">72</food:vitaminC>
+  </food:Ingredient>
+  <food:Ingredient rdf:about="#66">
+    <food:name rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Courgettes</food:name>
+    <food:calories rdf:datatype="http://www.w3.org/2001/XMLSchema#double">18</food:calories>
+    <food:fats rdf:datatype="http://www.w3.org/2001/XMLSchema#double">0.1</food:fats>
+    <food:proteins rdf:datatype="http://www.w3.org/2001/XMLSchema#double">0.9</food:proteins>
+    <food:carbohydrates rdf:datatype="http://www.w3.org/2001/XMLSchema#double">3.2</food:carbohydrates>
+    <food:calcium rdf:datatype="http://www.w3.org/2001/XMLSchema#double">68</food:calcium>
+    <food:sodium rdf:datatype="http://www.w3.org/2001/XMLSchema#double">4</food:sodium>
+    <food:iron rdf:datatype="http://www.w3.org/2001/XMLSchema#double">0.8</food:iron>
+    <food:vitaminA rdf:datatype="http://www.w3.org/2001/XMLSchema#double">1.7</food:vitaminA>
+    <food:vitaminB rdf:datatype="http://www.w3.org/2001/XMLSchema#double">0.09</food:vitaminB>
+    <food:vitaminC rdf:datatype="http://www.w3.org/2001/XMLSchema#double">27</food:vitaminC>
+  </food:Ingredient>
+  <food:Ingredient rdf:about="#67">
+    <food:name rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Green beans (raw)</food:name>
+    <food:calories rdf:datatype="http://www.w3.org/2001/XMLSchema#double">33</food:calories>
+    <food:fats rdf:datatype="http://www.w3.org/2001/XMLSchema#double">0.2</food:fats>
+    <food:proteins rdf:datatype="http://www.w3.org/2001/XMLSchema#double">2</food:proteins>
+    <food:carbohydrates rdf:datatype="http://www.w3.org/2001/XMLSchema#double">5.7</food:carbohydrates>
+    <food:calcium rdf:datatype="http://www.w3.org/2001/XMLSchema#double">44</food:calcium>
+    <food:sodium rdf:datatype="http://www.w3.org/2001/XMLSchema#double">2</food:sodium>
+    <food:iron rdf:datatype="http://www.w3.org/2001/XMLSchema#double">1</food:iron>
+    <food:vitaminA rdf:datatype="http://www.w3.org/2001/XMLSchema#double">0.19</food:vitaminA>
+    <food:vitaminB rdf:datatype="http://www.w3.org/2001/XMLSchema#double">0.07</food:vitaminB>
+    <food:vitaminC rdf:datatype="http://www.w3.org/2001/XMLSchema#double">19</food:vitaminC>
+  </food:Ingredient>
+  <food:Ingredient rdf:about="#68">
+    <food:name rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Pea green beans (raw)</food:name>
+    <food:calories rdf:datatype="http://www.w3.org/2001/XMLSchema#double">96</food:calories>
+    <food:fats rdf:datatype="http://www.w3.org/2001/XMLSchema#double">0.5</food:fats>
+    <food:proteins rdf:datatype="http://www.w3.org/2001/XMLSchema#double">8.4</food:proteins>
+    <food:carbohydrates rdf:datatype="http://www.w3.org/2001/XMLSchema#double">14</food:carbohydrates>
+    <food:calcium rdf:datatype="http://www.w3.org/2001/XMLSchema#double">50</food:calcium>
+    <food:sodium rdf:datatype="http://www.w3.org/2001/XMLSchema#double">400</food:sodium>
+    <food:iron rdf:datatype="http://www.w3.org/2001/XMLSchema#double">15</food:iron>
+    <food:vitaminA rdf:datatype="http://www.w3.org/2001/XMLSchema#double">0</food:vitaminA>
+    <food:vitaminB rdf:datatype="http://www.w3.org/2001/XMLSchema#double">0.08</food:vitaminB>
+    <food:vitaminC rdf:datatype="http://www.w3.org/2001/XMLSchema#double">12.2</food:vitaminC>
+  </food:Ingredient>
+  <food:Ingredient rdf:about="#69">
+    <food:name rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Carrots</food:name>
+    <food:calories rdf:datatype="http://www.w3.org/2001/XMLSchema#double">45</food:calories>
+    <food:fats rdf:datatype="http://www.w3.org/2001/XMLSchema#double">0.3</food:fats>
+    <food:proteins rdf:datatype="http://www.w3.org/2001/XMLSchema#double">1.5</food:proteins>
+    <food:carbohydrates rdf:datatype="http://www.w3.org/2001/XMLSchema#double">8.8</food:carbohydrates>
+    <food:calcium rdf:datatype="http://www.w3.org/2001/XMLSchema#double">23</food:calcium>
+    <food:sodium rdf:datatype="http://www.w3.org/2001/XMLSchema#double">48</food:sodium>
+    <food:iron rdf:datatype="http://www.w3.org/2001/XMLSchema#double">0.8</food:iron>
+    <food:vitaminA rdf:datatype="http://www.w3.org/2001/XMLSchema#double">0</food:vitaminA>
+    <food:vitaminB rdf:datatype="http://www.w3.org/2001/XMLSchema#double">0.04</food:vitaminB>
+    <food:vitaminC rdf:datatype="http://www.w3.org/2001/XMLSchema#double">6</food:vitaminC>
+  </food:Ingredient>
+  <food:Ingredient rdf:about="#70">
+    <food:name rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Parsnip</food:name>
+    <food:calories rdf:datatype="http://www.w3.org/2001/XMLSchema#double">72</food:calories>
+    <food:fats rdf:datatype="http://www.w3.org/2001/XMLSchema#double">0.5</food:fats>
+    <food:proteins rdf:datatype="http://www.w3.org/2001/XMLSchema#double">1.4</food:proteins>
+    <food:carbohydrates rdf:datatype="http://www.w3.org/2001/XMLSchema#double">15</food:carbohydrates>
+    <food:calcium rdf:datatype="http://www.w3.org/2001/XMLSchema#double">230</food:calcium>
+    <food:sodium rdf:datatype="http://www.w3.org/2001/XMLSchema#double">575</food:sodium>
+    <food:iron rdf:datatype="http://www.w3.org/2001/XMLSchema#double">45</food:iron>
+    <food:vitaminA rdf:datatype="http://www.w3.org/2001/XMLSchema#double">0</food:vitaminA>
+    <food:vitaminB rdf:datatype="http://www.w3.org/2001/XMLSchema#double">0.2</food:vitaminB>
+    <food:vitaminC rdf:datatype="http://www.w3.org/2001/XMLSchema#double">22.3</food:vitaminC>
+  </food:Ingredient>
+  <food:Ingredient rdf:about="#71">
+    <food:name rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Parsley roots</food:name>
+    <food:calories rdf:datatype="http://www.w3.org/2001/XMLSchema#double">55</food:calories>
+    <food:fats rdf:datatype="http://www.w3.org/2001/XMLSchema#double">1</food:fats>
+    <food:proteins rdf:datatype="http://www.w3.org/2001/XMLSchema#double">3.7</food:proteins>
+    <food:carbohydrates rdf:datatype="http://www.w3.org/2001/XMLSchema#double">7.6</food:carbohydrates>
+    <food:calcium rdf:datatype="http://www.w3.org/2001/XMLSchema#double">195</food:calcium>
+    <food:sodium rdf:datatype="http://www.w3.org/2001/XMLSchema#double">29</food:sodium>
+    <food:iron rdf:datatype="http://www.w3.org/2001/XMLSchema#double">7.7</food:iron>
+    <food:vitaminA rdf:datatype="http://www.w3.org/2001/XMLSchema#double">2.47</food:vitaminA>
+    <food:vitaminB rdf:datatype="http://www.w3.org/2001/XMLSchema#double">0.11</food:vitaminB>
+    <food:vitaminC rdf:datatype="http://www.w3.org/2001/XMLSchema#double">197</food:vitaminC>
+  </food:Ingredient>
+  <food:Ingredient rdf:about="#72">
+    <food:name rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Leek</food:name>
+    <food:calories rdf:datatype="http://www.w3.org/2001/XMLSchema#double">54</food:calories>
+    <food:fats rdf:datatype="http://www.w3.org/2001/XMLSchema#double">0.4</food:fats>
+    <food:proteins rdf:datatype="http://www.w3.org/2001/XMLSchema#double">2.3</food:proteins>
+    <food:carbohydrates rdf:datatype="http://www.w3.org/2001/XMLSchema#double">9.9</food:carbohydrates>
+    <food:calcium rdf:datatype="http://www.w3.org/2001/XMLSchema#double">170</food:calcium>
+    <food:sodium rdf:datatype="http://www.w3.org/2001/XMLSchema#double">76</food:sodium>
+    <food:iron rdf:datatype="http://www.w3.org/2001/XMLSchema#double">3</food:iron>
+    <food:vitaminA rdf:datatype="http://www.w3.org/2001/XMLSchema#double">0</food:vitaminA>
+    <food:vitaminB rdf:datatype="http://www.w3.org/2001/XMLSchema#double">0.19</food:vitaminB>
+    <food:vitaminC rdf:datatype="http://www.w3.org/2001/XMLSchema#double">30</food:vitaminC>
+  </food:Ingredient>
+  <food:Ingredient rdf:about="#73">
+    <food:name rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Radishes</food:name>
+    <food:calories rdf:datatype="http://www.w3.org/2001/XMLSchema#double">19</food:calories>
+    <food:fats rdf:datatype="http://www.w3.org/2001/XMLSchema#double">0.1</food:fats>
+    <food:proteins rdf:datatype="http://www.w3.org/2001/XMLSchema#double">0.3</food:proteins>
+    <food:carbohydrates rdf:datatype="http://www.w3.org/2001/XMLSchema#double">3.8</food:carbohydrates>
+    <food:calcium rdf:datatype="http://www.w3.org/2001/XMLSchema#double">37</food:calcium>
+    <food:sodium rdf:datatype="http://www.w3.org/2001/XMLSchema#double">15</food:sodium>
+    <food:iron rdf:datatype="http://www.w3.org/2001/XMLSchema#double">1.1</food:iron>
+    <food:vitaminA rdf:datatype="http://www.w3.org/2001/XMLSchema#double">0.01</food:vitaminA>
+    <food:vitaminB rdf:datatype="http://www.w3.org/2001/XMLSchema#double">0.06</food:vitaminB>
+    <food:vitaminC rdf:datatype="http://www.w3.org/2001/XMLSchema#double">21</food:vitaminC>
+  </food:Ingredient>
+  <food:Ingredient rdf:about="#75">
+    <food:name rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Tomatoes</food:name>
+    <food:calories rdf:datatype="http://www.w3.org/2001/XMLSchema#double">20</food:calories>
+    <food:fats rdf:datatype="http://www.w3.org/2001/XMLSchema#double">0.3</food:fats>
+    <food:proteins rdf:datatype="http://www.w3.org/2001/XMLSchema#double">1.1</food:proteins>
+    <food:carbohydrates rdf:datatype="http://www.w3.org/2001/XMLSchema#double">3.1</food:carbohydrates>
+    <food:calcium rdf:datatype="http://www.w3.org/2001/XMLSchema#double">11</food:calcium>
+    <food:sodium rdf:datatype="http://www.w3.org/2001/XMLSchema#double">3</food:sodium>
+    <food:iron rdf:datatype="http://www.w3.org/2001/XMLSchema#double">0.6</food:iron>
+    <food:vitaminA rdf:datatype="http://www.w3.org/2001/XMLSchema#double">0.33</food:vitaminA>
+    <food:vitaminB rdf:datatype="http://www.w3.org/2001/XMLSchema#double">0.08</food:vitaminB>
+    <food:vitaminC rdf:datatype="http://www.w3.org/2001/XMLSchema#double">30</food:vitaminC>
+  </food:Ingredient>
+  <food:Ingredient rdf:about="#77">
+    <food:name rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Beetroot</food:name>
+    <food:calories rdf:datatype="http://www.w3.org/2001/XMLSchema#double">43</food:calories>
+    <food:fats rdf:datatype="http://www.w3.org/2001/XMLSchema#double">0.1</food:fats>
+    <food:proteins rdf:datatype="http://www.w3.org/2001/XMLSchema#double">1.3</food:proteins>
+    <food:carbohydrates rdf:datatype="http://www.w3.org/2001/XMLSchema#double">9</food:carbohydrates>
+    <food:calcium rdf:datatype="http://www.w3.org/2001/XMLSchema#double">120</food:calcium>
+    <food:sodium rdf:datatype="http://www.w3.org/2001/XMLSchema#double">145</food:sodium>
+    <food:iron rdf:datatype="http://www.w3.org/2001/XMLSchema#double">0.5</food:iron>
+    <food:vitaminA rdf:datatype="http://www.w3.org/2001/XMLSchema#double">2</food:vitaminA>
+    <food:vitaminB rdf:datatype="http://www.w3.org/2001/XMLSchema#double">0.03</food:vitaminB>
+    <food:vitaminC rdf:datatype="http://www.w3.org/2001/XMLSchema#double">34</food:vitaminC>
+  </food:Ingredient>
+  <food:Ingredient rdf:about="#78">
+    <food:name rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Spinach</food:name>
+    <food:calories rdf:datatype="http://www.w3.org/2001/XMLSchema#double">25</food:calories>
+    <food:fats rdf:datatype="http://www.w3.org/2001/XMLSchema#double">0.3</food:fats>
+    <food:proteins rdf:datatype="http://www.w3.org/2001/XMLSchema#double">3.5</food:proteins>
+    <food:carbohydrates rdf:datatype="http://www.w3.org/2001/XMLSchema#double">2</food:carbohydrates>
+    <food:calcium rdf:datatype="http://www.w3.org/2001/XMLSchema#double">10</food:calcium>
+    <food:sodium rdf:datatype="http://www.w3.org/2001/XMLSchema#double">8</food:sodium>
+    <food:iron rdf:datatype="http://www.w3.org/2001/XMLSchema#double">3.1</food:iron>
+    <food:vitaminA rdf:datatype="http://www.w3.org/2001/XMLSchema#double">9</food:vitaminA>
+    <food:vitaminB rdf:datatype="http://www.w3.org/2001/XMLSchema#double">0.04</food:vitaminB>
+    <food:vitaminC rdf:datatype="http://www.w3.org/2001/XMLSchema#double">8</food:vitaminC>
+  </food:Ingredient>
+  <food:Ingredient rdf:about="#79">
+    <food:name rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Celery root</food:name>
+    <food:calories rdf:datatype="http://www.w3.org/2001/XMLSchema#double">33</food:calories>
+    <food:fats rdf:datatype="http://www.w3.org/2001/XMLSchema#double">0.3</food:fats>
+    <food:proteins rdf:datatype="http://www.w3.org/2001/XMLSchema#double">1.4</food:proteins>
+    <food:carbohydrates rdf:datatype="http://www.w3.org/2001/XMLSchema#double">5.9</food:carbohydrates>
+    <food:calcium rdf:datatype="http://www.w3.org/2001/XMLSchema#double">55</food:calcium>
+    <food:sodium rdf:datatype="http://www.w3.org/2001/XMLSchema#double">98</food:sodium>
+    <food:iron rdf:datatype="http://www.w3.org/2001/XMLSchema#double">0.5</food:iron>
+    <food:vitaminA rdf:datatype="http://www.w3.org/2001/XMLSchema#double">0</food:vitaminA>
+    <food:vitaminB rdf:datatype="http://www.w3.org/2001/XMLSchema#double">0.05</food:vitaminB>
+    <food:vitaminC rdf:datatype="http://www.w3.org/2001/XMLSchema#double">7</food:vitaminC>
+  </food:Ingredient>
+  <food:Ingredient rdf:about="#80">
+    <food:name rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Nettles</food:name>
+    <food:calories rdf:datatype="http://www.w3.org/2001/XMLSchema#double">68</food:calories>
+    <food:fats rdf:datatype="http://www.w3.org/2001/XMLSchema#double">0.7</food:fats>
+    <food:proteins rdf:datatype="http://www.w3.org/2001/XMLSchema#double">7.9</food:proteins>
+    <food:carbohydrates rdf:datatype="http://www.w3.org/2001/XMLSchema#double">7.1</food:carbohydrates>
+    <food:calcium rdf:datatype="http://www.w3.org/2001/XMLSchema#double">590</food:calcium>
+    <food:sodium rdf:datatype="http://www.w3.org/2001/XMLSchema#double">0</food:sodium>
+    <food:iron rdf:datatype="http://www.w3.org/2001/XMLSchema#double">590</food:iron>
+    <food:vitaminA rdf:datatype="http://www.w3.org/2001/XMLSchema#double">0</food:vitaminA>
+    <food:vitaminB rdf:datatype="http://www.w3.org/2001/XMLSchema#double">1</food:vitaminB>
+    <food:vitaminC rdf:datatype="http://www.w3.org/2001/XMLSchema#double">175</food:vitaminC>
+  </food:Ingredient>
+  <food:Ingredient rdf:about="#81">
+    <food:name rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Garlic</food:name>
+    <food:calories rdf:datatype="http://www.w3.org/2001/XMLSchema#double">137</food:calories>
+    <food:fats rdf:datatype="http://www.w3.org/2001/XMLSchema#double">0.2</food:fats>
+    <food:proteins rdf:datatype="http://www.w3.org/2001/XMLSchema#double">7.2</food:proteins>
+    <food:carbohydrates rdf:datatype="http://www.w3.org/2001/XMLSchema#double">26</food:carbohydrates>
+    <food:calcium rdf:datatype="http://www.w3.org/2001/XMLSchema#double">38</food:calcium>
+    <food:sodium rdf:datatype="http://www.w3.org/2001/XMLSchema#double">32</food:sodium>
+    <food:iron rdf:datatype="http://www.w3.org/2001/XMLSchema#double">1.5</food:iron>
+    <food:vitaminA rdf:datatype="http://www.w3.org/2001/XMLSchema#double">0</food:vitaminA>
+    <food:vitaminB rdf:datatype="http://www.w3.org/2001/XMLSchema#double">0.2</food:vitaminB>
+    <food:vitaminC rdf:datatype="http://www.w3.org/2001/XMLSchema#double">14</food:vitaminC>
+  </food:Ingredient>
+  <food:Ingredient rdf:about="#82">
+    <food:name rdf:datatype="http://www.w3.org/2001/XMLSchema#string">White cabbage</food:name>
+    <food:calories rdf:datatype="http://www.w3.org/2001/XMLSchema#double">33</food:calories>
+    <food:fats rdf:datatype="http://www.w3.org/2001/XMLSchema#double">0.2</food:fats>
+    <food:proteins rdf:datatype="http://www.w3.org/2001/XMLSchema#double">1.8</food:proteins>
+    <food:carbohydrates rdf:datatype="http://www.w3.org/2001/XMLSchema#double">5.8</food:carbohydrates>
+    <food:calcium rdf:datatype="http://www.w3.org/2001/XMLSchema#double">70</food:calcium>
+    <food:sodium rdf:datatype="http://www.w3.org/2001/XMLSchema#double">13</food:sodium>
+    <food:iron rdf:datatype="http://www.w3.org/2001/XMLSchema#double">0.5</food:iron>
+    <food:vitaminA rdf:datatype="http://www.w3.org/2001/XMLSchema#double">0.01</food:vitaminA>
+    <food:vitaminB rdf:datatype="http://www.w3.org/2001/XMLSchema#double">0.05</food:vitaminB>
+    <food:vitaminC rdf:datatype="http://www.w3.org/2001/XMLSchema#double">50</food:vitaminC>
+  </food:Ingredient>
+  <food:Ingredient rdf:about="#83">
+    <food:name rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Bruxelles cabbage</food:name>
+    <food:calories rdf:datatype="http://www.w3.org/2001/XMLSchema#double">50</food:calories>
+    <food:fats rdf:datatype="http://www.w3.org/2001/XMLSchema#double">0.5</food:fats>
+    <food:proteins rdf:datatype="http://www.w3.org/2001/XMLSchema#double">4</food:proteins>
+    <food:carbohydrates rdf:datatype="http://www.w3.org/2001/XMLSchema#double">7</food:carbohydrates>
+    <food:calcium rdf:datatype="http://www.w3.org/2001/XMLSchema#double">50</food:calcium>
+    <food:sodium rdf:datatype="http://www.w3.org/2001/XMLSchema#double">15</food:sodium>
+    <food:iron rdf:datatype="http://www.w3.org/2001/XMLSchema#double">0.5</food:iron>
+    <food:vitaminA rdf:datatype="http://www.w3.org/2001/XMLSchema#double">0</food:vitaminA>
+    <food:vitaminB rdf:datatype="http://www.w3.org/2001/XMLSchema#double">0.03</food:vitaminB>
+    <food:vitaminC rdf:datatype="http://www.w3.org/2001/XMLSchema#double">45</food:vitaminC>
+  </food:Ingredient>
+  <food:Ingredient rdf:about="#85">
+    <food:name rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Beans</food:name>
+    <food:calories rdf:datatype="http://www.w3.org/2001/XMLSchema#double">303</food:calories>
+    <food:fats rdf:datatype="http://www.w3.org/2001/XMLSchema#double">1.7</food:fats>
+    <food:proteins rdf:datatype="http://www.w3.org/2001/XMLSchema#double">23</food:proteins>
+    <food:carbohydrates rdf:datatype="http://www.w3.org/2001/XMLSchema#double">47</food:carbohydrates>
+    <food:calcium rdf:datatype="http://www.w3.org/2001/XMLSchema#double">190</food:calcium>
+    <food:sodium rdf:datatype="http://www.w3.org/2001/XMLSchema#double">300</food:sodium>
+    <food:iron rdf:datatype="http://www.w3.org/2001/XMLSchema#double">15</food:iron>
+    <food:vitaminA rdf:datatype="http://www.w3.org/2001/XMLSchema#double">0</food:vitaminA>
+    <food:vitaminB rdf:datatype="http://www.w3.org/2001/XMLSchema#double">0.41</food:vitaminB>
+    <food:vitaminC rdf:datatype="http://www.w3.org/2001/XMLSchema#double">19.7</food:vitaminC>
+  </food:Ingredient>
+  <food:Ingredient rdf:about="#86">
+    <food:name rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Black olives</food:name>
+    <food:calories rdf:datatype="http://www.w3.org/2001/XMLSchema#double">156</food:calories>
+    <food:fats rdf:datatype="http://www.w3.org/2001/XMLSchema#double">15</food:fats>
+    <food:proteins rdf:datatype="http://www.w3.org/2001/XMLSchema#double">1.6</food:proteins>
+    <food:carbohydrates rdf:datatype="http://www.w3.org/2001/XMLSchema#double">3.5</food:carbohydrates>
+    <food:calcium rdf:datatype="http://www.w3.org/2001/XMLSchema#double">85</food:calcium>
+    <food:sodium rdf:datatype="http://www.w3.org/2001/XMLSchema#double">0</food:sodium>
+    <food:iron rdf:datatype="http://www.w3.org/2001/XMLSchema#double">1.6</food:iron>
+    <food:vitaminA rdf:datatype="http://www.w3.org/2001/XMLSchema#double">0.09</food:vitaminA>
+    <food:vitaminB rdf:datatype="http://www.w3.org/2001/XMLSchema#double">0</food:vitaminB>
+    <food:vitaminC rdf:datatype="http://www.w3.org/2001/XMLSchema#double">0</food:vitaminC>
+  </food:Ingredient>
+  <food:Ingredient rdf:about="#87">
+    <food:name rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Green olives</food:name>
+    <food:calories rdf:datatype="http://www.w3.org/2001/XMLSchema#double">177</food:calories>
+    <food:fats rdf:datatype="http://www.w3.org/2001/XMLSchema#double">10</food:fats>
+    <food:proteins rdf:datatype="http://www.w3.org/2001/XMLSchema#double">12.5</food:proteins>
+    <food:carbohydrates rdf:datatype="http://www.w3.org/2001/XMLSchema#double">8.1</food:carbohydrates>
+    <food:calcium rdf:datatype="http://www.w3.org/2001/XMLSchema#double">80</food:calcium>
+    <food:sodium rdf:datatype="http://www.w3.org/2001/XMLSchema#double">0</food:sodium>
+    <food:iron rdf:datatype="http://www.w3.org/2001/XMLSchema#double">1</food:iron>
+    <food:vitaminA rdf:datatype="http://www.w3.org/2001/XMLSchema#double">0</food:vitaminA>
+    <food:vitaminB rdf:datatype="http://www.w3.org/2001/XMLSchema#double">0</food:vitaminB>
+    <food:vitaminC rdf:datatype="http://www.w3.org/2001/XMLSchema#double">0</food:vitaminC>
+  </food:Ingredient>
+  <food:Ingredient rdf:about="#88">
+    <food:name rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Nuts</food:name>
+    <food:calories rdf:datatype="http://www.w3.org/2001/XMLSchema#double">650</food:calories>
+    <food:fats rdf:datatype="http://www.w3.org/2001/XMLSchema#double">59</food:fats>
+    <food:proteins rdf:datatype="http://www.w3.org/2001/XMLSchema#double">21</food:proteins>
+    <food:carbohydrates rdf:datatype="http://www.w3.org/2001/XMLSchema#double">3.7</food:carbohydrates>
+    <food:calcium rdf:datatype="http://www.w3.org/2001/XMLSchema#double">82</food:calcium>
+    <food:sodium rdf:datatype="http://www.w3.org/2001/XMLSchema#double">4</food:sodium>
+    <food:iron rdf:datatype="http://www.w3.org/2001/XMLSchema#double">2.1</food:iron>
+    <food:vitaminA rdf:datatype="http://www.w3.org/2001/XMLSchema#double">0.01</food:vitaminA>
+    <food:vitaminB rdf:datatype="http://www.w3.org/2001/XMLSchema#double">0.4</food:vitaminB>
+    <food:vitaminC rdf:datatype="http://www.w3.org/2001/XMLSchema#double">3</food:vitaminC>
+  </food:Ingredient>
+  <food:Ingredient rdf:about="#89">
+    <food:name rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Chicken eggs</food:name>
+    <food:calories rdf:datatype="http://www.w3.org/2001/XMLSchema#double">171</food:calories>
+    <food:fats rdf:datatype="http://www.w3.org/2001/XMLSchema#double">12</food:fats>
+    <food:proteins rdf:datatype="http://www.w3.org/2001/XMLSchema#double">14</food:proteins>
+    <food:carbohydrates rdf:datatype="http://www.w3.org/2001/XMLSchema#double">0.6</food:carbohydrates>
+    <food:calcium rdf:datatype="http://www.w3.org/2001/XMLSchema#double">20</food:calcium>
+    <food:sodium rdf:datatype="http://www.w3.org/2001/XMLSchema#double">175</food:sodium>
+    <food:iron rdf:datatype="http://www.w3.org/2001/XMLSchema#double">15</food:iron>
+    <food:vitaminA rdf:datatype="http://www.w3.org/2001/XMLSchema#double">0</food:vitaminA>
+    <food:vitaminB rdf:datatype="http://www.w3.org/2001/XMLSchema#double">0.2</food:vitaminB>
+    <food:vitaminC rdf:datatype="http://www.w3.org/2001/XMLSchema#double">9.5</food:vitaminC>
+  </food:Ingredient>
+  <food:Ingredient rdf:about="#90">
+    <food:name rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Cookies</food:name>
+    <food:calories rdf:datatype="http://www.w3.org/2001/XMLSchema#double">425</food:calories>
+    <food:fats rdf:datatype="http://www.w3.org/2001/XMLSchema#double">9.5</food:fats>
+    <food:proteins rdf:datatype="http://www.w3.org/2001/XMLSchema#double">8.2</food:proteins>
+    <food:carbohydrates rdf:datatype="http://www.w3.org/2001/XMLSchema#double">74</food:carbohydrates>
+    <food:calcium rdf:datatype="http://www.w3.org/2001/XMLSchema#double">10</food:calcium>
+    <food:sodium rdf:datatype="http://www.w3.org/2001/XMLSchema#double">500</food:sodium>
+    <food:iron rdf:datatype="http://www.w3.org/2001/XMLSchema#double">30</food:iron>
+    <food:vitaminA rdf:datatype="http://www.w3.org/2001/XMLSchema#double">0</food:vitaminA>
+    <food:vitaminB rdf:datatype="http://www.w3.org/2001/XMLSchema#double">0.61</food:vitaminB>
+    <food:vitaminC rdf:datatype="http://www.w3.org/2001/XMLSchema#double">5.5</food:vitaminC>
+  </food:Ingredient>
+  <food:Ingredient rdf:about="#91">
+    <food:name rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Wheat flour</food:name>
+    <food:calories rdf:datatype="http://www.w3.org/2001/XMLSchema#double">349</food:calories>
+    <food:fats rdf:datatype="http://www.w3.org/2001/XMLSchema#double">1.4</food:fats>
+    <food:proteins rdf:datatype="http://www.w3.org/2001/XMLSchema#double">11</food:proteins>
+    <food:carbohydrates rdf:datatype="http://www.w3.org/2001/XMLSchema#double">71</food:carbohydrates>
+    <food:calcium rdf:datatype="http://www.w3.org/2001/XMLSchema#double">80</food:calcium>
+    <food:sodium rdf:datatype="http://www.w3.org/2001/XMLSchema#double">925</food:sodium>
+    <food:iron rdf:datatype="http://www.w3.org/2001/XMLSchema#double">15</food:iron>
+    <food:vitaminA rdf:datatype="http://www.w3.org/2001/XMLSchema#double">0</food:vitaminA>
+    <food:vitaminB rdf:datatype="http://www.w3.org/2001/XMLSchema#double">0.35</food:vitaminB>
+    <food:vitaminC rdf:datatype="http://www.w3.org/2001/XMLSchema#double">23.6</food:vitaminC>
+  </food:Ingredient>
+  <food:Ingredient rdf:about="#92">
+    <food:name rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Corn flour</food:name>
+    <food:calories rdf:datatype="http://www.w3.org/2001/XMLSchema#double">351</food:calories>
+    <food:fats rdf:datatype="http://www.w3.org/2001/XMLSchema#double">1.7</food:fats>
+    <food:proteins rdf:datatype="http://www.w3.org/2001/XMLSchema#double">9.6</food:proteins>
+    <food:carbohydrates rdf:datatype="http://www.w3.org/2001/XMLSchema#double">72.1</food:carbohydrates>
+    <food:calcium rdf:datatype="http://www.w3.org/2001/XMLSchema#double">70</food:calcium>
+    <food:sodium rdf:datatype="http://www.w3.org/2001/XMLSchema#double">500</food:sodium>
+    <food:iron rdf:datatype="http://www.w3.org/2001/XMLSchema#double">0</food:iron>
+    <food:vitaminA rdf:datatype="http://www.w3.org/2001/XMLSchema#double">0</food:vitaminA>
+    <food:vitaminB rdf:datatype="http://www.w3.org/2001/XMLSchema#double">0.63</food:vitaminB>
+    <food:vitaminC rdf:datatype="http://www.w3.org/2001/XMLSchema#double">23.2</food:vitaminC>
+  </food:Ingredient>
+  <food:Ingredient rdf:about="#93">
+    <food:name rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Semolina</food:name>
+    <food:calories rdf:datatype="http://www.w3.org/2001/XMLSchema#double">358</food:calories>
+    <food:fats rdf:datatype="http://www.w3.org/2001/XMLSchema#double">0.9</food:fats>
+    <food:proteins rdf:datatype="http://www.w3.org/2001/XMLSchema#double">9.4</food:proteins>
+    <food:carbohydrates rdf:datatype="http://www.w3.org/2001/XMLSchema#double">75.4</food:carbohydrates>
+    <food:calcium rdf:datatype="http://www.w3.org/2001/XMLSchema#double">100</food:calcium>
+    <food:sodium rdf:datatype="http://www.w3.org/2001/XMLSchema#double">350</food:sodium>
+    <food:iron rdf:datatype="http://www.w3.org/2001/XMLSchema#double">30</food:iron>
+    <food:vitaminA rdf:datatype="http://www.w3.org/2001/XMLSchema#double">0</food:vitaminA>
+    <food:vitaminB rdf:datatype="http://www.w3.org/2001/XMLSchema#double">0.98</food:vitaminB>
+    <food:vitaminC rdf:datatype="http://www.w3.org/2001/XMLSchema#double">6.4</food:vitaminC>
+  </food:Ingredient>
+  <food:Ingredient rdf:about="#94">
+    <food:name rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Rice</food:name>
+    <food:calories rdf:datatype="http://www.w3.org/2001/XMLSchema#double">354</food:calories>
+    <food:fats rdf:datatype="http://www.w3.org/2001/XMLSchema#double">1.2</food:fats>
+    <food:proteins rdf:datatype="http://www.w3.org/2001/XMLSchema#double">8.1</food:proteins>
+    <food:carbohydrates rdf:datatype="http://www.w3.org/2001/XMLSchema#double">75.5</food:carbohydrates>
+    <food:calcium rdf:datatype="http://www.w3.org/2001/XMLSchema#double">240</food:calcium>
+    <food:sodium rdf:datatype="http://www.w3.org/2001/XMLSchema#double">150</food:sodium>
+    <food:iron rdf:datatype="http://www.w3.org/2001/XMLSchema#double">15</food:iron>
+    <food:vitaminA rdf:datatype="http://www.w3.org/2001/XMLSchema#double">0</food:vitaminA>
+    <food:vitaminB rdf:datatype="http://www.w3.org/2001/XMLSchema#double">0.75</food:vitaminB>
+    <food:vitaminC rdf:datatype="http://www.w3.org/2001/XMLSchema#double">7.2</food:vitaminC>
+  </food:Ingredient>
+  <food:Ingredient rdf:about="#95">
+    <food:name rdf:datatype="http://www.w3.org/2001/XMLSchema#string">White wheat bread</food:name>
+    <food:calories rdf:datatype="http://www.w3.org/2001/XMLSchema#double">247</food:calories>
+    <food:fats rdf:datatype="http://www.w3.org/2001/XMLSchema#double">0.4</food:fats>
+    <food:proteins rdf:datatype="http://www.w3.org/2001/XMLSchema#double">7.5</food:proteins>
+    <food:carbohydrates rdf:datatype="http://www.w3.org/2001/XMLSchema#double">52</food:carbohydrates>
+    <food:calcium rdf:datatype="http://www.w3.org/2001/XMLSchema#double">140</food:calcium>
+    <food:sodium rdf:datatype="http://www.w3.org/2001/XMLSchema#double">975</food:sodium>
+    <food:iron rdf:datatype="http://www.w3.org/2001/XMLSchema#double">60</food:iron>
+    <food:vitaminA rdf:datatype="http://www.w3.org/2001/XMLSchema#double">0</food:vitaminA>
+    <food:vitaminB rdf:datatype="http://www.w3.org/2001/XMLSchema#double">0.36</food:vitaminB>
+    <food:vitaminC rdf:datatype="http://www.w3.org/2001/XMLSchema#double">5.4</food:vitaminC>
+  </food:Ingredient>
+  <food:Ingredient rdf:about="#96">
+    <food:name rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Intermediate wheat bread</food:name>
+    <food:calories rdf:datatype="http://www.w3.org/2001/XMLSchema#double">234</food:calories>
+    <food:fats rdf:datatype="http://www.w3.org/2001/XMLSchema#double">0.7</food:fats>
+    <food:proteins rdf:datatype="http://www.w3.org/2001/XMLSchema#double">7.5</food:proteins>
+    <food:carbohydrates rdf:datatype="http://www.w3.org/2001/XMLSchema#double">43</food:carbohydrates>
+    <food:calcium rdf:datatype="http://www.w3.org/2001/XMLSchema#double">100</food:calcium>
+    <food:sodium rdf:datatype="http://www.w3.org/2001/XMLSchema#double">100</food:sodium>
+    <food:iron rdf:datatype="http://www.w3.org/2001/XMLSchema#double">0</food:iron>
+    <food:vitaminA rdf:datatype="http://www.w3.org/2001/XMLSchema#double">0</food:vitaminA>
+    <food:vitaminB rdf:datatype="http://www.w3.org/2001/XMLSchema#double">0.03</food:vitaminB>
+    <food:vitaminC rdf:datatype="http://www.w3.org/2001/XMLSchema#double">17.8</food:vitaminC>
+  </food:Ingredient>
+  <food:Ingredient rdf:about="#97">
+    <food:name rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Wholemeal wheat bread</food:name>
+    <food:calories rdf:datatype="http://www.w3.org/2001/XMLSchema#double">242</food:calories>
+    <food:fats rdf:datatype="http://www.w3.org/2001/XMLSchema#double">1.2</food:fats>
+    <food:proteins rdf:datatype="http://www.w3.org/2001/XMLSchema#double">8.4</food:proteins>
+    <food:carbohydrates rdf:datatype="http://www.w3.org/2001/XMLSchema#double">48</food:carbohydrates>
+    <food:calcium rdf:datatype="http://www.w3.org/2001/XMLSchema#double">0</food:calcium>
+    <food:sodium rdf:datatype="http://www.w3.org/2001/XMLSchema#double">775</food:sodium>
+    <food:iron rdf:datatype="http://www.w3.org/2001/XMLSchema#double">15</food:iron>
+    <food:vitaminA rdf:datatype="http://www.w3.org/2001/XMLSchema#double">0</food:vitaminA>
+    <food:vitaminB rdf:datatype="http://www.w3.org/2001/XMLSchema#double">0.05</food:vitaminB>
+    <food:vitaminC rdf:datatype="http://www.w3.org/2001/XMLSchema#double">17</food:vitaminC>
+  </food:Ingredient>
+  <food:Ingredient rdf:about="#98">
+    <food:name rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Graham bread</food:name>
+    <food:calories rdf:datatype="http://www.w3.org/2001/XMLSchema#double">256</food:calories>
+    <food:fats rdf:datatype="http://www.w3.org/2001/XMLSchema#double">1</food:fats>
+    <food:proteins rdf:datatype="http://www.w3.org/2001/XMLSchema#double">9.1</food:proteins>
+    <food:carbohydrates rdf:datatype="http://www.w3.org/2001/XMLSchema#double">51</food:carbohydrates>
+    <food:calcium rdf:datatype="http://www.w3.org/2001/XMLSchema#double">60</food:calcium>
+    <food:sodium rdf:datatype="http://www.w3.org/2001/XMLSchema#double">275</food:sodium>
+    <food:iron rdf:datatype="http://www.w3.org/2001/XMLSchema#double">60</food:iron>
+    <food:vitaminA rdf:datatype="http://www.w3.org/2001/XMLSchema#double">0</food:vitaminA>
+    <food:vitaminB rdf:datatype="http://www.w3.org/2001/XMLSchema#double">0.28</food:vitaminB>
+    <food:vitaminC rdf:datatype="http://www.w3.org/2001/XMLSchema#double">24.6</food:vitaminC>
+  </food:Ingredient>
+  <food:Ingredient rdf:about="#99">
+    <food:name rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Egg pasta</food:name>
+    <food:calories rdf:datatype="http://www.w3.org/2001/XMLSchema#double">386</food:calories>
+    <food:fats rdf:datatype="http://www.w3.org/2001/XMLSchema#double">2.2</food:fats>
+    <food:proteins rdf:datatype="http://www.w3.org/2001/XMLSchema#double">10.2</food:proteins>
+    <food:carbohydrates rdf:datatype="http://www.w3.org/2001/XMLSchema#double">79.1</food:carbohydrates>
+    <food:calcium rdf:datatype="http://www.w3.org/2001/XMLSchema#double">170</food:calcium>
+    <food:sodium rdf:datatype="http://www.w3.org/2001/XMLSchema#double">100</food:sodium>
+    <food:iron rdf:datatype="http://www.w3.org/2001/XMLSchema#double">30</food:iron>
+    <food:vitaminA rdf:datatype="http://www.w3.org/2001/XMLSchema#double">0</food:vitaminA>
+    <food:vitaminB rdf:datatype="http://www.w3.org/2001/XMLSchema#double">0.89</food:vitaminB>
+    <food:vitaminC rdf:datatype="http://www.w3.org/2001/XMLSchema#double">9.2</food:vitaminC>
+  </food:Ingredient>
+  <food:Ingredient rdf:about="#100">
+    <food:name rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Regular pasta</food:name>
+    <food:calories rdf:datatype="http://www.w3.org/2001/XMLSchema#double">360</food:calories>
+    <food:fats rdf:datatype="http://www.w3.org/2001/XMLSchema#double">0.6</food:fats>
+    <food:proteins rdf:datatype="http://www.w3.org/2001/XMLSchema#double">10.9</food:proteins>
+    <food:carbohydrates rdf:datatype="http://www.w3.org/2001/XMLSchema#double">75.6</food:carbohydrates>
+    <food:calcium rdf:datatype="http://www.w3.org/2001/XMLSchema#double">130</food:calcium>
+    <food:sodium rdf:datatype="http://www.w3.org/2001/XMLSchema#double">175</food:sodium>
+    <food:iron rdf:datatype="http://www.w3.org/2001/XMLSchema#double">60</food:iron>
+    <food:vitaminA rdf:datatype="http://www.w3.org/2001/XMLSchema#double">0</food:vitaminA>
+    <food:vitaminB rdf:datatype="http://www.w3.org/2001/XMLSchema#double">0.94</food:vitaminB>
+    <food:vitaminC rdf:datatype="http://www.w3.org/2001/XMLSchema#double">9.6</food:vitaminC>
+  </food:Ingredient>
+  <food:Ingredient rdf:about="#101">
+    <food:name rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Milk toffee</food:name>
+    <food:calories rdf:datatype="http://www.w3.org/2001/XMLSchema#double">394</food:calories>
+    <food:fats rdf:datatype="http://www.w3.org/2001/XMLSchema#double">0</food:fats>
+    <food:proteins rdf:datatype="http://www.w3.org/2001/XMLSchema#double">0</food:proteins>
+    <food:carbohydrates rdf:datatype="http://www.w3.org/2001/XMLSchema#double">96</food:carbohydrates>
+    <food:calcium rdf:datatype="http://www.w3.org/2001/XMLSchema#double">190</food:calcium>
+    <food:sodium rdf:datatype="http://www.w3.org/2001/XMLSchema#double">725</food:sodium>
+    <food:iron rdf:datatype="http://www.w3.org/2001/XMLSchema#double">15</food:iron>
+    <food:vitaminA rdf:datatype="http://www.w3.org/2001/XMLSchema#double">0</food:vitaminA>
+    <food:vitaminB rdf:datatype="http://www.w3.org/2001/XMLSchema#double">0.32</food:vitaminB>
+    <food:vitaminC rdf:datatype="http://www.w3.org/2001/XMLSchema#double">15.9</food:vitaminC>
+  </food:Ingredient>
+  <food:Ingredient rdf:about="#102">
+    <food:name rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Milk chocolate</food:name>
+    <food:calories rdf:datatype="http://www.w3.org/2001/XMLSchema#double">605</food:calories>
+    <food:fats rdf:datatype="http://www.w3.org/2001/XMLSchema#double">40</food:fats>
+    <food:proteins rdf:datatype="http://www.w3.org/2001/XMLSchema#double">6.9</food:proteins>
+    <food:carbohydrates rdf:datatype="http://www.w3.org/2001/XMLSchema#double">50</food:carbohydrates>
+    <food:calcium rdf:datatype="http://www.w3.org/2001/XMLSchema#double">120</food:calcium>
+    <food:sodium rdf:datatype="http://www.w3.org/2001/XMLSchema#double">575</food:sodium>
+    <food:iron rdf:datatype="http://www.w3.org/2001/XMLSchema#double">15</food:iron>
+    <food:vitaminA rdf:datatype="http://www.w3.org/2001/XMLSchema#double">0</food:vitaminA>
+    <food:vitaminB rdf:datatype="http://www.w3.org/2001/XMLSchema#double">0.14</food:vitaminB>
+    <food:vitaminC rdf:datatype="http://www.w3.org/2001/XMLSchema#double">12.8</food:vitaminC>
+  </food:Ingredient>
+  <food:Ingredient rdf:about="#103">
+    <food:name rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Cherry jam</food:name>
+    <food:calories rdf:datatype="http://www.w3.org/2001/XMLSchema#double">282</food:calories>
+    <food:fats rdf:datatype="http://www.w3.org/2001/XMLSchema#double">0</food:fats>
+    <food:proteins rdf:datatype="http://www.w3.org/2001/XMLSchema#double">0.77</food:proteins>
+    <food:carbohydrates rdf:datatype="http://www.w3.org/2001/XMLSchema#double">68</food:carbohydrates>
+    <food:calcium rdf:datatype="http://www.w3.org/2001/XMLSchema#double">50</food:calcium>
+    <food:sodium rdf:datatype="http://www.w3.org/2001/XMLSchema#double">475</food:sodium>
+    <food:iron rdf:datatype="http://www.w3.org/2001/XMLSchema#double">0</food:iron>
+    <food:vitaminA rdf:datatype="http://www.w3.org/2001/XMLSchema#double">0</food:vitaminA>
+    <food:vitaminB rdf:datatype="http://www.w3.org/2001/XMLSchema#double">0.91</food:vitaminB>
+    <food:vitaminC rdf:datatype="http://www.w3.org/2001/XMLSchema#double">22.3</food:vitaminC>
+  </food:Ingredient>
+  <food:Ingredient rdf:about="#104">
+    <food:name rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Apricot jam</food:name>
+    <food:calories rdf:datatype="http://www.w3.org/2001/XMLSchema#double">240</food:calories>
+    <food:fats rdf:datatype="http://www.w3.org/2001/XMLSchema#double">0</food:fats>
+    <food:proteins rdf:datatype="http://www.w3.org/2001/XMLSchema#double">0.65</food:proteins>
+    <food:carbohydrates rdf:datatype="http://www.w3.org/2001/XMLSchema#double">58</food:carbohydrates>
+    <food:calcium rdf:datatype="http://www.w3.org/2001/XMLSchema#double">20</food:calcium>
+    <food:sodium rdf:datatype="http://www.w3.org/2001/XMLSchema#double">300</food:sodium>
+    <food:iron rdf:datatype="http://www.w3.org/2001/XMLSchema#double">45</food:iron>
+    <food:vitaminA rdf:datatype="http://www.w3.org/2001/XMLSchema#double">0</food:vitaminA>
+    <food:vitaminB rdf:datatype="http://www.w3.org/2001/XMLSchema#double">0.3</food:vitaminB>
+    <food:vitaminC rdf:datatype="http://www.w3.org/2001/XMLSchema#double">0.1</food:vitaminC>
+  </food:Ingredient>
+  <food:Ingredient rdf:about="#105">
+    <food:name rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Sour cherry jam</food:name>
+    <food:calories rdf:datatype="http://www.w3.org/2001/XMLSchema#double">250</food:calories>
+    <food:fats rdf:datatype="http://www.w3.org/2001/XMLSchema#double">0</food:fats>
+    <food:proteins rdf:datatype="http://www.w3.org/2001/XMLSchema#double">0.88</food:proteins>
+    <food:carbohydrates rdf:datatype="http://www.w3.org/2001/XMLSchema#double">60</food:carbohydrates>
+    <food:calcium rdf:datatype="http://www.w3.org/2001/XMLSchema#double">20</food:calcium>
+    <food:sodium rdf:datatype="http://www.w3.org/2001/XMLSchema#double">875</food:sodium>
+    <food:iron rdf:datatype="http://www.w3.org/2001/XMLSchema#double">60</food:iron>
+    <food:vitaminA rdf:datatype="http://www.w3.org/2001/XMLSchema#double">0</food:vitaminA>
+    <food:vitaminB rdf:datatype="http://www.w3.org/2001/XMLSchema#double">0.76</food:vitaminB>
+    <food:vitaminC rdf:datatype="http://www.w3.org/2001/XMLSchema#double">15.1</food:vitaminC>
+  </food:Ingredient>
+  <food:Ingredient rdf:about="#106">
+    <food:name rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Honey</food:name>
+    <food:calories rdf:datatype="http://www.w3.org/2001/XMLSchema#double">304</food:calories>
+    <food:fats rdf:datatype="http://www.w3.org/2001/XMLSchema#double">0</food:fats>
+    <food:proteins rdf:datatype="http://www.w3.org/2001/XMLSchema#double">0.5</food:proteins>
+    <food:carbohydrates rdf:datatype="http://www.w3.org/2001/XMLSchema#double">0.2</food:carbohydrates>
+    <food:calcium rdf:datatype="http://www.w3.org/2001/XMLSchema#double">10</food:calcium>
+    <food:sodium rdf:datatype="http://www.w3.org/2001/XMLSchema#double">75</food:sodium>
+    <food:iron rdf:datatype="http://www.w3.org/2001/XMLSchema#double">45</food:iron>
+    <food:vitaminA rdf:datatype="http://www.w3.org/2001/XMLSchema#double">0</food:vitaminA>
+    <food:vitaminB rdf:datatype="http://www.w3.org/2001/XMLSchema#double">0.99</food:vitaminB>
+    <food:vitaminC rdf:datatype="http://www.w3.org/2001/XMLSchema#double">17.1</food:vitaminC>
+  </food:Ingredient>
+  <food:Ingredient rdf:about="#107">
+    <food:name rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Sugar</food:name>
+    <food:calories rdf:datatype="http://www.w3.org/2001/XMLSchema#double">410</food:calories>
+    <food:fats rdf:datatype="http://www.w3.org/2001/XMLSchema#double">0</food:fats>
+    <food:proteins rdf:datatype="http://www.w3.org/2001/XMLSchema#double">0</food:proteins>
+    <food:carbohydrates rdf:datatype="http://www.w3.org/2001/XMLSchema#double">100</food:carbohydrates>
+    <food:calcium rdf:datatype="http://www.w3.org/2001/XMLSchema#double">110</food:calcium>
+    <food:sodium rdf:datatype="http://www.w3.org/2001/XMLSchema#double">150</food:sodium>
+    <food:iron rdf:datatype="http://www.w3.org/2001/XMLSchema#double">60</food:iron>
+    <food:vitaminA rdf:datatype="http://www.w3.org/2001/XMLSchema#double">0</food:vitaminA>
+    <food:vitaminB rdf:datatype="http://www.w3.org/2001/XMLSchema#double">0.64</food:vitaminB>
+    <food:vitaminC rdf:datatype="http://www.w3.org/2001/XMLSchema#double">22.9</food:vitaminC>
+  </food:Ingredient>
+  <food:Ingredient rdf:about="#108">
+    <food:name rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Salt</food:name>
+    <food:calories rdf:datatype="http://www.w3.org/2001/XMLSchema#double">0</food:calories>
+    <food:fats rdf:datatype="http://www.w3.org/2001/XMLSchema#double">0</food:fats>
+    <food:proteins rdf:datatype="http://www.w3.org/2001/XMLSchema#double">0</food:proteins>
+    <food:carbohydrates rdf:datatype="http://www.w3.org/2001/XMLSchema#double">0</food:carbohydrates>
+    <food:calcium rdf:datatype="http://www.w3.org/2001/XMLSchema#double">24</food:calcium>
+    <food:sodium rdf:datatype="http://www.w3.org/2001/XMLSchema#double">38758</food:sodium>
+    <food:iron rdf:datatype="http://www.w3.org/2001/XMLSchema#double">0.33</food:iron>
+    <food:vitaminA rdf:datatype="http://www.w3.org/2001/XMLSchema#double">0</food:vitaminA>
+    <food:vitaminB rdf:datatype="http://www.w3.org/2001/XMLSchema#double">0</food:vitaminB>
+    <food:vitaminC rdf:datatype="http://www.w3.org/2001/XMLSchema#double">0</food:vitaminC>
+  </food:Ingredient>
+  <food:Ingredient rdf:about="#109">
+    <food:name rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Black pepper</food:name>
+    <food:calories rdf:datatype="http://www.w3.org/2001/XMLSchema#double">255</food:calories>
+    <food:fats rdf:datatype="http://www.w3.org/2001/XMLSchema#double">3.26</food:fats>
+    <food:proteins rdf:datatype="http://www.w3.org/2001/XMLSchema#double">10.95</food:proteins>
+    <food:carbohydrates rdf:datatype="http://www.w3.org/2001/XMLSchema#double">64.81</food:carbohydrates>
+    <food:calcium rdf:datatype="http://www.w3.org/2001/XMLSchema#double">437</food:calcium>
+    <food:sodium rdf:datatype="http://www.w3.org/2001/XMLSchema#double">44</food:sodium>
+    <food:iron rdf:datatype="http://www.w3.org/2001/XMLSchema#double">28.86</food:iron>
+    <food:vitaminA rdf:datatype="http://www.w3.org/2001/XMLSchema#double">0</food:vitaminA>
+    <food:vitaminB rdf:datatype="http://www.w3.org/2001/XMLSchema#double">0</food:vitaminB>
+    <food:vitaminC rdf:datatype="http://www.w3.org/2001/XMLSchema#double">21</food:vitaminC>
+  </food:Ingredient>
+  <food:Ingredient rdf:about="#111">
+    <food:name rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Vinegar</food:name>
+    <food:calories rdf:datatype="http://www.w3.org/2001/XMLSchema#double">21</food:calories>
+    <food:fats rdf:datatype="http://www.w3.org/2001/XMLSchema#double">0</food:fats>
+    <food:proteins rdf:datatype="http://www.w3.org/2001/XMLSchema#double">0</food:proteins>
+    <food:carbohydrates rdf:datatype="http://www.w3.org/2001/XMLSchema#double">0.93</food:carbohydrates>
+    <food:calcium rdf:datatype="http://www.w3.org/2001/XMLSchema#double">7</food:calcium>
+    <food:sodium rdf:datatype="http://www.w3.org/2001/XMLSchema#double">5</food:sodium>
+    <food:iron rdf:datatype="http://www.w3.org/2001/XMLSchema#double">0.2</food:iron>
+    <food:vitaminA rdf:datatype="http://www.w3.org/2001/XMLSchema#double">0</food:vitaminA>
+    <food:vitaminB rdf:datatype="http://www.w3.org/2001/XMLSchema#double">0</food:vitaminB>
+    <food:vitaminC rdf:datatype="http://www.w3.org/2001/XMLSchema#double">0</food:vitaminC>
+  </food:Ingredient>
+  <food:Ingredient rdf:about="#112">
+    <food:name rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Egg yolk</food:name>
+    <food:calories rdf:datatype="http://www.w3.org/2001/XMLSchema#double">322</food:calories>
+    <food:fats rdf:datatype="http://www.w3.org/2001/XMLSchema#double">26.5</food:fats>
+    <food:proteins rdf:datatype="http://www.w3.org/2001/XMLSchema#double">15.9</food:proteins>
+    <food:carbohydrates rdf:datatype="http://www.w3.org/2001/XMLSchema#double">3.6</food:carbohydrates>
+    <food:calcium rdf:datatype="http://www.w3.org/2001/XMLSchema#double">0</food:calcium>
+    <food:sodium rdf:datatype="http://www.w3.org/2001/XMLSchema#double">0</food:sodium>
+    <food:iron rdf:datatype="http://www.w3.org/2001/XMLSchema#double">0</food:iron>
+    <food:vitaminA rdf:datatype="http://www.w3.org/2001/XMLSchema#double">0</food:vitaminA>
+    <food:vitaminB rdf:datatype="http://www.w3.org/2001/XMLSchema#double">0</food:vitaminB>
+    <food:vitaminC rdf:datatype="http://www.w3.org/2001/XMLSchema#double">0</food:vitaminC>
+  </food:Ingredient>
+  <food:Ingredient rdf:about="#113">
+    <food:name rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Parsley leaves</food:name>
+    <food:calories rdf:datatype="http://www.w3.org/2001/XMLSchema#double">116</food:calories>
+    <food:fats rdf:datatype="http://www.w3.org/2001/XMLSchema#double">0.5</food:fats>
+    <food:proteins rdf:datatype="http://www.w3.org/2001/XMLSchema#double">1.8</food:proteins>
+    <food:carbohydrates rdf:datatype="http://www.w3.org/2001/XMLSchema#double">26</food:carbohydrates>
+    <food:calcium rdf:datatype="http://www.w3.org/2001/XMLSchema#double">34</food:calcium>
+    <food:sodium rdf:datatype="http://www.w3.org/2001/XMLSchema#double">9</food:sodium>
+    <food:iron rdf:datatype="http://www.w3.org/2001/XMLSchema#double">0.8</food:iron>
+    <food:vitaminA rdf:datatype="http://www.w3.org/2001/XMLSchema#double">2.31</food:vitaminA>
+    <food:vitaminB rdf:datatype="http://www.w3.org/2001/XMLSchema#double">0.09</food:vitaminB>
+    <food:vitaminC rdf:datatype="http://www.w3.org/2001/XMLSchema#double">22</food:vitaminC>
+  </food:Ingredient>
+</rdf:RDF>
+
+<!-- Created with Protege (with OWL Plugin 3.5, Build 663)  http://protege.stanford.edu -->
