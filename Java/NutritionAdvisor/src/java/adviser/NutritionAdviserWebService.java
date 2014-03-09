@@ -35,12 +35,12 @@ public class NutritionAdviserWebService {
      */
     @WebMethod(operationName = "foodIsSuitable")
     public boolean foodIsSuitable(@WebParam(name = "foods") List<String> foods, @WebParam(name = "providers") List<String> providers, @WebParam(name = "diseases") List<String> diseases) throws IOException {
-     /* foods = new ArrayList<>(); foods.add("Apple soup");providers = new ArrayList<>();providers.add("Provider_1");
+      foods = new ArrayList<>(); foods.add("Apple soup");providers = new ArrayList<>();providers.add("Provider_1");
        foods.add("Beef sour soup with cabbage");
        foods.add("Vegetables with grilled sirloin beef");
        providers.add("Provider_1");
                providers.add("Provider_1");
-       */
+       
          OntologyProvider ontologyProvider = new OntologyProvider(propertiesLoader.getProperty("ontology_file"));
         Nutrients nutrientsSum = ontologyProvider.getFoodNutrients(foods, providers);
        /* diseases=new ArrayList<String>();

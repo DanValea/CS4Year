@@ -80,7 +80,7 @@ public class OntologyProvider {
         QueryExecution qe = QueryExecutionFactory.create(query, model);
         ResultSet result = qe.execSelect();
         Nutrients nutrients = getNutrientsSum(result);
-         
+
         qe.close();
 
         return nutrients;
@@ -89,7 +89,7 @@ public class OntologyProvider {
     private Nutrients getNutrientsSum(ResultSet result) {
         Nutrients nutrients = new Nutrients();
         if (result.hasNext()) {
-            
+
             QuerySolution binding = result.nextSolution();
             nutrients.setCalories(binding.getLiteral("caloriesSum").getDouble());
             nutrients.setProteins(binding.getLiteral("proteinsSum").getDouble());
@@ -192,44 +192,51 @@ public class OntologyProvider {
         PropertiesLoader propertiesLoader = new PropertiesLoader("files/nutrientsF.config");
         List<Nutrients> requieredNutrients = new ArrayList<Nutrients>();
 
-        String queryString = "PREFIX foaf: <http://www.pips.eu.org/ontologies/food#>"
-                + "SELECT  ?minCarbohydrates ?maxCarbohydrates "
-                + "?minFats ?maxFats ?minSodium ?maxSodium "
-                + "WHERE { ?disease foaf:diseaseName ?diseaseName "
-                + "OPTIONAL{?disease foaf:minCarbohydrates ?minCarbohydrates} "
-                + "OPTIONAL{?disease foaf:maxCarbohydrates ?maxCarbohydrates} "
-                + "OPTIONAL{?disease foaf:minFats ?minFats} "
-                + "OPTIONAL{?disease foaf:maxFats ?maxFats} "
-                + "OPTIONAL{?disease foaf:minSodium ?minSodium} "
-                + "OPTIONAL{?disease foaf:maxSodium ?maxSodium} "
-                + "FILTER( "+getDiseasesFilterCondition(diseases)+")}";
-        Query query = QueryFactory.create(queryString);
-        QueryExecution qe = QueryExecutionFactory.create(query, model);
-        ResultSet result = qe.execSelect();
+        if (diseases.size() > 0) {
+            String queryString = "PREFIX foaf: <http://www.pips.eu.org/ontologies/food#>"
+                    + "SELECT  ?minCarbohydrates ?maxCarbohydrates "
+                    + "?minFats ?maxFats ?minSodium ?maxSodium "
+                    + "WHERE { ?disease foaf:diseaseName ?diseaseName "
+                    + "OPTIONAL{?disease foaf:minCarbohydrates ?minCarbohydrates} "
+                    + "OPTIONAL{?disease foaf:maxCarbohydrates ?maxCarbohydrates} "
+                    + "OPTIONAL{?disease foaf:minFats ?minFats} "
+                    + "OPTIONAL{?disease foaf:maxFats ?maxFats} "
+                    + "OPTIONAL{?disease foaf:minSodium ?minSodium} "
+                    + "OPTIONAL{?disease foaf:maxSodium ?maxSodium} "
+                    + "FILTER( " + getDiseasesFilterCondition(diseases) + ")}";
+            Query query = QueryFactory.create(queryString);
+            QueryExecution qe = QueryExecutionFactory.create(query, model);
+            ResultSet result = qe.execSelect();
 
-        if (result.hasNext()) {
-            QuerySolution binding = result.nextSolution();
-            requieredNutrients = getNutrientsFromOntologyOrFile(binding, propertiesLoader);
+            if (result.hasNext()) {
+                QuerySolution binding = result.nextSolution();
+                requieredNutrients = getNutrientsFromOntologyOrFile(binding, propertiesLoader);
+            }
+            qe.close();
+        } else {
+            requieredNutrients.add(new Nutrients());
+
+            requieredNutrients.add(new Nutrients());
+
         }
-        qe.close();
         requieredNutrients = getRemainingNutrientsFromFile(requieredNutrients, propertiesLoader);
         return requieredNutrients;
     }
 
     private String getDiseasesFilterCondition(List<String> diseases) {
-       String filterCondition = "";
+        String filterCondition = "";
         if (diseases.size() > 1) {
             for (int diseaseIndex = 0; diseaseIndex < diseases.size() - 1; diseaseIndex++) {
                 //string builder
-                filterCondition =   filterCondition  + "?diseaseName= '" + diseases.get(diseaseIndex) +  "' || ";
+                filterCondition = filterCondition + "?diseaseName= '" + diseases.get(diseaseIndex) + "' || ";
             }
-            filterCondition =  filterCondition  + "?diseaseName= '" + diseases.get(diseases.size()-1) +  "'";
+            filterCondition = filterCondition + "?diseaseName= '" + diseases.get(diseases.size() - 1) + "'";
 
         } else {
-            filterCondition = filterCondition  + "?diseaseName= '" + diseases.get(0) +  "'";
+            filterCondition = filterCondition + "?diseaseName= '" + diseases.get(0) + "'";
         }
         return filterCondition;
-    
+
     }
 
 }
