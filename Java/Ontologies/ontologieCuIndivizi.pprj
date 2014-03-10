@@ -1,4 +1,4 @@
-; Wed Mar 05 22:26:29 EET 2014
+; Mon Mar 10 11:39:02 EET 2014
 ; 
 ;+ (version "3.5")
 ;+ (build "Build 663")
@@ -6,11 +6,11 @@
 ([BROWSER_SLOT_NAMES] of  Property_List
 
 	(properties
-		[ontologieCuIndivizi_ProjectKB_Class198]
-		[ontologieCuIndivizi_ProjectKB_Class199]
-		[ontologieCuIndivizi_ProjectKB_Class200]
-		[ontologieCuIndivizi_ProjectKB_Class201]
-		[ontologieCuIndivizi_ProjectKB_Class202]))
+		[ontologieCuIndivizi_ProjectKB_Class122]
+		[ontologieCuIndivizi_ProjectKB_Class123]
+		[ontologieCuIndivizi_ProjectKB_Class124]
+		[ontologieCuIndivizi_ProjectKB_Class125]
+		[ontologieCuIndivizi_ProjectKB_Class126]))
 
 ([CLSES_TAB] of  Widget
 
@@ -5344,6 +5344,31 @@
 ([ontologieCuIndivizi_ProjectKB_Class12] of  Property_List
 )
 
+([ontologieCuIndivizi_ProjectKB_Class122] of  String
+
+	(name ":INSTANCE-ANNOTATION")
+	(string_value "%3AANNOTATION-TEXT"))
+
+([ontologieCuIndivizi_ProjectKB_Class123] of  String
+
+	(name "http://www.w3.org/2002/07/owl#Class")
+	(string_value "%3ANAME"))
+
+([ontologieCuIndivizi_ProjectKB_Class124] of  String
+
+	(name ":PAL-CONSTRAINT")
+	(string_value "%3APAL-NAME"))
+
+([ontologieCuIndivizi_ProjectKB_Class125] of  String
+
+	(name ":META-CLASS")
+	(string_value "%3ANAME"))
+
+([ontologieCuIndivizi_ProjectKB_Class126] of  String
+
+	(name "http://www.w3.org/2002/07/owl#Thing")
+	(string_value "%3ANAME"))
+
 ([ontologieCuIndivizi_ProjectKB_Class13] of  Widget
 
 	(is_hidden TRUE)
@@ -5377,36 +5402,11 @@
 	(property_list [ontologieCuIndivizi_ProjectKB_Class20])
 	(widget_class_name "edu.stanford.smi.protege.query.LuceneQueryPlugin"))
 
-([ontologieCuIndivizi_ProjectKB_Class198] of  String
-
-	(name ":INSTANCE-ANNOTATION")
-	(string_value "%3AANNOTATION-TEXT"))
-
-([ontologieCuIndivizi_ProjectKB_Class199] of  String
-
-	(name "http://www.w3.org/2002/07/owl#Class")
-	(string_value "%3ANAME"))
-
 ([ontologieCuIndivizi_ProjectKB_Class2] of  Property_List
 )
 
 ([ontologieCuIndivizi_ProjectKB_Class20] of  Property_List
 )
-
-([ontologieCuIndivizi_ProjectKB_Class200] of  String
-
-	(name ":PAL-CONSTRAINT")
-	(string_value "%3APAL-NAME"))
-
-([ontologieCuIndivizi_ProjectKB_Class201] of  String
-
-	(name ":META-CLASS")
-	(string_value "%3ANAME"))
-
-([ontologieCuIndivizi_ProjectKB_Class202] of  String
-
-	(name "http://www.w3.org/2002/07/owl#Thing")
-	(string_value "%3ANAME"))
 
 ([ontologieCuIndivizi_ProjectKB_Class21] of  Widget
 
