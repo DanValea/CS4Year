@@ -50,11 +50,11 @@ public class NutritionAdviserWebService {
     }
 
     private boolean dailyNutrientsIntakeIsReached(Nutrients nutrientsSum, List<Nutrients> dailyRequiredNutrients) {
-        System.out.println(nutrientsSum.getCalories() + " " + nutrientsSum.getProteins()
-                + " " + nutrientsSum.getCarbohydrates() + " " + nutrientsSum.getFats() + " "
-                + nutrientsSum.getCalcium() + " " + nutrientsSum.getIron() + " "
-                + nutrientsSum.getSodium() + " " + nutrientsSum.getVitaminA() + " "
-                + nutrientsSum.getVitaminB() + " " + nutrientsSum.getVitaminC());
+        System.out.println("Calori:" + nutrientsSum.getCalories() + " Proteine:" + nutrientsSum.getProteins()
+                + " Carbo:" + nutrientsSum.getCarbohydrates() + " Fats:" + nutrientsSum.getFats() + " Ca:"
+                + nutrientsSum.getCalcium() + " Fe:" + nutrientsSum.getIron() + " Na:"
+                + nutrientsSum.getSodium() + " vitA:" + nutrientsSum.getVitaminA() + " vitB:"
+                + nutrientsSum.getVitaminB() + " vitC:" + nutrientsSum.getVitaminC());
         if (nutrientsSum.getCalories() < dailyRequiredNutrients.get(0).getCalories() || nutrientsSum.getCalories() > dailyRequiredNutrients.get(1).getCalories()
                 || nutrientsSum.getProteins() < dailyRequiredNutrients.get(0).getProteins() || nutrientsSum.getProteins() > dailyRequiredNutrients.get(1).getProteins()
                 || nutrientsSum.getCarbohydrates() < dailyRequiredNutrients.get(0).getCarbohydrates() || nutrientsSum.getCarbohydrates() > dailyRequiredNutrients.get(1).getCarbohydrates()
