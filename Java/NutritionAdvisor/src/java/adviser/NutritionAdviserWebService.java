@@ -10,6 +10,7 @@ import javax.jws.WebMethod;
 import javax.jws.WebParam;
 import entity.Nutrients;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
 import ontology.OntologyProvider;
 import properties.PropertiesLoader;
@@ -41,7 +42,7 @@ public class NutritionAdviserWebService {
          */
         OntologyProvider ontologyProvider = new OntologyProvider(propertiesLoader.getProperty("ontology_file"));
         Nutrients nutrientsSum = ontologyProvider.getFoodNutrients(foods, providers);
-        /* diseases=new ArrayList<String>();
+         /*diseases=new ArrayList<String>();
          diseases.add("Hypertension");
          */
         List<Nutrients> dailyRequiredNutrients = ontologyProvider.getDailyRequieredNutrients(diseases);
@@ -51,15 +52,17 @@ public class NutritionAdviserWebService {
 
     private boolean dailyNutrientsIntakeIsReached(Nutrients nutrientsSum, List<Nutrients> dailyRequiredNutrients) {
         System.out.println("Calori:" + nutrientsSum.getCalories() + " Proteine:" + nutrientsSum.getProteins()
-                + " Carbo:" + nutrientsSum.getCarbohydrates() + " Fats:" + nutrientsSum.getFats() + " Ca:"
-                + nutrientsSum.getCalcium() + " Fe:" + nutrientsSum.getIron() + " Na:"
+                + " Carbo:" + nutrientsSum.getCarbohydrates() + " Fats:" + nutrientsSum.getFats() + 
+                //" Ca:"
+                //+ nutrientsSum.getCalcium() +
+                " Fe:" + nutrientsSum.getIron() + " Na:"
                 + nutrientsSum.getSodium() + " vitA:" + nutrientsSum.getVitaminA() + " vitB:"
                 + nutrientsSum.getVitaminB() + " vitC:" + nutrientsSum.getVitaminC());
         if (nutrientsSum.getCalories() < dailyRequiredNutrients.get(0).getCalories() || nutrientsSum.getCalories() > dailyRequiredNutrients.get(1).getCalories()
                 || nutrientsSum.getProteins() < dailyRequiredNutrients.get(0).getProteins() || nutrientsSum.getProteins() > dailyRequiredNutrients.get(1).getProteins()
                 || nutrientsSum.getCarbohydrates() < dailyRequiredNutrients.get(0).getCarbohydrates() || nutrientsSum.getCarbohydrates() > dailyRequiredNutrients.get(1).getCarbohydrates()
                 || nutrientsSum.getFats() < dailyRequiredNutrients.get(0).getFats() || nutrientsSum.getFats() > dailyRequiredNutrients.get(1).getFats()
-                || nutrientsSum.getCalcium() < dailyRequiredNutrients.get(0).getCalcium() || nutrientsSum.getCalcium() > dailyRequiredNutrients.get(1).getCalcium()
+//                || nutrientsSum.getCalcium() < dailyRequiredNutrients.get(0).getCalcium() || nutrientsSum.getCalcium() > dailyRequiredNutrients.get(1).getCalcium()
                 || nutrientsSum.getIron() < dailyRequiredNutrients.get(0).getIron() || nutrientsSum.getIron() > dailyRequiredNutrients.get(1).getIron()
                 || nutrientsSum.getSodium() < dailyRequiredNutrients.get(0).getSodium() || nutrientsSum.getSodium() > dailyRequiredNutrients.get(1).getSodium()
                 || nutrientsSum.getVitaminA() < dailyRequiredNutrients.get(0).getVitaminA() || nutrientsSum.getVitaminA() > dailyRequiredNutrients.get(1).getVitaminA()

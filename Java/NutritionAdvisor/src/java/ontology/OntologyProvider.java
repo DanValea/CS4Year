@@ -51,7 +51,7 @@ public class OntologyProvider {
                 + " (SUM( ?proteins*?quantity/100) AS ?proteinsSum)"
                 + " (SUM( ?carbohydrates*?quantity/100) AS ?carbohydratesSum)"
                 + " (SUM( ?fats*?quantity/100) AS ?fatsSum)"
-                + " (SUM( ?calcium*?quantity/100) AS ?calciumSum)"
+             //   + " (SUM( ?calcium*?quantity/100) AS ?calciumSum)"
                 + " (SUM( ?iron*?quantity/100) AS ?ironSum)"
                 + " (SUM( ?sodium*?quantity/100) AS ?sodiumSum)"
                 + " (SUM( ?vitaminA*?quantity/100) AS ?vitaminASum)"
@@ -67,7 +67,7 @@ public class OntologyProvider {
                 + ".?ingredient foaf:proteins ?proteins"
                 + ".?ingredient foaf:carbohydrates ?carbohydrates"
                 + ".?ingredient foaf:fats ?fats"
-                + ".?ingredient foaf:calcium ?calcium"
+               // + ".?ingredient foaf:calcium ?calcium"
                 + ".?ingredient foaf:iron ?iron"
                 + ".?ingredient foaf:sodium ?sodium"
                 + ".?ingredient foaf:vitaminA ?vitaminA"
@@ -95,7 +95,7 @@ public class OntologyProvider {
             nutrients.setProteins(binding.getLiteral("proteinsSum").getDouble());
             nutrients.setCarbohydrates(binding.getLiteral("carbohydratesSum").getDouble());
             nutrients.setFats(binding.getLiteral("fatsSum").getDouble());
-            nutrients.setCalcium(binding.getLiteral("calciumSum").getDouble());
+          //  nutrients.setCalcium(binding.getLiteral("calciumSum").getDouble());
             nutrients.setIron(binding.getLiteral("ironSum").getDouble());
             nutrients.setSodium(binding.getLiteral("sodiumSum").getDouble());
             nutrients.setVitaminA(binding.getLiteral("vitaminASum").getDouble());
@@ -174,8 +174,8 @@ public class OntologyProvider {
         nutrients.get(1).setCalories(Double.valueOf(propertiesLoader.getProperty("maxCalories")));
         nutrients.get(0).setProteins(Double.valueOf(propertiesLoader.getProperty("minProteins")));
         nutrients.get(1).setProteins(Double.valueOf(propertiesLoader.getProperty("maxProteins")));
-        nutrients.get(0).setCalcium(Double.valueOf(propertiesLoader.getProperty("minCalcium")));
-        nutrients.get(1).setCalcium(Double.valueOf(propertiesLoader.getProperty("maxCalcium")));
+      //  nutrients.get(0).setCalcium(Double.valueOf(propertiesLoader.getProperty("minCalcium")));
+       // nutrients.get(1).setCalcium(Double.valueOf(propertiesLoader.getProperty("maxCalcium")));
         nutrients.get(0).setIron(Double.valueOf(propertiesLoader.getProperty("minIron")));
         nutrients.get(1).setIron(Double.valueOf(propertiesLoader.getProperty("maxIron")));
         nutrients.get(0).setVitaminA(Double.valueOf(propertiesLoader.getProperty("minVitaminA")));

@@ -15,7 +15,7 @@ public class Nutrients {
     private double proteins;
     private double carbohydrates;
     private double fats;
-    private double calcium;
+  //  private double calcium;
     private double iron;
     private double sodium;
     private double vitaminA;
@@ -81,17 +81,17 @@ public class Nutrients {
     /**
      * @return the calcium
      */
-    public double getCalcium() {
+  /*  public double getCalcium() {
         return calcium;
     }
-
+/*
     /**
      * @param calcium the calcium to set
      */
-    public void setCalcium(double calcium) {
+/*    public void setCalcium(double calcium) {
         this.calcium = calcium;
     }
-
+*/
     /**
      * @return the iron
      */
