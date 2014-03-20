@@ -10,6 +10,7 @@ import javax.jws.WebMethod;
 import javax.jws.WebParam;
 import entity.Nutrients;
 import java.io.IOException;
+import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.List;
 import ontology.OntologyProvider;
@@ -51,13 +52,21 @@ public class NutritionAdviserWebService {
     }
 
     private boolean dailyNutrientsIntakeIsReached(Nutrients nutrientsSum, List<Nutrients> dailyRequiredNutrients) {
-        System.out.println("Calori:" + nutrientsSum.getCalories() + " Proteine:" + nutrientsSum.getProteins()
-                + " Carbo:" + nutrientsSum.getCarbohydrates() + " Fats:" + nutrientsSum.getFats() + 
-                //" Ca:"
+        DecimalFormat df = new DecimalFormat();
+        df.setMaximumFractionDigits(2);
+        
+        System.out.println("Calori:" + df.format(nutrientsSum.getCalories())
+                + "     Proteine:" + df.format(nutrientsSum.getProteins())
+                + "     Carbo:" + df.format(nutrientsSum.getCarbohydrates())
+                + "     Fats:" + df.format(nutrientsSum.getFats()) 
+                //+" Ca:"
                 //+ nutrientsSum.getCalcium() +
-                " Fe:" + nutrientsSum.getIron() + " Na:"
-                + nutrientsSum.getSodium() + " vitA:" + nutrientsSum.getVitaminA() + " vitB:"
-                + nutrientsSum.getVitaminB() + " vitC:" + nutrientsSum.getVitaminC());
+                + "     Fe:" + df.format(nutrientsSum.getIron())
+                + "     Na:" + df.format(nutrientsSum.getSodium())
+                + "     vitA:" + df.format(nutrientsSum.getVitaminA())
+                + "     vitB:" + df.format(nutrientsSum.getVitaminB())
+                + "     vitC:" + df.format(nutrientsSum.getVitaminC()));
+        
         if (nutrientsSum.getCalories() < dailyRequiredNutrients.get(0).getCalories() || nutrientsSum.getCalories() > dailyRequiredNutrients.get(1).getCalories()
                 || nutrientsSum.getProteins() < dailyRequiredNutrients.get(0).getProteins() || nutrientsSum.getProteins() > dailyRequiredNutrients.get(1).getProteins()
                 || nutrientsSum.getCarbohydrates() < dailyRequiredNutrients.get(0).getCarbohydrates() || nutrientsSum.getCarbohydrates() > dailyRequiredNutrients.get(1).getCarbohydrates()
