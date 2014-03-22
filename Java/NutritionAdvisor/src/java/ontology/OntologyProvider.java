@@ -16,6 +16,7 @@ import com.hp.hpl.jena.rdf.model.Model;
 import com.hp.hpl.jena.rdf.model.ModelFactory;
 import com.hp.hpl.jena.sparql.ARQConstants;
 import com.hp.hpl.jena.sparql.engine.binding.Binding;
+import entity.Food;
 import entity.Nutrients;
 import java.io.File;
 import java.io.FileInputStream;
@@ -44,80 +45,79 @@ public class OntologyProvider {
 
     }
 
-    public Nutrients getFoodNutrients(List<String> foods, List<String> providers) {
-        String queryString = "PREFIX foaf: <http://www.pips.eu.org/ontologies/food#>"
-                + "SELECT"
-                + " (SUM( ?calories*?quantity/100) AS ?caloriesSum)"
-                + " (SUM( ?proteins*?quantity/100) AS ?proteinsSum)"
-                + " (SUM( ?carbohydrates*?quantity/100) AS ?carbohydratesSum)"
-                + " (SUM( ?fats*?quantity/100) AS ?fatsSum)"
-             //   + " (SUM( ?calcium*?quantity/100) AS ?calciumSum)"
-                + " (SUM( ?iron*?quantity/100) AS ?ironSum)"
-                + " (SUM( ?sodium*?quantity/100) AS ?sodiumSum)"
-                + " (SUM( ?vitaminA*?quantity/100) AS ?vitaminASum)"
-                + " (SUM( ?vitaminB*?quantity/100) AS ?vitaminBSum)"
-                + " (SUM( ?vitaminC*?quantity/100) AS ?vitaminCSum)"
-                + " WHERE { ?food  foaf:name ?foodName"
-                + ".?food foaf:provider ?foodProvider"
-                + ".?food foaf:contains ?foodComponent"
-                + ".?foodComponent foaf:quantity ?quantity"
-                + ".?foodComponent foaf:contains ?ingredient"
-                + ".?ingredient foaf:name ?ingredientName"
-                + ".?ingredient foaf:calories ?calories"
-                + ".?ingredient foaf:proteins ?proteins"
-                + ".?ingredient foaf:carbohydrates ?carbohydrates"
-                + ".?ingredient foaf:fats ?fats"
-               // + ".?ingredient foaf:calcium ?calcium"
-                + ".?ingredient foaf:iron ?iron"
-                + ".?ingredient foaf:sodium ?sodium"
-                + ".?ingredient foaf:vitaminA ?vitaminA"
-                + ".?ingredient foaf:vitaminB ?vitaminB"
-                + ".?ingredient foaf:vitaminC ?vitaminC"
-                + " FILTER " + getFoodFilterCondition(foods, providers)
-                + "}";
-
-        Query query = QueryFactory.create(queryString);
-        QueryExecution qe = QueryExecutionFactory.create(query, model);
-        ResultSet result = qe.execSelect();
-        Nutrients nutrients = getNutrientsSum(result);
-
-        qe.close();
-
-        return nutrients;
-    }
-
-    private Nutrients getNutrientsSum(ResultSet result) {
+    public Nutrients getFoodNutrients(List<Food> foods) {
         Nutrients nutrients = new Nutrients();
-        if (result.hasNext()) {
+        for (Food f : foods) {
+            String queryString = "PREFIX foaf: <http://www.pips.eu.org/ontologies/food#>"
+                    + "SELECT"
+                    + " ?ingredientName ?calories ?proteins ?carbohydrates ?fats"
+                    + " ?iron ?sodium ?vitaminA ?vitaminB ?vitaminC"
+                    + " WHERE { ?food  foaf:name ?foodName"
+                    + ".?food foaf:provider ?foodProvider"
+                    + ".?food foaf:contains ?ingredient"
+                    + ".?ingredient foaf:name ?ingredientName"
+                    + ".?ingredient foaf:calories ?calories"
+                    + ".?ingredient foaf:proteins ?proteins"
+                    + ".?ingredient foaf:carbohydrates ?carbohydrates"
+                    + ".?ingredient foaf:fats ?fats"
+                    + ".?ingredient foaf:iron ?iron"
+                    + ".?ingredient foaf:sodium ?sodium"
+                    + ".?ingredient foaf:vitaminA ?vitaminA"
+                    + ".?ingredient foaf:vitaminB ?vitaminB"
+                    + ".?ingredient foaf:vitaminC ?vitaminC"
+                    + " FILTER (?foodName='" + f.getName() + "')"
+                    + "}";
 
-            QuerySolution binding = result.nextSolution();
-            nutrients.setCalories(binding.getLiteral("caloriesSum").getDouble());
-            nutrients.setProteins(binding.getLiteral("proteinsSum").getDouble());
-            nutrients.setCarbohydrates(binding.getLiteral("carbohydratesSum").getDouble());
-            nutrients.setFats(binding.getLiteral("fatsSum").getDouble());
-          //  nutrients.setCalcium(binding.getLiteral("calciumSum").getDouble());
-            nutrients.setIron(binding.getLiteral("ironSum").getDouble());
-            nutrients.setSodium(binding.getLiteral("sodiumSum").getDouble());
-            nutrients.setVitaminA(binding.getLiteral("vitaminASum").getDouble());
-            nutrients.setVitaminB(binding.getLiteral("vitaminBSum").getDouble());
-            nutrients.setVitaminC(binding.getLiteral("vitaminCSum").getDouble());
+            Query query = QueryFactory.create(queryString);
+            QueryExecution qe = QueryExecutionFactory.create(query, model);
+            ResultSet result = qe.execSelect();
+            nutrients = getNutrientsSum(result, nutrients, f);
+
+            qe.close();
         }
         return nutrients;
     }
 
-    private String getFoodFilterCondition(List<String> foods, List<String> providers) {
-        String filterCondition = "";
-        if (foods.size() > 1) {
-            for (int foodComponentIndex = 0; foodComponentIndex < foods.size() - 1; foodComponentIndex++) {
-                //string builder
-                filterCondition = "(" + filterCondition + "(" + "?foodName= '" + foods.get(foodComponentIndex) + "' && ?foodProvider= '" + providers.get(foodComponentIndex) + "')) || ";
+    private Nutrients getNutrientsSum(ResultSet result, Nutrients nutrients, Food food) {
+       
+
+        while (result.hasNext()) {
+            QuerySolution binding = result.nextSolution();
+            boolean ingredientFound = false;
+            int index = 0;
+            while (!ingredientFound && index < food.getFoodEntries().size()) {
+                if (food.getFoodEntries().get(index).getIngredientName().equals(binding.getLiteral("ingredientName").getString())) {
+
+                    ingredientFound = true;
+                    nutrients.setCalories(binding.getLiteral("calories").getDouble() * food.getFoodEntries().get(index).getQuantity() / 100.0 + nutrients.getCalories());
+                    nutrients.setProteins(binding.getLiteral("proteins").getDouble() * food.getFoodEntries().get(index).getQuantity() / 100.0 + nutrients.getProteins());
+                    nutrients.setCarbohydrates(binding.getLiteral("carbohydrates").getDouble() * food.getFoodEntries().get(index).getQuantity() / 100.0 + nutrients.getCarbohydrates());
+                    nutrients.setFats(binding.getLiteral("fats").getDouble() * food.getFoodEntries().get(index).getQuantity() / 100.0 + nutrients.getFats());
+                    nutrients.setIron(binding.getLiteral("iron").getDouble() * food.getFoodEntries().get(index).getQuantity() / 100.0 + nutrients.getIron());
+                    nutrients.setSodium(binding.getLiteral("sodium").getDouble() * food.getFoodEntries().get(index).getQuantity() / 100.0 + nutrients.getSodium());
+                    nutrients.setVitaminA(binding.getLiteral("vitaminA").getDouble() * food.getFoodEntries().get(index).getQuantity() / 100.0 + nutrients.getVitaminA());
+                    nutrients.setVitaminB(binding.getLiteral("vitaminB").getDouble() * food.getFoodEntries().get(index).getQuantity() / 100.0 + nutrients.getVitaminB());
+                    nutrients.setVitaminC(binding.getLiteral("vitaminC").getDouble() * food.getFoodEntries().get(index).getQuantity() / 100.0 + nutrients.getVitaminC());
+                }
+                index++;
+                
             }
-            filterCondition = "(" + filterCondition + "(" + "?foodName='" + foods.get(foods.size() - 1) + "'&& ?foodProvider='" + providers.get(foods.size() - 1) + "'))";
-
-        } else {
-            filterCondition = filterCondition + "(" + "?foodName='" + foods.get(0) + "'&& ?foodProvider='" + providers.get(0) + "')";
-
+            if(!ingredientFound){
+            System.out.println("ingredient not found");
+            }
         }
+        return nutrients;
+    }
+
+    private String getFoodFilterCondition(List<String> foods) {
+        String filterCondition = "( ";
+        for (int foodComponentIndex = 0; foodComponentIndex < foods.size() - 1; foodComponentIndex++) {
+            //string builder
+            filterCondition = filterCondition + "?foodName= '" + foods.get(foodComponentIndex) + "' || ";
+        }
+        filterCondition = filterCondition + "?foodName='" + foods.get(foods.size() - 1) + "')";
+
+        System.out.println(filterCondition);
         return filterCondition;
     }
 
@@ -174,8 +174,10 @@ public class OntologyProvider {
         nutrients.get(1).setCalories(Double.valueOf(propertiesLoader.getProperty("maxCalories")));
         nutrients.get(0).setProteins(Double.valueOf(propertiesLoader.getProperty("minProteins")));
         nutrients.get(1).setProteins(Double.valueOf(propertiesLoader.getProperty("maxProteins")));
-      //  nutrients.get(0).setCalcium(Double.valueOf(propertiesLoader.getProperty("minCalcium")));
-       // nutrients.get(1).setCalcium(Double.valueOf(propertiesLoader.getProperty("maxCalcium")));
+        nutrients.get(0).setFats(Double.valueOf(propertiesLoader.getProperty("minFats")));
+        nutrients.get(1).setFats(Double.valueOf(propertiesLoader.getProperty("maxFats")));
+        nutrients.get(0).setCarbohydrates(Double.valueOf(propertiesLoader.getProperty("minCarbohydrates")));
+        nutrients.get(1).setCarbohydrates(Double.valueOf(propertiesLoader.getProperty("maxCarbohydrates")));
         nutrients.get(0).setIron(Double.valueOf(propertiesLoader.getProperty("minIron")));
         nutrients.get(1).setIron(Double.valueOf(propertiesLoader.getProperty("maxIron")));
         nutrients.get(0).setVitaminA(Double.valueOf(propertiesLoader.getProperty("minVitaminA")));

@@ -15,13 +15,13 @@ public class Nutrients {
     private double proteins;
     private double carbohydrates;
     private double fats;
-  //  private double calcium;
     private double iron;
     private double sodium;
     private double vitaminA;
     private double vitaminB;
     private double vitaminC;
 
+    
     /**
      * @return the calories
      */
