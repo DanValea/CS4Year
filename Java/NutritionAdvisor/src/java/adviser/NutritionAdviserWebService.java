@@ -5,11 +5,14 @@
  */
 package adviser;
 
-import entity.Food;
+import converter.NutrientsFoodSolutionConverter;
+import entity.FoodSolutionWS;
+import entity.FoodWS;
 import javax.jws.WebService;
 import javax.jws.WebMethod;
 import javax.jws.WebParam;
 import entity.Nutrients;
+import entity.PersonWS;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
@@ -34,16 +37,16 @@ public class NutritionAdviserWebService {
      * This is a sample web service operation
      */
     @WebMethod(operationName = "foodIsSuitable")
-    public boolean foodIsSuitable(@WebParam(name = "foods") List<Food> foods, @WebParam(name = "diseases") List<String> diseases) throws IOException {
+    public FoodSolutionWS foodIsSuitable(@WebParam(name = "foodSolution") FoodSolutionWS foodSolution, @WebParam(name = "person") PersonWS  person) throws IOException {
        
-         
         OntologyProvider ontologyProvider = new OntologyProvider(propertiesLoader.getProperty("ontology_file"));
-        Nutrients nutrientsSum = ontologyProvider.getFoodNutrients(foods);
-         diseases=new ArrayList<String>();
-         diseases.add("Hypertension");
-         
-        List<Nutrients> dailyRequiredNutrients = ontologyProvider.getDailyRequieredNutrients(diseases);
-        return dailyNutrientsIntakeIsReached(nutrientsSum, dailyRequiredNutrients);
+        Nutrients nutrientsSum = ontologyProvider.getFoodNutrients(foodSolution.getFoodWS());
+        System.out.println(foodSolution.getFoodWS().size());
+        List<Nutrients> dailyRequiredNutrients = ontologyProvider.getDailyRequieredNutrients(person);
+        foodSolution=NutrientsFoodSolutionConverter.convertNutrientsToFoodSolution(nutrientsSum, foodSolution);
+        foodSolution.setIsSuitable(dailyNutrientsIntakeIsReached(nutrientsSum, dailyRequiredNutrients));
+        
+        return foodSolution;
 
     }
 

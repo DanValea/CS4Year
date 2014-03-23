@@ -6,15 +6,21 @@
 
 package entity;
 
+import java.util.List;
+import javax.xml.bind.annotation.XmlType;
+
 /**
  *
  * @author Mada
  */
-public class Ingredient {
+@XmlType(name="FoodWS") 
+public class FoodWS {
     
-    private String name;
-    private Nutrients nutrients;
+     private String name;
+    
+     private List<FoodEntryWS> foodEntries;
 
+   
     /**
      * @return the name
      */
@@ -30,18 +36,20 @@ public class Ingredient {
     }
 
     /**
-     * @return the nutrients
+     * @return the foodEntries
      */
-    public Nutrients getNutrients() {
-        return nutrients;
+    public List<FoodEntryWS> getFoodEntries() {
+        return foodEntries;
     }
 
     /**
-     * @param nutrients the nutrients to set
+     * @param foodEntries the foodEntries to set
      */
-    public void setNutrients(Nutrients nutrients) {
-        this.nutrients = nutrients;
+    public void setFoodEntries(List<FoodEntryWS> foodEntries) {
+        this.foodEntries = foodEntries;
     }
-    
-    
+
+   
+     
+
 }

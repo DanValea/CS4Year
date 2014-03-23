@@ -6,11 +6,14 @@
 
 package entity;
 
+import javax.xml.bind.annotation.XmlType;
+
 /**
  *
  * @author Mada
  */
-public class FoodEntry {
+@XmlType(name="FoodEntryWS") 
+public class FoodEntryWS {
         private String ingredientName;
         private Double quantity;
 

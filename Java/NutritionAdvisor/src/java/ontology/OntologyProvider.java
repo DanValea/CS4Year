@@ -16,8 +16,10 @@ import com.hp.hpl.jena.rdf.model.Model;
 import com.hp.hpl.jena.rdf.model.ModelFactory;
 import com.hp.hpl.jena.sparql.ARQConstants;
 import com.hp.hpl.jena.sparql.engine.binding.Binding;
-import entity.Food;
+import entity.DiseaseWS;
+import entity.FoodWS;
 import entity.Nutrients;
+import entity.PersonWS;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
@@ -45,15 +47,15 @@ public class OntologyProvider {
 
     }
 
-    public Nutrients getFoodNutrients(List<Food> foods) {
+    public Nutrients getFoodNutrients(List<FoodWS> foods) {
         Nutrients nutrients = new Nutrients();
-        for (Food f : foods) {
+        for (FoodWS f : foods) {
+            System.out.println(f.getName());
             String queryString = "PREFIX foaf: <http://www.pips.eu.org/ontologies/food#>"
                     + "SELECT"
                     + " ?ingredientName ?calories ?proteins ?carbohydrates ?fats"
                     + " ?iron ?sodium ?vitaminA ?vitaminB ?vitaminC"
                     + " WHERE { ?food  foaf:name ?foodName"
-                    + ".?food foaf:provider ?foodProvider"
                     + ".?food foaf:contains ?ingredient"
                     + ".?ingredient foaf:name ?ingredientName"
                     + ".?ingredient foaf:calories ?calories"
@@ -78,8 +80,7 @@ public class OntologyProvider {
         return nutrients;
     }
 
-    private Nutrients getNutrientsSum(ResultSet result, Nutrients nutrients, Food food) {
-       
+    private Nutrients getNutrientsSum(ResultSet result, Nutrients nutrients, FoodWS food) {
 
         while (result.hasNext()) {
             QuerySolution binding = result.nextSolution();
@@ -87,7 +88,7 @@ public class OntologyProvider {
             int index = 0;
             while (!ingredientFound && index < food.getFoodEntries().size()) {
                 if (food.getFoodEntries().get(index).getIngredientName().equals(binding.getLiteral("ingredientName").getString())) {
-
+                    System.out.println(food.getFoodEntries().get(index).getIngredientName());
                     ingredientFound = true;
                     nutrients.setCalories(binding.getLiteral("calories").getDouble() * food.getFoodEntries().get(index).getQuantity() / 100.0 + nutrients.getCalories());
                     nutrients.setProteins(binding.getLiteral("proteins").getDouble() * food.getFoodEntries().get(index).getQuantity() / 100.0 + nutrients.getProteins());
@@ -100,26 +101,16 @@ public class OntologyProvider {
                     nutrients.setVitaminC(binding.getLiteral("vitaminC").getDouble() * food.getFoodEntries().get(index).getQuantity() / 100.0 + nutrients.getVitaminC());
                 }
                 index++;
-                
+
             }
-            if(!ingredientFound){
-            System.out.println("ingredient not found");
+            if (!ingredientFound) {
+                System.out.println("ingredient not found");
             }
         }
         return nutrients;
     }
 
-    private String getFoodFilterCondition(List<String> foods) {
-        String filterCondition = "( ";
-        for (int foodComponentIndex = 0; foodComponentIndex < foods.size() - 1; foodComponentIndex++) {
-            //string builder
-            filterCondition = filterCondition + "?foodName= '" + foods.get(foodComponentIndex) + "' || ";
-        }
-        filterCondition = filterCondition + "?foodName='" + foods.get(foods.size() - 1) + "')";
 
-        System.out.println(filterCondition);
-        return filterCondition;
-    }
 
     private List<Nutrients> getNutrientsFromOntologyOrFile(QuerySolution binding, PropertiesLoader propertiesLoader) {
 
@@ -168,16 +159,17 @@ public class OntologyProvider {
         return requieredNutrientsForUserDiseases;
     }
 
-    private List<Nutrients> getRemainingNutrientsFromFile(List<Nutrients> nutrients, PropertiesLoader propertiesLoader) {
-
-        nutrients.get(0).setCalories(Double.valueOf(propertiesLoader.getProperty("minCalories")));
-        nutrients.get(1).setCalories(Double.valueOf(propertiesLoader.getProperty("maxCalories")));
-        nutrients.get(0).setProteins(Double.valueOf(propertiesLoader.getProperty("minProteins")));
-        nutrients.get(1).setProteins(Double.valueOf(propertiesLoader.getProperty("maxProteins")));
-        nutrients.get(0).setFats(Double.valueOf(propertiesLoader.getProperty("minFats")));
-        nutrients.get(1).setFats(Double.valueOf(propertiesLoader.getProperty("maxFats")));
-        nutrients.get(0).setCarbohydrates(Double.valueOf(propertiesLoader.getProperty("minCarbohydrates")));
-        nutrients.get(1).setCarbohydrates(Double.valueOf(propertiesLoader.getProperty("maxCarbohydrates")));
+    private List<Nutrients> getRemainingNutrientsFromFile(List<Nutrients> nutrients, PropertiesLoader propertiesLoader, PersonWS person) {
+        double brm = calculateCaloriesNeeded(propertiesLoader, person);
+        
+     nutrients.get(0).setCalories((Double.valueOf(propertiesLoader.getProperty("minCaloriesPercentage"))/100.0+1)*brm);
+        nutrients.get(1).setCalories((Double.valueOf(propertiesLoader.getProperty("maxCaloriesPercentage"))/100.0+1)*brm);
+        nutrients.get(0).setProteins(Double.valueOf(propertiesLoader.getProperty("minProteinsPercentage"))/100.0*nutrients.get(0).getCalories()/4.0);
+        nutrients.get(1).setProteins(Double.valueOf(propertiesLoader.getProperty("maxProteinsPercentage"))/100.0*nutrients.get(1).getCalories()/4.0);
+        nutrients.get(0).setFats(Double.valueOf(propertiesLoader.getProperty("minFatsPercentage"))/100.0*nutrients.get(0).getCalories()/9.0);
+        nutrients.get(1).setFats(Double.valueOf(propertiesLoader.getProperty("maxFatsPercentage"))/100.0*nutrients.get(1).getCalories()/9.0);
+       nutrients.get(0).setCarbohydrates(Double.valueOf(propertiesLoader.getProperty("minCarbohydratesPercentage"))/100.0*nutrients.get(0).getCalories()/4.0);
+        nutrients.get(1).setCarbohydrates(Double.valueOf(propertiesLoader.getProperty("maxCarbohydratesPercentage"))/100.0*nutrients.get(1).getCalories()/4.0);
         nutrients.get(0).setIron(Double.valueOf(propertiesLoader.getProperty("minIron")));
         nutrients.get(1).setIron(Double.valueOf(propertiesLoader.getProperty("maxIron")));
         nutrients.get(0).setVitaminA(Double.valueOf(propertiesLoader.getProperty("minVitaminA")));
@@ -190,11 +182,11 @@ public class OntologyProvider {
 
     }
 
-    public List<Nutrients> getDailyRequieredNutrients(List<String> diseases) throws IOException {
+    public List<Nutrients> getDailyRequieredNutrients(PersonWS person) throws IOException {
         PropertiesLoader propertiesLoader = new PropertiesLoader("files/nutrientsF.config");
         List<Nutrients> requieredNutrients = new ArrayList<Nutrients>();
 
-        if (diseases.size() > 0) {
+        if (person.getDiseases().size() > 0) {
             String queryString = "PREFIX foaf: <http://www.pips.eu.org/ontologies/food#>"
                     + "SELECT  ?minCarbohydrates ?maxCarbohydrates "
                     + "?minFats ?maxFats ?minSodium ?maxSodium "
@@ -205,7 +197,7 @@ public class OntologyProvider {
                     + "OPTIONAL{?disease foaf:maxFats ?maxFats} "
                     + "OPTIONAL{?disease foaf:minSodium ?minSodium} "
                     + "OPTIONAL{?disease foaf:maxSodium ?maxSodium} "
-                    + "FILTER( " + getDiseasesFilterCondition(diseases) + ")}";
+                    + "FILTER( " + getDiseasesFilterCondition(person.getDiseases()) + ")}";
             Query query = QueryFactory.create(queryString);
             QueryExecution qe = QueryExecutionFactory.create(query, model);
             ResultSet result = qe.execSelect();
@@ -221,23 +213,40 @@ public class OntologyProvider {
             requieredNutrients.add(new Nutrients());
 
         }
-        requieredNutrients = getRemainingNutrientsFromFile(requieredNutrients, propertiesLoader);
+        requieredNutrients = getRemainingNutrientsFromFile(requieredNutrients, propertiesLoader, person);
+        
+        System.out.println("mincal"+requieredNutrients.get(0).getCalories());
+        System.out.println("maxcal"+requieredNutrients.get(1).getCalories());
+        System.out.println("mincar"+requieredNutrients.get(0).getCarbohydrates());
+        System.out.println("maxcar"+requieredNutrients.get(1).getCarbohydrates());
+        System.out.println("minpr"+requieredNutrients.get(0).getProteins());
+        System.out.println("maxpr"+requieredNutrients.get(1).getProteins());
+        System.out.println("minf"+requieredNutrients.get(0).getFats());
+        System.out.println("minf"+requieredNutrients.get(1).getFats());
+        
         return requieredNutrients;
     }
 
-    private String getDiseasesFilterCondition(List<String> diseases) {
+    private String getDiseasesFilterCondition(List<DiseaseWS> diseases) {
         String filterCondition = "";
         if (diseases.size() > 1) {
             for (int diseaseIndex = 0; diseaseIndex < diseases.size() - 1; diseaseIndex++) {
                 //string builder
-                filterCondition = filterCondition + "?diseaseName= '" + diseases.get(diseaseIndex) + "' || ";
+                filterCondition = filterCondition + "?diseaseName= '" + diseases.get(diseaseIndex).getName() + "' || ";
             }
-            filterCondition = filterCondition + "?diseaseName= '" + diseases.get(diseases.size() - 1) + "'";
+            filterCondition = filterCondition + "?diseaseName= '" + diseases.get(diseases.size() - 1).getName() + "'";
 
         } else {
-            filterCondition = filterCondition + "?diseaseName= '" + diseases.get(0) + "'";
+            filterCondition = filterCondition + "?diseaseName= '" + diseases.get(0).getName() + "'";
         }
+        System.out.println(filterCondition);
         return filterCondition;
+
+    }
+
+    private double calculateCaloriesNeeded(PropertiesLoader propertiesLoader, PersonWS p) {
+        double brm = Double.valueOf(propertiesLoader.getProperty("addTerm")) + Double.valueOf(propertiesLoader.getProperty("weightMultiplier")) * p.getWeight() + Double.valueOf(propertiesLoader.getProperty("heightMultiplier")) * p.getHeight() - Double.valueOf(propertiesLoader.getProperty("ageMultiplier")) * p.getAge();
+        return (Double.valueOf(propertiesLoader.getProperty(p.getActivityLevel())) / 100.0 + 1) * brm;
 
     }
 
