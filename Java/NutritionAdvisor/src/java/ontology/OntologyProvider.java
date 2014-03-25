@@ -51,12 +51,13 @@ public class OntologyProvider {
     public Nutrients getFoodNutrients(List<FoodWS> foods) {
         Nutrients nutrients = new Nutrients();
         for (FoodWS f : foods) {
-for(FoodEntryWS fe:f.getFoodEntries()){
             String queryString = "PREFIX foaf: <http://www.pips.eu.org/ontologies/food#>"
                     + "SELECT"
-                    + "  ?calories ?proteins ?carbohydrates ?fats"
+                    + " ?ingredientName ?calories ?proteins ?carbohydrates ?fats"
                     + " ?iron ?sodium ?vitaminA ?vitaminB ?vitaminC"
-                    + " WHERE { ?ingredient  foaf:name ?ingredientName"
+                    + " WHERE { ?food  foaf:name ?foodName"
+                    + ".?food foaf:contains ?ingredient"
+                    + ".?ingredient foaf:name ?ingredientName"
                     + ".?ingredient foaf:calories ?calories"
                     + ".?ingredient foaf:proteins ?proteins"
                     + ".?ingredient foaf:carbohydrates ?carbohydrates"
@@ -66,22 +67,22 @@ for(FoodEntryWS fe:f.getFoodEntries()){
                     + ".?ingredient foaf:vitaminA ?vitaminA"
                     + ".?ingredient foaf:vitaminB ?vitaminB"
                     + ".?ingredient foaf:vitaminC ?vitaminC"
-                    + " FILTER (?ingredientName='" + fe.getIngredientName() + "')"
+                    + " FILTER (?foodName='" + f.getName() + "')"
                     + "}";
 
             Query query = QueryFactory.create(queryString);
             QueryExecution qe = QueryExecutionFactory.create(query, model);
             ResultSet result = qe.execSelect();
-            nutrients = getNutrientsSum(result, nutrients, f,fe);
+            nutrients = getNutrientsSum(result, nutrients, f);
 
             qe.close();
         }
-        }
+   
         return nutrients;
     }
 
-    private Nutrients getNutrientsSum(ResultSet result, Nutrients nutrients, FoodWS food, FoodEntryWS foodEntry) {
-/*
+    private Nutrients getNutrientsSum(ResultSet result, Nutrients nutrients, FoodWS food) {
+
         while (result.hasNext()) {
             QuerySolution binding = result.nextSolution();
             boolean ingredientFound = false;
@@ -108,9 +109,9 @@ for(FoodEntryWS fe:f.getFoodEntries()){
             }
         }
         return nutrients;
-*/
+
         
-        
+        /*
          while (result.hasNext()) {
          QuerySolution binding = result.nextSolution();
             
@@ -127,7 +128,7 @@ for(FoodEntryWS fe:f.getFoodEntries()){
          }
           
          return nutrients;
-         
+         */
     }
 
     private List<Nutrients> getNutrientsFromOntologyOrFile(QuerySolution binding, PropertiesLoader propertiesLoader) {
@@ -137,7 +138,6 @@ for(FoodEntryWS fe:f.getFoodEntries()){
         List<Nutrients> requieredNutrientsForUserDiseases = new ArrayList<Nutrients>();
 
         if (binding.getLiteral("minCarbohydrates") != null) {
-        //    System.out.println(binding.getLiteral("minCarbohydrates"));
             minRequieredNutrientsForUserDiseases.setCarbohydrates(binding.getLiteral("minCarbohydrates").getDouble());
         } else {
             minRequieredNutrientsForUserDiseases.setCarbohydrates(Double.valueOf(propertiesLoader.getProperty("minCarbohydrates")));
