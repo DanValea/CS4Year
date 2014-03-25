@@ -27,10 +27,13 @@ import properties.PropertiesLoader;
 public class NutritionAdviserWebService {
 
     private PropertiesLoader propertiesLoader;
+    private OntologyProvider ontologyProvider;
     private static final String ontologyConfigFile = "files/configuration-file.config";
 
     public NutritionAdviserWebService() throws IOException {
         propertiesLoader = new PropertiesLoader(ontologyConfigFile);
+         ontologyProvider= new OntologyProvider(propertiesLoader.getProperty("ontology_file"));
+         System.out.println("ontologyProvider");
     }
 
     /**
@@ -38,14 +41,13 @@ public class NutritionAdviserWebService {
      */
     @WebMethod(operationName = "foodIsSuitable")
     public FoodSolutionWS foodIsSuitable(@WebParam(name = "foodSolution") FoodSolutionWS foodSolution, @WebParam(name = "person") PersonWS  person) throws IOException {
-       
-        OntologyProvider ontologyProvider = new OntologyProvider(propertiesLoader.getProperty("ontology_file"));
+       long start=System.currentTimeMillis();
         Nutrients nutrientsSum = ontologyProvider.getFoodNutrients(foodSolution.getFoodWS());
-        System.out.println(foodSolution.getFoodWS().size());
         List<Nutrients> dailyRequiredNutrients = ontologyProvider.getDailyRequieredNutrients(person);
         foodSolution=NutrientsFoodSolutionConverter.convertNutrientsToFoodSolution(nutrientsSum, foodSolution);
         foodSolution.setIsSuitable(dailyNutrientsIntakeIsReached(nutrientsSum, dailyRequiredNutrients));
-        
+        long end= System.currentTimeMillis();
+        System.out.println("time"+(end-start));
         return foodSolution;
 
     }

@@ -17,6 +17,7 @@ import com.hp.hpl.jena.rdf.model.ModelFactory;
 import com.hp.hpl.jena.sparql.ARQConstants;
 import com.hp.hpl.jena.sparql.engine.binding.Binding;
 import entity.DiseaseWS;
+import entity.FoodEntryWS;
 import entity.FoodWS;
 import entity.Nutrients;
 import entity.PersonWS;
@@ -50,14 +51,12 @@ public class OntologyProvider {
     public Nutrients getFoodNutrients(List<FoodWS> foods) {
         Nutrients nutrients = new Nutrients();
         for (FoodWS f : foods) {
-            System.out.println(f.getName());
+for(FoodEntryWS fe:f.getFoodEntries()){
             String queryString = "PREFIX foaf: <http://www.pips.eu.org/ontologies/food#>"
                     + "SELECT"
-                    + " ?ingredientName ?calories ?proteins ?carbohydrates ?fats"
+                    + "  ?calories ?proteins ?carbohydrates ?fats"
                     + " ?iron ?sodium ?vitaminA ?vitaminB ?vitaminC"
-                    + " WHERE { ?food  foaf:name ?foodName"
-                    + ".?food foaf:contains ?ingredient"
-                    + ".?ingredient foaf:name ?ingredientName"
+                    + " WHERE { ?ingredient  foaf:name ?ingredientName"
                     + ".?ingredient foaf:calories ?calories"
                     + ".?ingredient foaf:proteins ?proteins"
                     + ".?ingredient foaf:carbohydrates ?carbohydrates"
@@ -67,28 +66,29 @@ public class OntologyProvider {
                     + ".?ingredient foaf:vitaminA ?vitaminA"
                     + ".?ingredient foaf:vitaminB ?vitaminB"
                     + ".?ingredient foaf:vitaminC ?vitaminC"
-                    + " FILTER (?foodName='" + f.getName() + "')"
+                    + " FILTER (?ingredientName='" + fe.getIngredientName() + "')"
                     + "}";
 
             Query query = QueryFactory.create(queryString);
             QueryExecution qe = QueryExecutionFactory.create(query, model);
             ResultSet result = qe.execSelect();
-            nutrients = getNutrientsSum(result, nutrients, f);
+            nutrients = getNutrientsSum(result, nutrients, f,fe);
 
             qe.close();
+        }
         }
         return nutrients;
     }
 
-    private Nutrients getNutrientsSum(ResultSet result, Nutrients nutrients, FoodWS food) {
-
+    private Nutrients getNutrientsSum(ResultSet result, Nutrients nutrients, FoodWS food, FoodEntryWS foodEntry) {
+/*
         while (result.hasNext()) {
             QuerySolution binding = result.nextSolution();
             boolean ingredientFound = false;
             int index = 0;
             while (!ingredientFound && index < food.getFoodEntries().size()) {
                 if (food.getFoodEntries().get(index).getIngredientName().equals(binding.getLiteral("ingredientName").getString())) {
-                    System.out.println(food.getFoodEntries().get(index).getIngredientName());
+                    
                     ingredientFound = true;
                     nutrients.setCalories(binding.getLiteral("calories").getDouble() * food.getFoodEntries().get(index).getQuantity() / 100.0 + nutrients.getCalories());
                     nutrients.setProteins(binding.getLiteral("proteins").getDouble() * food.getFoodEntries().get(index).getQuantity() / 100.0 + nutrients.getProteins());
@@ -108,9 +108,27 @@ public class OntologyProvider {
             }
         }
         return nutrients;
+*/
+        
+        
+         while (result.hasNext()) {
+         QuerySolution binding = result.nextSolution();
+            
+              
+         nutrients.setCalories(binding.getLiteral("calories").getDouble() * foodEntry.getQuantity() / 100.0 + nutrients.getCalories());
+         nutrients.setProteins(binding.getLiteral("proteins").getDouble() * foodEntry.getQuantity() / 100.0 + nutrients.getProteins());
+         nutrients.setCarbohydrates(binding.getLiteral("carbohydrates").getDouble() * foodEntry.getQuantity() / 100.0 + nutrients.getCarbohydrates());
+         nutrients.setFats(binding.getLiteral("fats").getDouble() * foodEntry.getQuantity()/ 100.0 + nutrients.getFats());
+         nutrients.setIron(binding.getLiteral("iron").getDouble() * foodEntry.getQuantity()/ 100.0 + nutrients.getIron());
+         nutrients.setSodium(binding.getLiteral("sodium").getDouble() * foodEntry.getQuantity() / 100.0 + nutrients.getSodium());
+         nutrients.setVitaminA(binding.getLiteral("vitaminA").getDouble() * foodEntry .getQuantity()/ 100.0 + nutrients.getVitaminA());
+         nutrients.setVitaminB(binding.getLiteral("vitaminB").getDouble() * foodEntry.getQuantity() / 100.0 + nutrients.getVitaminB());
+         nutrients.setVitaminC(binding.getLiteral("vitaminC").getDouble() * foodEntry .getQuantity()/ 100.0 + nutrients.getVitaminC());
+         }
+          
+         return nutrients;
+         
     }
-
-
 
     private List<Nutrients> getNutrientsFromOntologyOrFile(QuerySolution binding, PropertiesLoader propertiesLoader) {
 
@@ -161,15 +179,15 @@ public class OntologyProvider {
 
     private List<Nutrients> getRemainingNutrientsFromFile(List<Nutrients> nutrients, PropertiesLoader propertiesLoader, PersonWS person) {
         double brm = calculateCaloriesNeeded(propertiesLoader, person);
-        
-     nutrients.get(0).setCalories((Double.valueOf(propertiesLoader.getProperty("minCaloriesPercentage"))/100.0+1)*brm);
-        nutrients.get(1).setCalories((Double.valueOf(propertiesLoader.getProperty("maxCaloriesPercentage"))/100.0+1)*brm);
-        nutrients.get(0).setProteins(Double.valueOf(propertiesLoader.getProperty("minProteinsPercentage"))/100.0*nutrients.get(0).getCalories()/4.0);
-        nutrients.get(1).setProteins(Double.valueOf(propertiesLoader.getProperty("maxProteinsPercentage"))/100.0*nutrients.get(1).getCalories()/4.0);
-        nutrients.get(0).setFats(Double.valueOf(propertiesLoader.getProperty("minFatsPercentage"))/100.0*nutrients.get(0).getCalories()/9.0);
-        nutrients.get(1).setFats(Double.valueOf(propertiesLoader.getProperty("maxFatsPercentage"))/100.0*nutrients.get(1).getCalories()/9.0);
-       nutrients.get(0).setCarbohydrates(Double.valueOf(propertiesLoader.getProperty("minCarbohydratesPercentage"))/100.0*nutrients.get(0).getCalories()/4.0);
-        nutrients.get(1).setCarbohydrates(Double.valueOf(propertiesLoader.getProperty("maxCarbohydratesPercentage"))/100.0*nutrients.get(1).getCalories()/4.0);
+
+        nutrients.get(0).setCalories((Double.valueOf(propertiesLoader.getProperty("minCaloriesPercentage")) / 100.0 + 1) * brm);
+        nutrients.get(1).setCalories((Double.valueOf(propertiesLoader.getProperty("maxCaloriesPercentage")) / 100.0 + 1) * brm);
+        nutrients.get(0).setProteins(Double.valueOf(propertiesLoader.getProperty("minProteinsPercentage")) / 100.0 * nutrients.get(0).getCalories() / 4.0);
+        nutrients.get(1).setProteins(Double.valueOf(propertiesLoader.getProperty("maxProteinsPercentage")) / 100.0 * nutrients.get(1).getCalories() / 4.0);
+        nutrients.get(0).setFats(Double.valueOf(propertiesLoader.getProperty("minFatsPercentage")) / 100.0 * nutrients.get(0).getCalories() / 9.0);
+        nutrients.get(1).setFats(Double.valueOf(propertiesLoader.getProperty("maxFatsPercentage")) / 100.0 * nutrients.get(1).getCalories() / 9.0);
+        nutrients.get(0).setCarbohydrates(Double.valueOf(propertiesLoader.getProperty("minCarbohydratesPercentage")) / 100.0 * nutrients.get(0).getCalories() / 4.0);
+        nutrients.get(1).setCarbohydrates(Double.valueOf(propertiesLoader.getProperty("maxCarbohydratesPercentage")) / 100.0 * nutrients.get(1).getCalories() / 4.0);
         nutrients.get(0).setIron(Double.valueOf(propertiesLoader.getProperty("minIron")));
         nutrients.get(1).setIron(Double.valueOf(propertiesLoader.getProperty("maxIron")));
         nutrients.get(0).setVitaminA(Double.valueOf(propertiesLoader.getProperty("minVitaminA")));
@@ -214,16 +232,16 @@ public class OntologyProvider {
 
         }
         requieredNutrients = getRemainingNutrientsFromFile(requieredNutrients, propertiesLoader, person);
-        
-        System.out.println("mincal"+requieredNutrients.get(0).getCalories());
-        System.out.println("maxcal"+requieredNutrients.get(1).getCalories());
-        System.out.println("mincar"+requieredNutrients.get(0).getCarbohydrates());
-        System.out.println("maxcar"+requieredNutrients.get(1).getCarbohydrates());
-        System.out.println("minpr"+requieredNutrients.get(0).getProteins());
-        System.out.println("maxpr"+requieredNutrients.get(1).getProteins());
-        System.out.println("minf"+requieredNutrients.get(0).getFats());
-        System.out.println("minf"+requieredNutrients.get(1).getFats());
-        
+        /*
+         System.out.println("mincal"+requieredNutrients.get(0).getCalories());
+         System.out.println("maxcal"+requieredNutrients.get(1).getCalories());
+         System.out.println("mincar"+requieredNutrients.get(0).getCarbohydrates());
+         System.out.println("maxcar"+requieredNutrients.get(1).getCarbohydrates());
+         System.out.println("minpr"+requieredNutrients.get(0).getProteins());
+         System.out.println("maxpr"+requieredNutrients.get(1).getProteins());
+         System.out.println("minf"+requieredNutrients.get(0).getFats());
+         System.out.println("minf"+requieredNutrients.get(1).getFats());
+         */
         return requieredNutrients;
     }
 
