@@ -5,3 +5,6 @@
 *.war
 *.ear
 
+Java/NutritionAdvisor/nbproject/private/private.xml
+Java/NutritionAdvisor/src/java/properties/files/configuration-file.config
+Java/NutritionAdvisor/nbproject/private/private.properties
