@@ -137,7 +137,7 @@ for(FoodEntryWS fe:f.getFoodEntries()){
         List<Nutrients> requieredNutrientsForUserDiseases = new ArrayList<Nutrients>();
 
         if (binding.getLiteral("minCarbohydrates") != null) {
-            System.out.println(binding.getLiteral("minCarbohydrates"));
+        //    System.out.println(binding.getLiteral("minCarbohydrates"));
             minRequieredNutrientsForUserDiseases.setCarbohydrates(binding.getLiteral("minCarbohydrates").getDouble());
         } else {
             minRequieredNutrientsForUserDiseases.setCarbohydrates(Double.valueOf(propertiesLoader.getProperty("minCarbohydrates")));
@@ -257,7 +257,7 @@ for(FoodEntryWS fe:f.getFoodEntries()){
         } else {
             filterCondition = filterCondition + "?diseaseName= '" + diseases.get(0).getName() + "'";
         }
-        System.out.println(filterCondition);
+      //  System.out.println(filterCondition);
         return filterCondition;
 
     }
