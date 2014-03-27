@@ -14,7 +14,7 @@ import entity.FoodSolutionWS;
  */
 public final class NutrientsFoodSolutionConverter {
     
-    public static FoodSolutionWS convertNutrientsToFoodSolution(entity.Nutrients nutrients,FoodSolutionWS foodSolution){
+    public static FoodSolutionWS convertNutrientsToFoodSolution(entity.NutrientsWS nutrients,FoodSolutionWS foodSolution){
         foodSolution.setCalories((int)nutrients.getCalories());
         foodSolution.setCarbohydrates(nutrients.getCarbohydrates());
         foodSolution.setProteins(nutrients.getProteins());

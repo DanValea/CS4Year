@@ -5,11 +5,14 @@
  */
 package entity;
 
+import javax.xml.bind.annotation.XmlType;
+
 /**
  *
  * @author Mada
  */
-public class Nutrients {
+@XmlType(name="NutrientsWS") 
+public class NutrientsWS {
 
     private double calories;
     private double proteins;
