@@ -28,9 +28,8 @@ public final class IngredientOntology {
             + "SELECT"
             + " ?ingredientName ?calories ?proteins ?carbohydrates ?fats"
             + " ?iron ?sodium ?vitaminA ?vitaminB ?vitaminC"
-            + " WHERE { ?food  foaf:name ?foodName"
-            + ".?food foaf:contains ?ingredient"
-            + ".?ingredient foaf:name ?ingredientName"
+            + " WHERE { "
+            + "?ingredient foaf:name ?ingredientName"
             + ".?ingredient foaf:calories ?calories"
             + ".?ingredient foaf:proteins ?proteins"
             + ".?ingredient foaf:carbohydrates ?carbohydrates"
@@ -63,7 +62,7 @@ public final class IngredientOntology {
             
             ingredients.put(binding.getLiteral("ingredientName").getString(), nutrients);
         }
-        
+        System.out.println(ingredients.size());
         qe.close();
         
         return ingredients;

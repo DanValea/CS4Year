@@ -103,7 +103,7 @@ public final class FoodOntology {
         String foodFilterCondition = getFoodFilterCondition(foods);
 
         if (menuHasCategory(model, userConstraint.getFavouriteCategory(), foodFilterCondition)) {
-            return menuHasCategory(model, userConstraint.getDislikedCategory(), foodFilterCondition);
+            return !menuHasCategory(model, userConstraint.getDislikedCategory(), foodFilterCondition);
         }
         return false;
 

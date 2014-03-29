@@ -3,9 +3,14 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
+            <file>file:/D:/facultate/licenta/cs4year/CS4Year/Java/NutritionAdvisor/src/java/ontology/FoodOntology.java</file>
             <file>file:/D:/facultate/licenta/cs4year/CS4Year/Java/NutritionAdvisor/src/java/adviser/NutritionAdviserWebService.java</file>
+            <file>file:/D:/facultate/licenta/cs4year/CS4Year/Java/NutritionAdvisor/src/java/ontology/DiseaseOntology.java</file>
+            <file>file:/D:/facultate/licenta/cs4year/CS4Year/Java/NutritionAdvisor/src/java/entity/NutrientsWS.java</file>
+            <file>file:/D:/facultate/licenta/cs4year/CS4Year/Java/NutritionAdvisor/src/java/entity/DiseaseWS.java</file>
             <file>file:/D:/facultate/licenta/cs4year/CS4Year/Java/NutritionAdvisor/src/java/ontology/OntologyProvider.java</file>
-            <file>file:/D:/facultate/licenta/cs4year/CS4Year/Java/NutritionAdvisor/src/java/properties/files/nutrientsF.config</file>
+            <file>file:/D:/facultate/licenta/cs4year/CS4Year/Java/NutritionAdvisor/src/java/entity/FoodEntryWS.java</file>
+            <file>file:/D:/facultate/licenta/cs4year/CS4Year/Java/NutritionAdvisor/src/java/entity/CategoryWs.java</file>
         </group>
     </open-files>
 </project-private>
