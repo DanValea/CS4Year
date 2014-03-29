@@ -6,16 +6,21 @@
 
 package entity;
 
+import javax.xml.bind.annotation.XmlType;
+
 /**
  *
  * @author Mada
  */
+
+@XmlType(name="UserPreferenceConstraintWS") 
 public class UserPreferenceConstraintWS {
- private String favouriteCategory;
- private String dislikedCategory;
- 
- private boolean menuHasFavouriteCategory;
- private boolean menuHasDislikedCategory;   
+    
+    private String favouriteCategory;
+    private String dislikedCategory;
+
+    private boolean menuHasFavouriteCategory;
+    private boolean menuHasDislikedCategory;   
 
     /**
      * @return the favouriteCategory

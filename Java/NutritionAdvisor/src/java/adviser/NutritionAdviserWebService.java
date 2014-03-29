@@ -5,10 +5,7 @@
  */
 package adviser;
 
-import converter.NutrientsFoodSolutionConverter;
-import entity.CategoryWs;
 import entity.FoodSolutionWS;
-import entity.FoodWS;
 import entity.NutrientRestrictionWS;
 import javax.jws.WebService;
 import javax.jws.WebMethod;
@@ -17,7 +14,6 @@ import entity.NutrientsWS;
 import entity.PersonWS;
 import entity.UserPreferenceConstraintWS;
 import java.io.IOException;
-import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import ontology.DiseaseOntology;
@@ -43,10 +39,11 @@ public class NutritionAdviserWebService {
         ontologyProvider = new OntologyProvider(propertiesLoader.getProperty("ontology_file"));
 
         long start = System.currentTimeMillis();
+        
         ingredients = IngredientOntology.getAllIngredients(ontologyProvider.getModel());
 
         long end = System.currentTimeMillis();
-        //System.out.println("time ingr" + (end - start));
+        System.out.println("time ingr" + (end - start));
     }
 
     /**
@@ -59,7 +56,7 @@ public class NutritionAdviserWebService {
         NutrientsWS nutrientsSum = FoodOntology.getFoodNutrients(ingredients, foodSolution.getFoodWS());
        // foodSolution=NutrientsFoodSolutionConverter.convertNutrientsToFoodSolution(nutrientsSum, foodSolution);
 
-       // long end= System.currentTimeMillis(); 
+        // long end= System.currentTimeMillis(); 
         // System.out.println("time"+(end-start));
         return nutrientsSum;
 

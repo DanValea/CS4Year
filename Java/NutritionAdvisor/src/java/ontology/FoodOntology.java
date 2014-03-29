@@ -27,26 +27,26 @@ public final class FoodOntology {
 
     public static NutrientsWS getFoodNutrients(HashMap<String, NutrientsWS> ingredients, List<FoodWS> foods) {
         NutrientsWS nutrients = new NutrientsWS();
-        long start = System.currentTimeMillis();
-        System.out.println("time start" + start);
+//        long start = System.currentTimeMillis();
+//        System.out.println("time start" + start);
         for (FoodWS f : foods) {
             for (FoodEntryWS foodEntry : f.getFoodEntries()) {
                 nutrients.setCalories(ingredients.get(foodEntry.getIngredientName()).getCalories() * foodEntry.getQuantity() / 100.0 + nutrients.getCalories());
-                nutrients.setCarbohydrates(ingredients.get(foodEntry.getIngredientName()).getCarbohydrates() * foodEntry.getQuantity() / 100.0 + nutrients.getCalories());
-                nutrients.setProteins(ingredients.get(foodEntry.getIngredientName()).getProteins() * foodEntry.getQuantity() / 100.0 + nutrients.getCalories());
-                nutrients.setFats(ingredients.get(foodEntry.getIngredientName()).getFats() * foodEntry.getQuantity() / 100.0 + nutrients.getCalories());
-                nutrients.setIron(ingredients.get(foodEntry.getIngredientName()).getIron() * foodEntry.getQuantity() / 100.0 + nutrients.getCalories());
-                nutrients.setSodium(ingredients.get(foodEntry.getIngredientName()).getSodium() * foodEntry.getQuantity() / 100.0 + nutrients.getCalories());
-                nutrients.setVitaminA(ingredients.get(foodEntry.getIngredientName()).getVitaminA() * foodEntry.getQuantity() / 100.0 + nutrients.getCalories());
-                nutrients.setVitaminB(ingredients.get(foodEntry.getIngredientName()).getVitaminB() * foodEntry.getQuantity() / 100.0 + nutrients.getCalories());
-                nutrients.setVitaminC(ingredients.get(foodEntry.getIngredientName()).getVitaminC() * foodEntry.getQuantity() / 100.0 + nutrients.getCalories());
+                nutrients.setCarbohydrates(ingredients.get(foodEntry.getIngredientName()).getCarbohydrates() * foodEntry.getQuantity() / 100.0 + nutrients.getCarbohydrates());
+                nutrients.setProteins(ingredients.get(foodEntry.getIngredientName()).getProteins() * foodEntry.getQuantity() / 100.0 + nutrients.getProteins());
+                nutrients.setFats(ingredients.get(foodEntry.getIngredientName()).getFats() * foodEntry.getQuantity() / 100.0 + nutrients.getFats());
+                nutrients.setIron(ingredients.get(foodEntry.getIngredientName()).getIron() * foodEntry.getQuantity() / 100.0 + nutrients.getIron());
+                nutrients.setSodium(ingredients.get(foodEntry.getIngredientName()).getSodium() * foodEntry.getQuantity() / 100.0 + nutrients.getSodium());
+                nutrients.setVitaminA(ingredients.get(foodEntry.getIngredientName()).getVitaminA() * foodEntry.getQuantity() / 100.0 + nutrients.getVitaminA());
+                nutrients.setVitaminB(ingredients.get(foodEntry.getIngredientName()).getVitaminB() * foodEntry.getQuantity() / 100.0 + nutrients.getVitaminB());
+                nutrients.setVitaminC(ingredients.get(foodEntry.getIngredientName()).getVitaminC() * foodEntry.getQuantity() / 100.0 + nutrients.getVitaminC());
             }
 
         }
         
         long end = System.currentTimeMillis();
-        System.out.println("time end" + end);
-        System.out.println("time food" + (end - start));
+//        System.out.println("time end" + end);
+//        System.out.println("time food" + (end - start));
         return nutrients;
     }
 
