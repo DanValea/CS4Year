@@ -12,9 +12,11 @@ import com.hp.hpl.jena.query.QueryFactory;
 import com.hp.hpl.jena.query.QuerySolution;
 import com.hp.hpl.jena.query.ResultSet;
 import com.hp.hpl.jena.rdf.model.Model;
+import entity.FoodEntryWS;
 import entity.FoodWS;
 import entity.NutrientsWS;
 import entity.UserPreferenceConstraintWS;
+import java.util.HashMap;
 import java.util.List;
 
 /**
@@ -23,40 +25,28 @@ import java.util.List;
  */
 public final class FoodOntology {
 
-    public static NutrientsWS getFoodNutrients(Model model, List<FoodWS> foods) {
+    public static NutrientsWS getFoodNutrients(HashMap<String, NutrientsWS> ingredients, List<FoodWS> foods) {
         NutrientsWS nutrients = new NutrientsWS();
+        long start = System.currentTimeMillis();
+        System.out.println("time start" + start);
         for (FoodWS f : foods) {
-            //long start = System.currentTimeMillis();
-            String queryString = "PREFIX foaf: <http://www.pips.eu.org/ontologies/food#>"
-                    + "SELECT"
-                    + " ?ingredientName ?calories ?proteins ?carbohydrates ?fats"
-                    + " ?iron ?sodium ?vitaminA ?vitaminB ?vitaminC"
-                    + " WHERE { ?food  foaf:name ?foodName"
-                    + ".?food foaf:contains ?ingredient"
-                    + ".?ingredient foaf:name ?ingredientName"
-                    + ".?ingredient foaf:calories ?calories"
-                    + ".?ingredient foaf:proteins ?proteins"
-                    + ".?ingredient foaf:carbohydrates ?carbohydrates"
-                    + ".?ingredient foaf:fats ?fats"
-                    + ".?ingredient foaf:iron ?iron"
-                    + ".?ingredient foaf:sodium ?sodium"
-                    + ".?ingredient foaf:vitaminA ?vitaminA"
-                    + ".?ingredient foaf:vitaminB ?vitaminB"
-                    + ".?ingredient foaf:vitaminC ?vitaminC"
-                   + " FILTER (?foodName='" + f.getName() + "')"
-          //          + " FILTER ("+ getFoodFilterCondition(foods) +")"
-                    + "}";
+            for (FoodEntryWS foodEntry : f.getFoodEntries()) {
+                nutrients.setCalories(ingredients.get(foodEntry.getIngredientName()).getCalories() * foodEntry.getQuantity() / 100.0 + nutrients.getCalories());
+                nutrients.setCarbohydrates(ingredients.get(foodEntry.getIngredientName()).getCarbohydrates() * foodEntry.getQuantity() / 100.0 + nutrients.getCalories());
+                nutrients.setProteins(ingredients.get(foodEntry.getIngredientName()).getProteins() * foodEntry.getQuantity() / 100.0 + nutrients.getCalories());
+                nutrients.setFats(ingredients.get(foodEntry.getIngredientName()).getFats() * foodEntry.getQuantity() / 100.0 + nutrients.getCalories());
+                nutrients.setIron(ingredients.get(foodEntry.getIngredientName()).getIron() * foodEntry.getQuantity() / 100.0 + nutrients.getCalories());
+                nutrients.setSodium(ingredients.get(foodEntry.getIngredientName()).getSodium() * foodEntry.getQuantity() / 100.0 + nutrients.getCalories());
+                nutrients.setVitaminA(ingredients.get(foodEntry.getIngredientName()).getVitaminA() * foodEntry.getQuantity() / 100.0 + nutrients.getCalories());
+                nutrients.setVitaminB(ingredients.get(foodEntry.getIngredientName()).getVitaminB() * foodEntry.getQuantity() / 100.0 + nutrients.getCalories());
+                nutrients.setVitaminC(ingredients.get(foodEntry.getIngredientName()).getVitaminC() * foodEntry.getQuantity() / 100.0 + nutrients.getCalories());
+            }
 
-            Query query = QueryFactory.create(queryString);
-            QueryExecution qe = QueryExecutionFactory.create(query, model);
-            ResultSet result = qe.execSelect();
-          //  long end = System.currentTimeMillis();
-        //    System.out.println("time food" + (end - start));
-            nutrients = getNutrientsSum(result, nutrients, f);
-
-            qe.close();
         }
-
+        
+        long end = System.currentTimeMillis();
+        System.out.println("time end" + end);
+        System.out.println("time food" + (end - start));
         return nutrients;
     }
 

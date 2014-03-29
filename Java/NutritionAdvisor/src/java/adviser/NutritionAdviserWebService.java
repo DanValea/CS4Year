@@ -22,6 +22,7 @@ import java.util.HashMap;
 import java.util.List;
 import ontology.DiseaseOntology;
 import ontology.FoodOntology;
+import ontology.IngredientOntology;
 import ontology.OntologyProvider;
 import properties.PropertiesLoader;
 
@@ -34,11 +35,18 @@ public class NutritionAdviserWebService {
 
     private PropertiesLoader propertiesLoader;
     private OntologyProvider ontologyProvider;
+    private HashMap<String,NutrientsWS> ingredients;
     private static final String ontologyConfigFile = "files/configuration-file.config";
 
     public NutritionAdviserWebService() throws IOException {
         propertiesLoader = new PropertiesLoader(ontologyConfigFile);
          ontologyProvider= new OntologyProvider(propertiesLoader.getProperty("ontology_file"));
+         
+          long start = System.currentTimeMillis();
+         ingredients=IngredientOntology.getAllIngredients(ontologyProvider.getModel());
+         
+          long end = System.currentTimeMillis();
+            System.out.println("time ingr" + (end - start));
     }
 
     /**
@@ -48,7 +56,7 @@ public class NutritionAdviserWebService {
     public NutrientsWS computeNutrientsSum(@WebParam(name = "foodSolution") FoodSolutionWS foodSolution) {
        
        // long start=System.currentTimeMillis();
-        NutrientsWS nutrientsSum = FoodOntology.getFoodNutrients(ontologyProvider.getModel(),foodSolution.getFoodWS());
+        NutrientsWS nutrientsSum = FoodOntology.getFoodNutrients(ingredients,foodSolution.getFoodWS());
        // foodSolution=NutrientsFoodSolutionConverter.convertNutrientsToFoodSolution(nutrientsSum, foodSolution);
          
        // long end= System.currentTimeMillis(); 
