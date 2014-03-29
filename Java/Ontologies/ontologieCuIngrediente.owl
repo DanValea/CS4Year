@@ -872,7 +872,7 @@
     <food:weight rdf:datatype="http://www.w3.org/2001/XMLSchema#double"
     >66</food:weight>
   </food:Person>
-   <food:Ingredient rdf:about="#1">
+  <food:Ingredient rdf:about="#1">
     <food:name rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Turkey</food:name>
     <food:calories rdf:datatype="http://www.w3.org/2001/XMLSchema#double">179</food:calories>
     <food:fats rdf:datatype="http://www.w3.org/2001/XMLSchema#double">8.5</food:fats>
@@ -2352,6 +2352,71 @@
     <food:iron rdf:datatype="http://www.w3.org/2001/XMLSchema#double">6</food:iron>
     <food:vitaminA rdf:datatype="http://www.w3.org/2001/XMLSchema#double">0</food:vitaminA>
     <food:vitaminB rdf:datatype="http://www.w3.org/2001/XMLSchema#double">0.6</food:vitaminB>
+    <food:vitaminC rdf:datatype="http://www.w3.org/2001/XMLSchema#double">0</food:vitaminC>
+  </food:Ingredient>
+  <food:Ingredient rdf:about="#122">
+    <food:name rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Peanuts</food:name>
+    <food:calories rdf:datatype="http://www.w3.org/2001/XMLSchema#double">584</food:calories>
+    <food:fats rdf:datatype="http://www.w3.org/2001/XMLSchema#double">44.5</food:fats>
+    <food:proteins rdf:datatype="http://www.w3.org/2001/XMLSchema#double">25.8</food:proteins>
+    <food:carbohydrates rdf:datatype="http://www.w3.org/2001/XMLSchema#double">15.7</food:carbohydrates>
+    <food:calcium rdf:datatype="http://www.w3.org/2001/XMLSchema#double">69</food:calcium>
+    <food:sodium rdf:datatype="http://www.w3.org/2001/XMLSchema#double">7</food:sodium>
+    <food:iron rdf:datatype="http://www.w3.org/2001/XMLSchema#double">2.3</food:iron>
+    <food:vitaminA rdf:datatype="http://www.w3.org/2001/XMLSchema#double">0</food:vitaminA>
+    <food:vitaminB rdf:datatype="http://www.w3.org/2001/XMLSchema#double">0.5</food:vitaminB>
+    <food:vitaminC rdf:datatype="http://www.w3.org/2001/XMLSchema#double">1</food:vitaminC>
+  </food:Ingredient>
+  <food:Ingredient rdf:about="#123">
+    <food:name rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Almonds</food:name>
+    <food:calories rdf:datatype="http://www.w3.org/2001/XMLSchema#double">664</food:calories>
+    <food:fats rdf:datatype="http://www.w3.org/2001/XMLSchema#double">55</food:fats>
+    <food:proteins rdf:datatype="http://www.w3.org/2001/XMLSchema#double">24</food:proteins>
+    <food:carbohydrates rdf:datatype="http://www.w3.org/2001/XMLSchema#double">13.2</food:carbohydrates>
+    <food:calcium rdf:datatype="http://www.w3.org/2001/XMLSchema#double">239</food:calcium>
+    <food:sodium rdf:datatype="http://www.w3.org/2001/XMLSchema#double">3</food:sodium>
+    <food:iron rdf:datatype="http://www.w3.org/2001/XMLSchema#double">3.9</food:iron>
+    <food:vitaminA rdf:datatype="http://www.w3.org/2001/XMLSchema#double">0</food:vitaminA>
+    <food:vitaminB rdf:datatype="http://www.w3.org/2001/XMLSchema#double">0.15</food:vitaminB>
+    <food:vitaminC rdf:datatype="http://www.w3.org/2001/XMLSchema#double">1</food:vitaminC>
+  </food:Ingredient>
+  <food:Ingredient rdf:about="#124">
+    <food:name rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Pistachio</food:name>
+    <food:calories rdf:datatype="http://www.w3.org/2001/XMLSchema#double">650</food:calories>
+    <food:fats rdf:datatype="http://www.w3.org/2001/XMLSchema#double">54</food:fats>
+    <food:proteins rdf:datatype="http://www.w3.org/2001/XMLSchema#double">22.3</food:proteins>
+    <food:carbohydrates rdf:datatype="http://www.w3.org/2001/XMLSchema#double">13.8</food:carbohydrates>
+    <food:calcium rdf:datatype="http://www.w3.org/2001/XMLSchema#double">105</food:calcium>
+    <food:sodium rdf:datatype="http://www.w3.org/2001/XMLSchema#double">1</food:sodium>
+    <food:iron rdf:datatype="http://www.w3.org/2001/XMLSchema#double">3.92</food:iron>
+    <food:vitaminA rdf:datatype="http://www.w3.org/2001/XMLSchema#double">0.021</food:vitaminA>
+    <food:vitaminB rdf:datatype="http://www.w3.org/2001/XMLSchema#double">0</food:vitaminB>
+    <food:vitaminC rdf:datatype="http://www.w3.org/2001/XMLSchema#double">5.6</food:vitaminC>
+  </food:Ingredient>
+  <food:Ingredient rdf:about="#125">
+    <food:name rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Cocoa</food:name>
+    <food:calories rdf:datatype="http://www.w3.org/2001/XMLSchema#double">449</food:calories>
+    <food:fats rdf:datatype="http://www.w3.org/2001/XMLSchema#double">20.2</food:fats>
+    <food:proteins rdf:datatype="http://www.w3.org/2001/XMLSchema#double">23.4</food:proteins>
+    <food:carbohydrates rdf:datatype="http://www.w3.org/2001/XMLSchema#double">40.2</food:carbohydrates>
+    <food:calcium rdf:datatype="http://www.w3.org/2001/XMLSchema#double">420</food:calcium>
+    <food:sodium rdf:datatype="http://www.w3.org/2001/XMLSchema#double">60</food:sodium>
+    <food:iron rdf:datatype="http://www.w3.org/2001/XMLSchema#double">10</food:iron>
+    <food:vitaminA rdf:datatype="http://www.w3.org/2001/XMLSchema#double">0.001</food:vitaminA>
+    <food:vitaminB rdf:datatype="http://www.w3.org/2001/XMLSchema#double">0.11</food:vitaminB>
+    <food:vitaminC rdf:datatype="http://www.w3.org/2001/XMLSchema#double">0.2</food:vitaminC>
+  </food:Ingredient>
+  <food:Ingredient rdf:about="#126">
+    <food:name rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Baking powder</food:name>
+    <food:calories rdf:datatype="http://www.w3.org/2001/XMLSchema#double">97</food:calories>
+    <food:fats rdf:datatype="http://www.w3.org/2001/XMLSchema#double">0.4</food:fats>
+    <food:proteins rdf:datatype="http://www.w3.org/2001/XMLSchema#double">0.1</food:proteins>
+    <food:carbohydrates rdf:datatype="http://www.w3.org/2001/XMLSchema#double">46.9</food:carbohydrates>
+    <food:calcium rdf:datatype="http://www.w3.org/2001/XMLSchema#double">4332</food:calcium>
+    <food:sodium rdf:datatype="http://www.w3.org/2001/XMLSchema#double">90</food:sodium>
+    <food:iron rdf:datatype="http://www.w3.org/2001/XMLSchema#double">8.17</food:iron>
+    <food:vitaminA rdf:datatype="http://www.w3.org/2001/XMLSchema#double">0</food:vitaminA>
+    <food:vitaminB rdf:datatype="http://www.w3.org/2001/XMLSchema#double">0</food:vitaminB>
     <food:vitaminC rdf:datatype="http://www.w3.org/2001/XMLSchema#double">0</food:vitaminC>
   </food:Ingredient>
 </rdf:RDF>

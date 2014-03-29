@@ -872,7 +872,7 @@
     <food:weight rdf:datatype="http://www.w3.org/2001/XMLSchema#double"
     >66</food:weight>
   </food:Person>
-   <food:Ingredient rdf:about="#1">
+  <food:Ingredient rdf:about="#1">
     <food:name rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Turkey</food:name>
     <food:calories rdf:datatype="http://www.w3.org/2001/XMLSchema#double">179</food:calories>
     <food:fats rdf:datatype="http://www.w3.org/2001/XMLSchema#double">8.5</food:fats>
@@ -2354,6 +2354,71 @@
     <food:vitaminB rdf:datatype="http://www.w3.org/2001/XMLSchema#double">0.6</food:vitaminB>
     <food:vitaminC rdf:datatype="http://www.w3.org/2001/XMLSchema#double">0</food:vitaminC>
   </food:Ingredient>
+  <food:Ingredient rdf:about="#122">
+    <food:name rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Peanuts</food:name>
+    <food:calories rdf:datatype="http://www.w3.org/2001/XMLSchema#double">584</food:calories>
+    <food:fats rdf:datatype="http://www.w3.org/2001/XMLSchema#double">44.5</food:fats>
+    <food:proteins rdf:datatype="http://www.w3.org/2001/XMLSchema#double">25.8</food:proteins>
+    <food:carbohydrates rdf:datatype="http://www.w3.org/2001/XMLSchema#double">15.7</food:carbohydrates>
+    <food:calcium rdf:datatype="http://www.w3.org/2001/XMLSchema#double">69</food:calcium>
+    <food:sodium rdf:datatype="http://www.w3.org/2001/XMLSchema#double">7</food:sodium>
+    <food:iron rdf:datatype="http://www.w3.org/2001/XMLSchema#double">2.3</food:iron>
+    <food:vitaminA rdf:datatype="http://www.w3.org/2001/XMLSchema#double">0</food:vitaminA>
+    <food:vitaminB rdf:datatype="http://www.w3.org/2001/XMLSchema#double">0.5</food:vitaminB>
+    <food:vitaminC rdf:datatype="http://www.w3.org/2001/XMLSchema#double">1</food:vitaminC>
+  </food:Ingredient>
+  <food:Ingredient rdf:about="#123">
+    <food:name rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Almonds</food:name>
+    <food:calories rdf:datatype="http://www.w3.org/2001/XMLSchema#double">664</food:calories>
+    <food:fats rdf:datatype="http://www.w3.org/2001/XMLSchema#double">55</food:fats>
+    <food:proteins rdf:datatype="http://www.w3.org/2001/XMLSchema#double">24</food:proteins>
+    <food:carbohydrates rdf:datatype="http://www.w3.org/2001/XMLSchema#double">13.2</food:carbohydrates>
+    <food:calcium rdf:datatype="http://www.w3.org/2001/XMLSchema#double">239</food:calcium>
+    <food:sodium rdf:datatype="http://www.w3.org/2001/XMLSchema#double">3</food:sodium>
+    <food:iron rdf:datatype="http://www.w3.org/2001/XMLSchema#double">3.9</food:iron>
+    <food:vitaminA rdf:datatype="http://www.w3.org/2001/XMLSchema#double">0</food:vitaminA>
+    <food:vitaminB rdf:datatype="http://www.w3.org/2001/XMLSchema#double">0.15</food:vitaminB>
+    <food:vitaminC rdf:datatype="http://www.w3.org/2001/XMLSchema#double">1</food:vitaminC>
+  </food:Ingredient>
+  <food:Ingredient rdf:about="#124">
+    <food:name rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Pistachio</food:name>
+    <food:calories rdf:datatype="http://www.w3.org/2001/XMLSchema#double">650</food:calories>
+    <food:fats rdf:datatype="http://www.w3.org/2001/XMLSchema#double">54</food:fats>
+    <food:proteins rdf:datatype="http://www.w3.org/2001/XMLSchema#double">22.3</food:proteins>
+    <food:carbohydrates rdf:datatype="http://www.w3.org/2001/XMLSchema#double">13.8</food:carbohydrates>
+    <food:calcium rdf:datatype="http://www.w3.org/2001/XMLSchema#double">105</food:calcium>
+    <food:sodium rdf:datatype="http://www.w3.org/2001/XMLSchema#double">1</food:sodium>
+    <food:iron rdf:datatype="http://www.w3.org/2001/XMLSchema#double">3.92</food:iron>
+    <food:vitaminA rdf:datatype="http://www.w3.org/2001/XMLSchema#double">0.021</food:vitaminA>
+    <food:vitaminB rdf:datatype="http://www.w3.org/2001/XMLSchema#double">0</food:vitaminB>
+    <food:vitaminC rdf:datatype="http://www.w3.org/2001/XMLSchema#double">5.6</food:vitaminC>
+  </food:Ingredient>
+  <food:Ingredient rdf:about="#125">
+    <food:name rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Cocoa</food:name>
+    <food:calories rdf:datatype="http://www.w3.org/2001/XMLSchema#double">449</food:calories>
+    <food:fats rdf:datatype="http://www.w3.org/2001/XMLSchema#double">20.2</food:fats>
+    <food:proteins rdf:datatype="http://www.w3.org/2001/XMLSchema#double">23.4</food:proteins>
+    <food:carbohydrates rdf:datatype="http://www.w3.org/2001/XMLSchema#double">40.2</food:carbohydrates>
+    <food:calcium rdf:datatype="http://www.w3.org/2001/XMLSchema#double">420</food:calcium>
+    <food:sodium rdf:datatype="http://www.w3.org/2001/XMLSchema#double">60</food:sodium>
+    <food:iron rdf:datatype="http://www.w3.org/2001/XMLSchema#double">10</food:iron>
+    <food:vitaminA rdf:datatype="http://www.w3.org/2001/XMLSchema#double">0.001</food:vitaminA>
+    <food:vitaminB rdf:datatype="http://www.w3.org/2001/XMLSchema#double">0.11</food:vitaminB>
+    <food:vitaminC rdf:datatype="http://www.w3.org/2001/XMLSchema#double">0.2</food:vitaminC>
+  </food:Ingredient>
+  <food:Ingredient rdf:about="#126">
+    <food:name rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Baking powder</food:name>
+    <food:calories rdf:datatype="http://www.w3.org/2001/XMLSchema#double">97</food:calories>
+    <food:fats rdf:datatype="http://www.w3.org/2001/XMLSchema#double">0.4</food:fats>
+    <food:proteins rdf:datatype="http://www.w3.org/2001/XMLSchema#double">0.1</food:proteins>
+    <food:carbohydrates rdf:datatype="http://www.w3.org/2001/XMLSchema#double">46.9</food:carbohydrates>
+    <food:calcium rdf:datatype="http://www.w3.org/2001/XMLSchema#double">4332</food:calcium>
+    <food:sodium rdf:datatype="http://www.w3.org/2001/XMLSchema#double">90</food:sodium>
+    <food:iron rdf:datatype="http://www.w3.org/2001/XMLSchema#double">8.17</food:iron>
+    <food:vitaminA rdf:datatype="http://www.w3.org/2001/XMLSchema#double">0</food:vitaminA>
+    <food:vitaminB rdf:datatype="http://www.w3.org/2001/XMLSchema#double">0</food:vitaminB>
+    <food:vitaminC rdf:datatype="http://www.w3.org/2001/XMLSchema#double">0</food:vitaminC>
+  </food:Ingredient>
   <food:Vegetable_mixture rdf:ID="Vegetables_sour_soup_1">
     <food:name rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Vegetables sour soup</food:name>
     <food:contains rdf:resource="#69" />
@@ -2858,6 +2923,172 @@
     <food:contains rdf:resource="#91" />
     <food:contains rdf:resource="#36" />
   </food:Milk_products>
+  <food:Fruit_mixture rdf:ID="Peanuts_and_almond_mix_58">
+    <food:name rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Peanuts and almond mix</food:name>
+    <food:contains rdf:resource="#122" />
+    <food:contains rdf:resource="#123" />
+  </food:Fruit_mixture>
+  <food:Fruit_mixture rdf:ID="Peanuts_and_pistachio_mix_59">
+    <food:name rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Peanuts and pistachio mix</food:name>
+    <food:contains rdf:resource="#122" />
+    <food:contains rdf:resource="#124" />
+  </food:Fruit_mixture>
+  <food:Bananas rdf:ID="Bananas_60">
+    <food:name rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Bananas</food:name>
+    <food:contains rdf:resource="#114" />
+  </food:Bananas>
+  <food:Pears rdf:ID="Pears_61">
+    <food:name rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Pears</food:name>
+    <food:contains rdf:resource="#27" />
+  </food:Pears>
+  <food:Plums rdf:ID="Plums_62">
+    <food:name rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Plums</food:name>
+    <food:contains rdf:resource="#29" />
+  </food:Plums>
+  <food:Citrus_fruit rdf:ID="Oranges_63">
+    <food:name rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Oranges</food:name>
+    <food:contains rdf:resource="#28" />
+  </food:Citrus_fruit>
+  <food:Fruits rdf:ID="Grapes_64">
+    <food:name rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Grapes</food:name>
+    <food:contains rdf:resource="#30" />
+  </food:Fruits>
+  <food:Berries rdf:ID="Strawberry_65">
+    <food:name rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Strawberry</food:name>
+    <food:contains rdf:resource="#116" />
+  </food:Berries>
+  <food:Berries rdf:ID="Raspberry_66">
+    <food:name rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Raspberry</food:name>
+    <food:contains rdf:resource="#115" />
+  </food:Berries>
+  <food:Berries rdf:ID="Blueberry_67">
+    <food:name rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Blueberry</food:name>
+    <food:contains rdf:resource="#117" />
+  </food:Berries>
+  <food:Berries rdf:ID="Blackberry_68">
+    <food:name rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Blackberry</food:name>
+    <food:contains rdf:resource="#118" />
+  </food:Berries>
+  <food:Berries rdf:ID="Wild_strawberries_69">
+    <food:name rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Wild strawberries</food:name>
+    <food:contains rdf:resource="#119" />
+  </food:Berries>
+  <food:Rice_products rdf:ID="Rice_pudding_with_cheese_70">
+    <food:name rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Rice pudding with cheese</food:name>
+    <rdf:type rdf:resource="#Milk_products" />
+    <food:contains rdf:resource="#94" />
+    <food:contains rdf:resource="#43" />
+    <food:contains rdf:resource="#107" />
+    <food:contains rdf:resource="#39" />
+    <food:contains rdf:resource="#89" />
+    <food:contains rdf:resource="#91" />
+    <food:contains rdf:resource="#36" />
+  </food:Rice_products>
+  <food:Wheat_basic_products rdf:ID="Biscuit_Chocolate_Rolls__71">
+    <food:name rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Biscuit Chocolate Rolls </food:name>
+    <rdf:type rdf:resource="#Milk_products" />
+    <food:contains rdf:resource="#90" />
+    <food:contains rdf:resource="#43" />
+    <food:contains rdf:resource="#36" />
+    <food:contains rdf:resource="#31" />
+    <food:contains rdf:resource="#107" />
+    <food:contains rdf:resource="#125" />
+  </food:Wheat_basic_products>
+  <food:Fungi rdf:ID="Muffins_with_cheese_and_mushrooms_72">
+    <food:name rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Muffins with cheese and mushrooms</food:name>
+    <rdf:type rdf:resource="#Milk_products" />
+    <rdf:type rdf:resource="#Wheat_basic_products" />
+    <food:contains rdf:resource="#91" />
+    <food:contains rdf:resource="#41" />
+    <food:contains rdf:resource="#107" />
+    <food:contains rdf:resource="#108" />
+    <food:contains rdf:resource="#43" />
+    <food:contains rdf:resource="#64" />
+    <food:contains rdf:resource="#34" />
+    <food:contains rdf:resource="#89" />
+    <food:contains rdf:resource="#126" />
+  </food:Fungi>
+  <food:Meat_products rdf:ID="Muffins_with_cheese_and_ham_73">
+    <food:name rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Muffins with cheese and ham</food:name>
+    <rdf:type rdf:resource="#Milk_products" />
+    <rdf:type rdf:resource="#Wheat_basic_products" />
+    <food:contains rdf:resource="#91" />
+    <food:contains rdf:resource="#43" />
+    <food:contains rdf:resource="#89" />
+    <food:contains rdf:resource="#34" />
+    <food:contains rdf:resource="#126" />
+    <food:contains rdf:resource="#41" />
+    <food:contains rdf:resource="#120" />
+  </food:Meat_products>
+  <food:Meat_products rdf:ID="Cheese_rolls_74">
+    <food:name rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Cheese rolls</food:name>
+    <rdf:type rdf:resource="#Cheese" />
+    <food:contains rdf:resource="#41" />
+    <food:contains rdf:resource="#120" />
+    <food:contains rdf:resource="#89" />
+    <food:contains rdf:resource="#63" />
+    <food:contains rdf:resource="#91" />
+    <food:contains rdf:resource="#126" />
+    <food:contains rdf:resource="#108" />
+  </food:Meat_products>
+  <food:Milk rdf:ID="Oatmeal_with_milk_apples_and_raisins_75">
+    <food:name rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Oatmeal with milk, apples and raisins</food:name>
+    <rdf:type rdf:resource="#Apples" />
+    <rdf:type rdf:resource="#Breakfast_cereals" />
+    <food:contains rdf:resource="#121" />
+    <food:contains rdf:resource="#43" />
+    <food:contains rdf:resource="#26" />
+    <food:contains rdf:resource="#31" />
+    <food:contains rdf:resource="#107" />
+  </food:Milk>
+  <food:Milk rdf:ID="Oatmeal_with_mik_bananas_and_strawberries_76">
+    <food:name rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Oatmeal with mik, bananas and strawberries</food:name>
+    <rdf:type rdf:resource="#Bananas" />
+    <rdf:type rdf:resource="#Berries" />
+    <rdf:type rdf:resource="#Breakfast_cereals" />
+    <food:contains rdf:resource="#121" />
+    <food:contains rdf:resource="#107" />
+    <food:contains rdf:resource="#43" />
+    <food:contains rdf:resource="#114" />
+    <food:contains rdf:resource="#116" />
+  </food:Milk>
+  <food:Plums rdf:ID="Plum_Oat_Bars_77">
+    <food:name rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Plum Oat Bars</food:name>
+    <rdf:type rdf:resource="#Honey" />
+    <food:contains rdf:resource="#29" />
+    <food:contains rdf:resource="#107" />
+    <food:contains rdf:resource="#36" />
+    <food:contains rdf:resource="#121" />
+    <food:contains rdf:resource="#91" />
+    <food:contains rdf:resource="#106" />
+    <food:contains rdf:resource="#88" />
+  </food:Plums>
+  <food:Semolina rdf:ID="Semolina_pudding_with_berries_78">
+    <food:name rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Semolina pudding with berries</food:name>
+    <rdf:type rdf:resource="#Milk" />
+    <rdf:type rdf:resource="#Berries" />
+    <food:contains rdf:resource="#43" />
+    <food:contains rdf:resource="#93" />
+    <food:contains rdf:resource="#107" />
+    <food:contains rdf:resource="#89" />
+    <food:contains rdf:resource="#117" />
+    <food:contains rdf:resource="#115" />
+  </food:Semolina>
+  <food:Citrus_fruit rdf:ID="Croissant_with_jam_and_citrus_juice_79">
+    <food:name rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Croissant with jam and citrus juice</food:name>
+    <rdf:type rdf:resource="#Milk_products" />
+    <rdf:type rdf:resource="#Jams" />
+    <rdf:type rdf:resource="#Wheat_basic_products" />
+    <food:contains rdf:resource="#91" />
+    <food:contains rdf:resource="#42" />
+    <food:contains rdf:resource="#39" />
+    <food:contains rdf:resource="#34" />
+    <food:contains rdf:resource="#126" />
+    <food:contains rdf:resource="#108" />
+    <food:contains rdf:resource="#103" />
+    <food:contains rdf:resource="#28" />
+    <food:contains rdf:resource="#23" />
+  </food:Citrus_fruit>
 </rdf:RDF>
 
 <!-- Created with Protege (with OWL Plugin 3.5, Build 663)  http://protege.stanford.edu -->
