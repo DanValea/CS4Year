@@ -7,6 +7,8 @@
 package entity;
 
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
 import javax.xml.bind.annotation.XmlType;
 
 /**
@@ -16,8 +18,12 @@ import javax.xml.bind.annotation.XmlType;
 @XmlType(name="DiseaseWS") 
 public class DiseaseWS implements Serializable{
     
-    private String name;
+    protected String name;
+    protected List<NutrientRestrictionWS> nutrientRestrictions;
 
+    public DiseaseWS(){
+    nutrientRestrictions=new ArrayList<NutrientRestrictionWS>();
+    }
     /**
      * @return the name
      */
@@ -30,5 +36,19 @@ public class DiseaseWS implements Serializable{
      */
     public void setName(String name) {
         this.name = name;
+    }
+
+    /**
+     * @return the nutrientRestrictions
+     */
+    public List<NutrientRestrictionWS> getNutrientRestrictions() {
+        return nutrientRestrictions;
+    }
+
+    /**
+     * @param nutrientRestrictions the nutrientRestrictions to set
+     */
+    public void setNutrientRestrictions(List<NutrientRestrictionWS> nutrientRestrictions) {
+        this.nutrientRestrictions = nutrientRestrictions;
     }
 }

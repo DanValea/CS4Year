@@ -11,39 +11,57 @@ package entity;
  */
 public class NutrientRestrictionWS {
 
-    private String restrictionName;
-    private Double value;
+    protected String nutrientName;
+    protected double minValue;
+    protected double maxValue;
 
-    public NutrientRestrictionWS(String bindingVar, double aDouble) {
-        this.restrictionName = bindingVar;
-        this.value = value;
+    public NutrientRestrictionWS(String name, double min,double max) {
+        this.nutrientName = name;
+        this.minValue=min;
+        this.maxValue=max;
+    }
+
+    
+
+    /**
+     * @return the nutrientName
+     */
+    public String getNutrientName() {
+        return nutrientName;
     }
 
     /**
-     * @return the restrictionName
+     * @param nutrientName the nutrientName to set
      */
-    public String getRestrictionName() {
-        return restrictionName;
+    public void setNutrientName(String nutrientName) {
+        this.nutrientName = nutrientName;
     }
 
     /**
-     * @param restrictionName the restrictionName to set
+     * @return the minValue
      */
-    public void setRestrictionName(String restrictionName) {
-        this.restrictionName = restrictionName;
+    public double getMinValue() {
+        return minValue;
     }
 
     /**
-     * @return the value
+     * @param minValue the minValue to set
      */
-    public Double getValue() {
-        return value;
+    public void setMinValue(double minValue) {
+        this.minValue = minValue;
     }
 
     /**
-     * @param value the value to set
+     * @return the maxValue
      */
-    public void setValue(Double value) {
-        this.value = value;
+    public double getMaxValue() {
+        return maxValue;
+    }
+
+    /**
+     * @param maxValue the maxValue to set
+     */
+    public void setMaxValue(double maxValue) {
+        this.maxValue = maxValue;
     }
 }

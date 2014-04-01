@@ -30,12 +30,12 @@ import properties.PropertiesLoader;
  */
 public final class DiseaseOntology {
 
-    public static List<NutrientRestrictionWS> getNutrientsRestrictions(Model model, PersonWS person) {
-        List<NutrientRestrictionWS> nutrientRestriction = new ArrayList<>();
- // long start=System.currentTimeMillis();
+    public static List<DiseaseWS> getNutrientsRestrictions(Model model, PersonWS person) {
+        List<DiseaseWS> diseasesWS = new ArrayList<>();
+        // long start=System.currentTimeMillis();
         if (person.getDiseases().size() > 0) {
             String queryString = "PREFIX foaf: <http://www.pips.eu.org/ontologies/food#>"
-                    + "SELECT  ?minCarbohydrates ?maxCarbohydrates "
+                    + "SELECT ?diseaseName ?minCarbohydrates ?maxCarbohydrates "
                     + "?minFats ?maxFats ?minSodium ?maxSodium "
                     + "WHERE { ?disease foaf:diseaseName ?diseaseName "
                     + "OPTIONAL{?disease foaf:minCarbohydrates ?minCarbohydrates} "
@@ -49,14 +49,13 @@ public final class DiseaseOntology {
             QueryExecution qe = QueryExecutionFactory.create(query, model);
             ResultSet result = qe.execSelect();
         //long end = System.currentTimeMillis();
-          //  System.out.println("time disease" + (end - start));
-            if (result.hasNext()) {
-                QuerySolution binding = result.nextSolution();
-                nutrientRestriction = getNutrientsRestrictionsFromQuerySolution(binding);
-            }
+            //  System.out.println("time disease" + (end - start));
+
+            diseasesWS = getNutrientsRestrictionsFromQueryResult(result);
+
             qe.close();
         }
-        return nutrientRestriction;
+        return diseasesWS;
     }
 
     private static String getDiseasesFilterCondition(List<DiseaseWS> diseases) {
@@ -72,16 +71,30 @@ public final class DiseaseOntology {
         return filterCondition;
     }
 
-    private static List<NutrientRestrictionWS> getNutrientsRestrictionsFromQuerySolution(QuerySolution binding) {
-        List<NutrientRestrictionWS> requieredNutrientsForUserDiseases = new ArrayList<>();
+    private static List<DiseaseWS> getNutrientsRestrictionsFromQueryResult(ResultSet result) {
+        List<DiseaseWS> diseasesWS = new ArrayList<>();
 
-        Iterator<String> bindingVarIterator = binding.varNames();
-        while (bindingVarIterator.hasNext()) {
-            String bindingVar = bindingVarIterator.next();
-            requieredNutrientsForUserDiseases.add(new NutrientRestrictionWS(bindingVar, binding.getLiteral(bindingVar).getDouble()));
+        while (result.hasNext()) {
+           
+            QuerySolution binding = result.nextSolution();
+             System.out.println(binding);
+            
+            Iterator<String> bindingVarIterator = binding.varNames();
+            DiseaseWS disease = new DiseaseWS();
+            disease.setName(binding.getLiteral(bindingVarIterator.next()).getString());
+
+            List<NutrientRestrictionWS> nutrientsRestrictionWS = new ArrayList<NutrientRestrictionWS>();
+            while (bindingVarIterator.hasNext()) {
+                String bindingVar = bindingVarIterator.next();
+                nutrientsRestrictionWS.add(new NutrientRestrictionWS(bindingVar.substring(3, bindingVar.length()), binding.getLiteral(bindingVar).getDouble(), binding.getLiteral(bindingVarIterator.next()).getDouble()));
+
+            }
+            disease.setNutrientRestrictions(nutrientsRestrictionWS);
+            diseasesWS.add(disease);
 
         }
-        return requieredNutrientsForUserDiseases;
+
+        return diseasesWS;
     }
 
 }

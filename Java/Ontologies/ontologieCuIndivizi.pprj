@@ -1,4 +1,4 @@
-; Sat Mar 22 12:32:18 EET 2014
+; Sat Mar 29 22:27:29 EET 2014
 ; 
 ;+ (version "3.5")
 ;+ (build "Build 663")
@@ -6,11 +6,11 @@
 ([BROWSER_SLOT_NAMES] of  Property_List
 
 	(properties
-		[ontologieCuIndivizi_ProjectKB_Class134]
-		[ontologieCuIndivizi_ProjectKB_Class135]
-		[ontologieCuIndivizi_ProjectKB_Class136]
-		[ontologieCuIndivizi_ProjectKB_Class137]
-		[ontologieCuIndivizi_ProjectKB_Class138]))
+		[ontologieCuIndivizi_ProjectKB_Class55]
+		[ontologieCuIndivizi_ProjectKB_Class56]
+		[ontologieCuIndivizi_ProjectKB_Class57]
+		[ontologieCuIndivizi_ProjectKB_Class58]
+		[ontologieCuIndivizi_ProjectKB_Class59]))
 
 ([CLSES_TAB] of  Widget
 
@@ -483,6 +483,9 @@
 ([KB_140180_Instance_9] of  Property_List
 )
 
+([KB_172901_Class0] of  Map
+)
+
 ([KB_221055_Instance_10] of  Widget
 
 	(height 0)
@@ -944,9 +947,6 @@
 	(property_list [KB_635552_Instance_9]))
 
 ([KB_635552_Instance_9] of  Property_List
-)
-
-([KB_639823_Class0] of  Map
 )
 
 ([KB_691299_Instance_398] of  Widget
@@ -5350,31 +5350,6 @@
 	(property_list [ontologieCuIndivizi_ProjectKB_Class14])
 	(widget_class_name "edu.stanford.smi.protegex.widget.pal.PalConstraintsTab"))
 
-([ontologieCuIndivizi_ProjectKB_Class134] of  String
-
-	(name "http://www.w3.org/2002/07/owl#Class")
-	(string_value "%3ANAME"))
-
-([ontologieCuIndivizi_ProjectKB_Class135] of  String
-
-	(name ":INSTANCE-ANNOTATION")
-	(string_value "%3AANNOTATION-TEXT"))
-
-([ontologieCuIndivizi_ProjectKB_Class136] of  String
-
-	(name ":META-CLASS")
-	(string_value "%3ANAME"))
-
-([ontologieCuIndivizi_ProjectKB_Class137] of  String
-
-	(name ":PAL-CONSTRAINT")
-	(string_value "%3APAL-NAME"))
-
-([ontologieCuIndivizi_ProjectKB_Class138] of  String
-
-	(name "http://www.w3.org/2002/07/owl#Thing")
-	(string_value "%3ANAME"))
-
 ([ontologieCuIndivizi_ProjectKB_Class14] of  Property_List
 )
 
@@ -5576,6 +5551,31 @@
 ([ontologieCuIndivizi_ProjectKB_Class54] of  Property_List
 )
 
+([ontologieCuIndivizi_ProjectKB_Class55] of  String
+
+	(name "http://www.w3.org/2002/07/owl#Class")
+	(string_value "%3ANAME"))
+
+([ontologieCuIndivizi_ProjectKB_Class56] of  String
+
+	(name ":INSTANCE-ANNOTATION")
+	(string_value "%3AANNOTATION-TEXT"))
+
+([ontologieCuIndivizi_ProjectKB_Class57] of  String
+
+	(name ":META-CLASS")
+	(string_value "%3ANAME"))
+
+([ontologieCuIndivizi_ProjectKB_Class58] of  String
+
+	(name ":PAL-CONSTRAINT")
+	(string_value "%3APAL-NAME"))
+
+([ontologieCuIndivizi_ProjectKB_Class59] of  String
+
+	(name "http://www.w3.org/2002/07/owl#Thing")
+	(string_value "%3ANAME"))
+
 ([ontologieCuIndivizi_ProjectKB_Class6] of  Property_List
 )
 
@@ -5666,8 +5666,8 @@
 		"http://www.w3.org/2002/07/owl#InverseFunctionalProperty"
 		":ANNOTATED-INSTANCE"
 		"http://www.w3.org/2003/11/swrl#BuiltinAtom"
-		"http://www.w3.org/2002/07/owl#Ontology"
 		":OWL-ONTOLOGY-POINTER-CLASS"
+		"http://www.w3.org/2002/07/owl#Ontology"
 		"http://www.w3.org/1999/02/22-rdf-syntax-ns#object"
 		"http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"
 		":VALUE-TYPE"
