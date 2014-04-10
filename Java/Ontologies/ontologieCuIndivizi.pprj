@@ -1,4 +1,4 @@
-; Tue Apr 01 19:14:43 EEST 2014
+; Thu Apr 10 16:14:37 EEST 2014
 ; 
 ;+ (version "3.5")
 ;+ (build "Build 663")
@@ -6,11 +6,11 @@
 ([BROWSER_SLOT_NAMES] of  Property_List
 
 	(properties
-		[ontologieCuIndivizi_ProjectKB_Class10113]
-		[ontologieCuIndivizi_ProjectKB_Class10114]
-		[ontologieCuIndivizi_ProjectKB_Class10115]
-		[ontologieCuIndivizi_ProjectKB_Class10116]
-		[ontologieCuIndivizi_ProjectKB_Class10117]))
+		[ontologieCuIndivizi_ProjectKB_Class147]
+		[ontologieCuIndivizi_ProjectKB_Class148]
+		[ontologieCuIndivizi_ProjectKB_Class149]
+		[ontologieCuIndivizi_ProjectKB_Class150]
+		[ontologieCuIndivizi_ProjectKB_Class151]))
 
 ([CLSES_TAB] of  Widget
 
@@ -5323,7 +5323,7 @@
 ([KB_941921_Instance_7] of  Property_List
 )
 
-([KB_980620_Class0] of  Map
+([ontologieCuIndivizi_ProjectKB_Class0] of  Map
 )
 
 ([ontologieCuIndivizi_ProjectKB_Class1] of  Widget
@@ -5334,31 +5334,6 @@
 
 ([ontologieCuIndivizi_ProjectKB_Class10] of  Property_List
 )
-
-([ontologieCuIndivizi_ProjectKB_Class10113] of  String
-
-	(name ":INSTANCE-ANNOTATION")
-	(string_value "%3AANNOTATION-TEXT"))
-
-([ontologieCuIndivizi_ProjectKB_Class10114] of  String
-
-	(name "http://www.w3.org/2002/07/owl#Class")
-	(string_value "%3ANAME"))
-
-([ontologieCuIndivizi_ProjectKB_Class10115] of  String
-
-	(name ":PAL-CONSTRAINT")
-	(string_value "%3APAL-NAME"))
-
-([ontologieCuIndivizi_ProjectKB_Class10116] of  String
-
-	(name ":META-CLASS")
-	(string_value "%3ANAME"))
-
-([ontologieCuIndivizi_ProjectKB_Class10117] of  String
-
-	(name "http://www.w3.org/2002/07/owl#Thing")
-	(string_value "%3ANAME"))
 
 ([ontologieCuIndivizi_ProjectKB_Class11] of  Widget
 
@@ -5378,11 +5353,36 @@
 ([ontologieCuIndivizi_ProjectKB_Class14] of  Property_List
 )
 
+([ontologieCuIndivizi_ProjectKB_Class147] of  String
+
+	(name ":INSTANCE-ANNOTATION")
+	(string_value "%3AANNOTATION-TEXT"))
+
+([ontologieCuIndivizi_ProjectKB_Class148] of  String
+
+	(name "http://www.w3.org/2002/07/owl#Class")
+	(string_value "%3ANAME"))
+
+([ontologieCuIndivizi_ProjectKB_Class149] of  String
+
+	(name ":PAL-CONSTRAINT")
+	(string_value "%3APAL-NAME"))
+
 ([ontologieCuIndivizi_ProjectKB_Class15] of  Widget
 
 	(is_hidden TRUE)
 	(property_list [ontologieCuIndivizi_ProjectKB_Class16])
 	(widget_class_name "edu.stanford.smi.protegex.evaluation.MetaAnalysis"))
+
+([ontologieCuIndivizi_ProjectKB_Class150] of  String
+
+	(name ":META-CLASS")
+	(string_value "%3ANAME"))
+
+([ontologieCuIndivizi_ProjectKB_Class151] of  String
+
+	(name "http://www.w3.org/2002/07/owl#Thing")
+	(string_value "%3ANAME"))
 
 ([ontologieCuIndivizi_ProjectKB_Class16] of  Property_List
 )
@@ -5724,8 +5724,8 @@
 		"http://www.w3.org/2001/XMLSchema#normalizedString"
 		"http://protege.stanford.edu/plugins/owl/protege#FROM"
 		"http://www.w3.org/2001/XMLSchema#nonPositiveInteger"
-		"http://www.w3.org/2002/07/owl#someValuesFrom"
 		"http://protege.stanford.edu/plugins/owl/protege#classificationStatus"
+		"http://www.w3.org/2002/07/owl#someValuesFrom"
 		"http://protege.stanford.edu/plugins/owl/protege#inferredSuperclassOf"
 		"http://www.w3.org/2000/01/rdf-schema#subPropertyOf"
 		"http://www.w3.org/1999/02/22-rdf-syntax-ns#List"
@@ -6269,6 +6269,19 @@
 
 	(name "vertical_stretcher")
 	(string_value "http://www.w3.org/2002/07/owl#imports"))
+
+([XY_Instance_217] of  Widget
+
+	(height 0)
+	(is_hidden FALSE)
+	(name ":OWL-ONTOLOGY-PREFIXES")
+	(property_list [XY_Instance_218])
+	(width 0)
+	(x 0)
+	(y 0))
+
+([XY_Instance_218] of  Property_List
+)
 
 ([XY_Instance_235] of  Widget
 
