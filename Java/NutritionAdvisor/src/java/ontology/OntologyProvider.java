@@ -17,7 +17,7 @@ import com.hp.hpl.jena.rdf.model.Model;
 import com.hp.hpl.jena.rdf.model.ModelFactory;
 import com.hp.hpl.jena.sparql.ARQConstants;
 import com.hp.hpl.jena.sparql.engine.binding.Binding;
-import entity.CategoryWs;
+import entity.CategoryWS;
 import entity.DiseaseWS;
 import entity.FoodEntryWS;
 import entity.FoodWS;

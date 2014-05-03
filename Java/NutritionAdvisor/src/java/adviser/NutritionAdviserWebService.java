@@ -5,6 +5,7 @@
  */
 package adviser;
 
+import entity.CategoryWS;
 import entity.DiseaseWS;
 import entity.FoodSolutionWS;
 import entity.NutrientRestrictionWS;
@@ -74,6 +75,13 @@ public class NutritionAdviserWebService {
     public List<DiseaseWS> getNutrientsRestrictions(@WebParam(name = "person") PersonWS person) {
 
         return DiseaseOntology.getNutrientsRestrictions(ontologyProvider.getModel(), person);
+
+    }
+
+ @WebMethod(operationName = "getCategories")
+    public List<CategoryWS> getCategories() {
+
+        return FoodOntology.getCategories(ontologyProvider.getModel());
 
     }
 }

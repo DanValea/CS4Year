@@ -3,19 +3,25 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
 package entity;
 
 import java.util.List;
+import javax.xml.bind.annotation.XmlType;
 
 /**
  *
  * @author Mada
  */
-public class CategoryWs {
-    
+@XmlType(name = "CategoryWS")
+public class CategoryWS {
+
     private String name;
-    private List<CategoryWs> subcategories;
+    private List<CategoryWS> subcategories;
+
+    public CategoryWS(String name) {
+
+        this.name = name;
+    }
 
     /**
      * @return the name
@@ -34,17 +40,15 @@ public class CategoryWs {
     /**
      * @return the subcategories
      */
-    public List<CategoryWs> getSubcategories() {
+    public List<CategoryWS> getSubcategories() {
         return subcategories;
     }
 
     /**
      * @param subcategories the subcategories to set
      */
-    public void setSubcategories(List<CategoryWs> subcategories) {
+    public void setSubcategories(List<CategoryWS> subcategories) {
         this.subcategories = subcategories;
     }
-    
-    
-    
+
 }

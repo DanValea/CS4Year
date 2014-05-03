@@ -12,10 +12,13 @@ import com.hp.hpl.jena.query.QueryFactory;
 import com.hp.hpl.jena.query.QuerySolution;
 import com.hp.hpl.jena.query.ResultSet;
 import com.hp.hpl.jena.rdf.model.Model;
+import entity.CategoryWS;
+import entity.DiseaseWS;
 import entity.FoodEntryWS;
 import entity.FoodWS;
 import entity.NutrientsWS;
 import entity.UserPreferenceConstraintWS;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
@@ -25,6 +28,19 @@ import java.util.List;
  */
 public final class FoodOntology {
 
+        private static final String queryCategory = "PREFIX foaf: <http://www.pips.eu.org/ontologies/food#>\n"
+                + "PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#> " 
+                + "PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> "
+                + "SELECT Distinct ?category WHERE { "
+                + "{?category rdfs:subClassOf ?food; "
+                + ".?ind rdf:type ?category} "
+                + "UNION {?subCateg rdfs:subClassOf ?category "
+                + ".?category rdfs:subClassOf ?food "
+                + ".?ind rdf:type ?subCateg }"
+                + "FILTER(?food=foaf:Food) "
+                + "} ";
+
+         
     public static NutrientsWS getFoodNutrients(HashMap<String, NutrientsWS> ingredients, List<FoodWS> foods) {
         NutrientsWS nutrients = new NutrientsWS();
 //        long start = System.currentTimeMillis();
@@ -43,7 +59,7 @@ public final class FoodOntology {
             }
 
         }
-        
+
         long end = System.currentTimeMillis();
 //        System.out.println("time end" + end);
 //        System.out.println("time food" + (end - start));
@@ -144,6 +160,42 @@ public final class FoodOntology {
         boolean menuHasCategory = result.hasNext();
         qe.close();
         return menuHasCategory;
+    }
+
+    public static List<CategoryWS> getCategories(Model model) {
+        List<CategoryWS> categories = new ArrayList<CategoryWS>();
+        Query queryCateg = QueryFactory.create(queryCategory);
+        QueryExecution qeCategory = QueryExecutionFactory.create(queryCateg, model);
+        ResultSet resultCategory = qeCategory.execSelect();
+
+        while (resultCategory.hasNext()) {
+            QuerySolution bindingCateg = resultCategory.nextSolution();
+            String categoryName = bindingCateg.getResource("category").getLocalName();
+            CategoryWS category = new CategoryWS(categoryName);
+            List<CategoryWS> subcategories = new ArrayList<CategoryWS>();
+            category.setSubcategories(subcategories);
+String querySubcategory = "PREFIX foaf: <http://www.pips.eu.org/ontologies/food#>\n"
+        + "PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>"
+        + "PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>"
+                + "SELECT Distinct ?subcategory WHERE { "
+                + "?subcategory rdfs:subClassOf ?category; "
+                + ".?ind rdf:type ?subcategory "
+                
+                + "FILTER(?category=foaf:"+categoryName+")"
+                + "} ";
+               
+            Query querySubcateg = QueryFactory.create(querySubcategory);
+            QueryExecution qeSubcateg = QueryExecutionFactory.create(querySubcateg, model);
+            ResultSet resultSubcateg = qeSubcateg.execSelect();
+            while (resultSubcateg.hasNext()) {
+                QuerySolution bindingSubcateg = resultSubcateg.nextSolution();
+                subcategories.add(new CategoryWS(bindingSubcateg.getResource("subcategory").getLocalName()));
+            }
+            qeSubcateg.close();
+            categories.add(category);
+        }
+        qeCategory.close();
+        return categories;
     }
 
 }
