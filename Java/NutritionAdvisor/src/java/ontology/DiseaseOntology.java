@@ -48,8 +48,8 @@ public final class DiseaseOntology {
             Query query = QueryFactory.create(queryString);
             QueryExecution qe = QueryExecutionFactory.create(query, model);
             ResultSet result = qe.execSelect();
-        //long end = System.currentTimeMillis();
-            //  System.out.println("time disease" + (end - start));
+            //long end = System.currentTimeMillis();
+            //System.out.println("time disease" + (end - start));
 
             diseasesWS = getNutrientsRestrictionsFromQueryResult(result);
 
@@ -77,7 +77,7 @@ public final class DiseaseOntology {
         while (result.hasNext()) {
            
             QuerySolution binding = result.nextSolution();
-             System.out.println(binding);
+            //System.out.println(binding);
             
             Iterator<String> bindingVarIterator = binding.varNames();
             DiseaseWS disease = new DiseaseWS();

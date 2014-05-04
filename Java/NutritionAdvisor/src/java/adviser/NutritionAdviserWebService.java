@@ -40,12 +40,12 @@ public class NutritionAdviserWebService {
         propertiesLoader = new PropertiesLoader(ontologyConfigFile);
         ontologyProvider = new OntologyProvider(propertiesLoader.getProperty("ontology_file"));
 
-        long start = System.currentTimeMillis();
+        //long start = System.currentTimeMillis();
         
         ingredients = IngredientOntology.getAllIngredients(ontologyProvider.getModel());
 
-        long end = System.currentTimeMillis();
-        System.out.println("time ingr" + (end - start));
+        //long end = System.currentTimeMillis();
+        //System.out.println("time ingr" + (end - start));
     }
 
     /**

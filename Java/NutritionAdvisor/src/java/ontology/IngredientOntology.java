@@ -12,11 +12,8 @@ import com.hp.hpl.jena.query.QueryFactory;
 import com.hp.hpl.jena.query.QuerySolution;
 import com.hp.hpl.jena.query.ResultSet;
 import com.hp.hpl.jena.rdf.model.Model;
-import entity.FoodWS;
 import entity.NutrientsWS;
-import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.List;
 
 /**
  *
@@ -62,7 +59,7 @@ public final class IngredientOntology {
             
             ingredients.put(binding.getLiteral("ingredientName").getString(), nutrients);
         }
-        System.out.println(ingredients.size());
+        //System.out.println(ingredients.size());
         qe.close();
         
         return ingredients;

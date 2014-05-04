@@ -938,7 +938,7 @@
     <food:vitaminC rdf:datatype="http://www.w3.org/2001/XMLSchema#double">0.5</food:vitaminC>
   </food:Ingredient>
   <food:Ingredient rdf:about="#6">
-    <food:name rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Chicken</food:name>
+    <food:name rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Chicken, high fat</food:name>
     <food:calories rdf:datatype="http://www.w3.org/2001/XMLSchema#double">267</food:calories>
     <food:fats rdf:datatype="http://www.w3.org/2001/XMLSchema#double">9.5</food:fats>
     <food:proteins rdf:datatype="http://www.w3.org/2001/XMLSchema#double">19</food:proteins>
@@ -2418,6 +2418,19 @@
     <food:vitaminA rdf:datatype="http://www.w3.org/2001/XMLSchema#double">0</food:vitaminA>
     <food:vitaminB rdf:datatype="http://www.w3.org/2001/XMLSchema#double">0</food:vitaminB>
     <food:vitaminC rdf:datatype="http://www.w3.org/2001/XMLSchema#double">0</food:vitaminC>
+  </food:Ingredient>
+  <food:Ingredient rdf:about="#127">
+    <food:name rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Chicken, low fat</food:name>
+    <food:calories rdf:datatype="http://www.w3.org/2001/XMLSchema#double">128</food:calories>
+    <food:fats rdf:datatype="http://www.w3.org/2001/XMLSchema#double">5</food:fats>
+    <food:proteins rdf:datatype="http://www.w3.org/2001/XMLSchema#double">20</food:proteins>
+    <food:carbohydrates rdf:datatype="http://www.w3.org/2001/XMLSchema#double">0</food:carbohydrates>
+    <food:calcium rdf:datatype="http://www.w3.org/2001/XMLSchema#double">10</food:calcium>
+    <food:sodium rdf:datatype="http://www.w3.org/2001/XMLSchema#double">85</food:sodium>
+    <food:iron rdf:datatype="http://www.w3.org/2001/XMLSchema#double">2</food:iron>
+    <food:vitaminA rdf:datatype="http://www.w3.org/2001/XMLSchema#double">0.04</food:vitaminA>
+    <food:vitaminB rdf:datatype="http://www.w3.org/2001/XMLSchema#double">0.18</food:vitaminB>
+    <food:vitaminC rdf:datatype="http://www.w3.org/2001/XMLSchema#double">1.6</food:vitaminC>
   </food:Ingredient>
 </rdf:RDF>
 
