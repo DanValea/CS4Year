@@ -5,11 +5,13 @@
  */
 package entity;
 
+import java.io.Serializable;
+
 /**
  *
  * @author Mada
  */
-public class NutrientRestrictionWS {
+public class NutrientRestrictionWS implements Serializable{
 
     protected String nutrientName;
     protected double minValue;

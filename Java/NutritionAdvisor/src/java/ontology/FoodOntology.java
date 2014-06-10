@@ -28,19 +28,18 @@ import java.util.List;
  */
 public final class FoodOntology {
 
-        private static final String queryCategory = "PREFIX foaf: <http://www.pips.eu.org/ontologies/food#>\n"
-                + "PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#> " 
-                + "PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> "
-                + "SELECT Distinct ?category WHERE { "
-                + "{?category rdfs:subClassOf ?food; "
-                + ".?ind rdf:type ?category} "
-                + "UNION {?subCateg rdfs:subClassOf ?category "
-                + ".?category rdfs:subClassOf ?food "
-                + ".?ind rdf:type ?subCateg }"
-                + "FILTER(?food=foaf:Food) "
-                + "} ";
+    private static final String queryCategory = "PREFIX foaf: <http://www.pips.eu.org/ontologies/food#>\n"
+            + "PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#> "
+            + "PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> "
+            + "SELECT Distinct ?category WHERE { "
+            + "{?category rdfs:subClassOf ?food; "
+            + ".?ind rdf:type ?category} "
+            + "UNION {?subCateg rdfs:subClassOf ?category "
+            + ".?category rdfs:subClassOf ?food "
+            + ".?ind rdf:type ?subCateg }"
+            + "FILTER(?food=foaf:Food) "
+            + "} ";
 
-         
     public static NutrientsWS getFoodNutrients(HashMap<String, NutrientsWS> ingredients, List<FoodWS> foods) {
         NutrientsWS nutrients = new NutrientsWS();
 //        long start = System.currentTimeMillis();
@@ -66,60 +65,12 @@ public final class FoodOntology {
         return nutrients;
     }
 
-    private static NutrientsWS getNutrientsSum(ResultSet result, NutrientsWS nutrients, FoodWS food) {
 
-        while (result.hasNext()) {
-            QuerySolution binding = result.nextSolution();
-            boolean ingredientFound = false;
-            int index = 0;
-            while (!ingredientFound && index < food.getFoodEntries().size()) {
-                if (food.getFoodEntries().get(index).getIngredientName().equals(binding.getLiteral("ingredientName").getString())) {
-
-                    ingredientFound = true;
-                    nutrients.setCalories(binding.getLiteral("calories").getDouble() * food.getFoodEntries().get(index).getQuantity() / 100.0 + nutrients.getCalories());
-                    nutrients.setProteins(binding.getLiteral("proteins").getDouble() * food.getFoodEntries().get(index).getQuantity() / 100.0 + nutrients.getProteins());
-                    nutrients.setCarbohydrates(binding.getLiteral("carbohydrates").getDouble() * food.getFoodEntries().get(index).getQuantity() / 100.0 + nutrients.getCarbohydrates());
-                    nutrients.setFats(binding.getLiteral("fats").getDouble() * food.getFoodEntries().get(index).getQuantity() / 100.0 + nutrients.getFats());
-                    nutrients.setIron(binding.getLiteral("iron").getDouble() * food.getFoodEntries().get(index).getQuantity() / 100.0 + nutrients.getIron());
-                    nutrients.setSodium(binding.getLiteral("sodium").getDouble() * food.getFoodEntries().get(index).getQuantity() / 100.0 + nutrients.getSodium());
-                    nutrients.setVitaminA(binding.getLiteral("vitaminA").getDouble() * food.getFoodEntries().get(index).getQuantity() / 100.0 + nutrients.getVitaminA());
-                    nutrients.setVitaminB(binding.getLiteral("vitaminB").getDouble() * food.getFoodEntries().get(index).getQuantity() / 100.0 + nutrients.getVitaminB());
-                    nutrients.setVitaminC(binding.getLiteral("vitaminC").getDouble() * food.getFoodEntries().get(index).getQuantity() / 100.0 + nutrients.getVitaminC());
-                }
-                index++;
-
-            }
-            if (!ingredientFound) {
-                System.out.println("ingredient not found");
-            }
-        }
-        return nutrients;
-
-        /*
-         while (result.hasNext()) {
-         QuerySolution binding = result.nextSolution();
-            
-              
-         nutrients.setCalories(binding.getLiteral("calories").getDouble() * foodEntry.getQuantity() / 100.0 + nutrients.getCalories());
-         nutrients.setProteins(binding.getLiteral("proteins").getDouble() * foodEntry.getQuantity() / 100.0 + nutrients.getProteins());
-         nutrients.setCarbohydrates(binding.getLiteral("carbohydrates").getDouble() * foodEntry.getQuantity() / 100.0 + nutrients.getCarbohydrates());
-         nutrients.setFats(binding.getLiteral("fats").getDouble() * foodEntry.getQuantity()/ 100.0 + nutrients.getFats());
-         nutrients.setIron(binding.getLiteral("iron").getDouble() * foodEntry.getQuantity()/ 100.0 + nutrients.getIron());
-         nutrients.setSodium(binding.getLiteral("sodium").getDouble() * foodEntry.getQuantity() / 100.0 + nutrients.getSodium());
-         nutrients.setVitaminA(binding.getLiteral("vitaminA").getDouble() * foodEntry .getQuantity()/ 100.0 + nutrients.getVitaminA());
-         nutrients.setVitaminB(binding.getLiteral("vitaminB").getDouble() * foodEntry.getQuantity() / 100.0 + nutrients.getVitaminB());
-         nutrients.setVitaminC(binding.getLiteral("vitaminC").getDouble() * foodEntry .getQuantity()/ 100.0 + nutrients.getVitaminC());
-         }
-          
-         return nutrients;
-         */
-    }
-
-    public static boolean foodSolutionRespectsUserConstraints(Model model, List<FoodWS> foods, UserPreferenceConstraintWS userConstraint) {
+    public static boolean foodSolutionRespectsUserConstraints(List<FoodWS> foods, UserPreferenceConstraintWS userConstraint) {
         String foodFilterCondition = getFoodFilterCondition(foods);
 
-        if (menuHasCategory(model, userConstraint.getFavouriteCategory(), foodFilterCondition)) {
-            return !menuHasCategory(model, userConstraint.getDislikedCategory(), foodFilterCondition);
+        if (menuHasCategory(userConstraint.getFavouriteCategory(), foodFilterCondition)) {
+            return !menuHasCategory( userConstraint.getDislikedCategory(), foodFilterCondition);
         }
         return false;
 
@@ -139,7 +90,7 @@ public final class FoodOntology {
 
     }
 
-    private static boolean menuHasCategory(Model model, String category, String foodFilterCondition) {
+    private static boolean menuHasCategory(String category, String foodFilterCondition) {
         String queryString = "PREFIX foaf: <http://www.pips.eu.org/ontologies/food#>"
                 + "PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>"
                 + "PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>"
@@ -155,17 +106,17 @@ public final class FoodOntology {
                 + " } ";
 
         Query query = QueryFactory.create(queryString);
-        QueryExecution qe = QueryExecutionFactory.create(query, model);
+        QueryExecution qe = QueryExecutionFactory.create(query, OntologyProvider.getInstance().getModel());
         ResultSet result = qe.execSelect();
         boolean menuHasCategory = result.hasNext();
         qe.close();
         return menuHasCategory;
     }
 
-    public static List<CategoryWS> getCategories(Model model) {
+    public static List<CategoryWS> getCategories() {
         List<CategoryWS> categories = new ArrayList<CategoryWS>();
         Query queryCateg = QueryFactory.create(queryCategory);
-        QueryExecution qeCategory = QueryExecutionFactory.create(queryCateg, model);
+        QueryExecution qeCategory = QueryExecutionFactory.create(queryCateg, OntologyProvider.getInstance().getModel());
         ResultSet resultCategory = qeCategory.execSelect();
 
         while (resultCategory.hasNext()) {
@@ -174,18 +125,17 @@ public final class FoodOntology {
             CategoryWS category = new CategoryWS(categoryName);
             List<CategoryWS> subcategories = new ArrayList<CategoryWS>();
             category.setSubcategories(subcategories);
-String querySubcategory = "PREFIX foaf: <http://www.pips.eu.org/ontologies/food#>\n"
-        + "PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>"
-        + "PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>"
-                + "SELECT Distinct ?subcategory WHERE { "
-                + "?subcategory rdfs:subClassOf ?category; "
-                + ".?ind rdf:type ?subcategory "
-                
-                + "FILTER(?category=foaf:"+categoryName+")"
-                + "} ";
-               
+            String querySubcategory = "PREFIX foaf: <http://www.pips.eu.org/ontologies/food#>\n"
+                    + "PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>"
+                    + "PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>"
+                    + "SELECT Distinct ?subcategory WHERE { "
+                    + "?subcategory rdfs:subClassOf ?category; "
+                    + ".?ind rdf:type ?subcategory "
+                    + "FILTER(?category=foaf:" + categoryName + ")"
+                    + "} ";
+
             Query querySubcateg = QueryFactory.create(querySubcategory);
-            QueryExecution qeSubcateg = QueryExecutionFactory.create(querySubcateg, model);
+            QueryExecution qeSubcateg = QueryExecutionFactory.create(querySubcateg, OntologyProvider.getInstance().getModel());
             ResultSet resultSubcateg = qeSubcateg.execSelect();
             while (resultSubcateg.hasNext()) {
                 QuerySolution bindingSubcateg = resultSubcateg.nextSolution();

@@ -7,13 +7,12 @@ package adviser;
 
 import entity.CategoryWS;
 import entity.DiseaseWS;
-import entity.FoodSolutionWS;
+import entity.FoodWS;
 import entity.NutrientRestrictionWS;
 import javax.jws.WebService;
 import javax.jws.WebMethod;
 import javax.jws.WebParam;
 import entity.NutrientsWS;
-import entity.PersonWS;
 import entity.UserPreferenceConstraintWS;
 import java.io.IOException;
 import java.util.HashMap;
@@ -21,8 +20,6 @@ import java.util.List;
 import ontology.DiseaseOntology;
 import ontology.FoodOntology;
 import ontology.IngredientOntology;
-import ontology.OntologyProvider;
-import properties.PropertiesLoader;
 
 /**
  *
@@ -31,18 +28,12 @@ import properties.PropertiesLoader;
 @WebService(serviceName = "NutritionAdviserWebService")
 public class NutritionAdviserWebService {
 
-    private PropertiesLoader propertiesLoader;
-    private OntologyProvider ontologyProvider;
     private HashMap<String, NutrientsWS> ingredients;
-    private static final String ontologyConfigFile = "files/configuration-file.config";
 
     public NutritionAdviserWebService() throws IOException {
-        propertiesLoader = new PropertiesLoader(ontologyConfigFile);
-        ontologyProvider = new OntologyProvider(propertiesLoader.getProperty("ontology_file"));
 
         //long start = System.currentTimeMillis();
-        
-        ingredients = IngredientOntology.getAllIngredients(ontologyProvider.getModel());
+        ingredients = IngredientOntology.getAllIngredients();
 
         //long end = System.currentTimeMillis();
         //System.out.println("time ingr" + (end - start));
@@ -52,11 +43,10 @@ public class NutritionAdviserWebService {
      * This is a sample web service operation
      */
     @WebMethod(operationName = "computeNutrientsSum")
-    public NutrientsWS computeNutrientsSum(@WebParam(name = "foodSolution") FoodSolutionWS foodSolution) {
+    public NutrientsWS computeNutrientsSum(@WebParam(name = "foods") List<FoodWS> foods) {
 
         // long start=System.currentTimeMillis();
-        NutrientsWS nutrientsSum = FoodOntology.getFoodNutrients(ingredients, foodSolution.getFoodWS());
-       // foodSolution=NutrientsFoodSolutionConverter.convertNutrientsToFoodSolution(nutrientsSum, foodSolution);
+        NutrientsWS nutrientsSum = FoodOntology.getFoodNutrients(ingredients, foods);
 
         // long end= System.currentTimeMillis(); 
         // System.out.println("time"+(end-start));
@@ -65,23 +55,23 @@ public class NutritionAdviserWebService {
     }
 
     @WebMethod(operationName = "foodSolutionRespectsUserConstraints")
-    public boolean foodSolutionRespectsUserConstraints(@WebParam(name = "foodSolutionWS") FoodSolutionWS foodSolution, @WebParam(name = "userConstraint") UserPreferenceConstraintWS userConstraint) {
+    public boolean foodSolutionRespectsUserConstraints(@WebParam(name = "foods") List<FoodWS> foods, @WebParam(name = "userConstraint") UserPreferenceConstraintWS userConstraint) {
 
-        return FoodOntology.foodSolutionRespectsUserConstraints(ontologyProvider.getModel(), foodSolution.getFoodWS(), userConstraint);
+        return FoodOntology.foodSolutionRespectsUserConstraints(foods, userConstraint);
 
     }
 
     @WebMethod(operationName = "getNutrientsRestrictions")
-    public List<DiseaseWS> getNutrientsRestrictions(@WebParam(name = "person") PersonWS person) {
+    public List<NutrientRestrictionWS> getNutrientsRestrictions(@WebParam(name = "diseases") List<String> diseases) {
 
-        return DiseaseOntology.getNutrientsRestrictions(ontologyProvider.getModel(), person);
+        return DiseaseOntology.getNutrientsRestrictions(diseases);
 
     }
 
- @WebMethod(operationName = "getCategories")
+    @WebMethod(operationName = "getCategories")
     public List<CategoryWS> getCategories() {
 
-        return FoodOntology.getCategories(ontologyProvider.getModel());
+        return FoodOntology.getCategories();
 
     }
 }

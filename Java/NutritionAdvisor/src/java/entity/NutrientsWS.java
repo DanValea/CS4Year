@@ -5,6 +5,7 @@
  */
 package entity;
 
+import java.io.Serializable;
 import javax.xml.bind.annotation.XmlType;
 
 /**
@@ -12,7 +13,7 @@ import javax.xml.bind.annotation.XmlType;
  * @author Mada
  */
 @XmlType(name="NutrientsWS") 
-public class NutrientsWS {
+public class NutrientsWS implements Serializable{
 
     private double calories;
     private double proteins;

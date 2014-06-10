@@ -6,6 +6,7 @@
 
 package entity;
 
+import java.io.Serializable;
 import javax.xml.bind.annotation.XmlType;
 
 /**
@@ -13,7 +14,7 @@ import javax.xml.bind.annotation.XmlType;
  * @author Mada
  */
 @XmlType(name="FoodEntryWS") 
-public class FoodEntryWS {
+public class FoodEntryWS implements Serializable{
         private String ingredientName;
         private Double quantity;
 

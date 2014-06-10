@@ -18,10 +18,7 @@ public class UserPreferenceConstraintWS {
     
     private String favouriteCategory;
     private String dislikedCategory;
-
-    private boolean menuHasFavouriteCategory;
-    private boolean menuHasDislikedCategory;   
-
+    
     /**
      * @return the favouriteCategory
      */
@@ -48,33 +45,5 @@ public class UserPreferenceConstraintWS {
      */
     public void setDislikedCategory(String dislikedCategory) {
         this.dislikedCategory = dislikedCategory;
-    }
-
-    /**
-     * @return the menuHasFavouritCategory
-     */
-    public boolean isMenuHasFavouriteCategory() {
-        return menuHasFavouriteCategory;
-    }
-
-    /**
-     * @param menuHasFavouritCategory the menuHasFavouritCategory to set
-     */
-    public void setMenuHasFavouriteCategory(boolean menuHasFavouriteCategory) {
-        this.menuHasFavouriteCategory = menuHasFavouriteCategory;
-    }
-
-    /**
-     * @return the menuHasDislikedCategory
-     */
-    public boolean isMenuHasDislikedCategory() {
-        return menuHasDislikedCategory;
-    }
-
-    /**
-     * @param menuHasDislikedCategory the menuHasDislikedCategory to set
-     */
-    public void setMenuHasDislikedCategory(boolean menuHasDislikedCategory) {
-        this.menuHasDislikedCategory = menuHasDislikedCategory;
-    }
+    }    
 }

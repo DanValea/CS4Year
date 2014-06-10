@@ -5,6 +5,7 @@
  */
 package entity;
 
+import java.io.Serializable;
 import java.util.List;
 import javax.xml.bind.annotation.XmlType;
 
@@ -13,7 +14,7 @@ import javax.xml.bind.annotation.XmlType;
  * @author Mada
  */
 @XmlType(name = "CategoryWS")
-public class CategoryWS {
+public class CategoryWS implements Serializable{
 
     private String name;
     private List<CategoryWS> subcategories;

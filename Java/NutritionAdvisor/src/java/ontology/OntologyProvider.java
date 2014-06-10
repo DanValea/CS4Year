@@ -5,30 +5,15 @@
  */
 package ontology;
 
-import  com.hp.hpl.jena.rdf.model.Resource;
-import com.hp.hpl.jena.query.Query;
-import com.hp.hpl.jena.query.QueryExecution;
-import com.hp.hpl.jena.query.QueryExecutionFactory;
-import com.hp.hpl.jena.query.QueryFactory;
-import com.hp.hpl.jena.query.QuerySolution;
-import com.hp.hpl.jena.query.ResultSet;
-import com.hp.hpl.jena.rdf.model.Literal;
+
 import com.hp.hpl.jena.rdf.model.Model;
 import com.hp.hpl.jena.rdf.model.ModelFactory;
-import com.hp.hpl.jena.sparql.ARQConstants;
-import com.hp.hpl.jena.sparql.engine.binding.Binding;
-import entity.CategoryWS;
-import entity.DiseaseWS;
-import entity.FoodEntryWS;
-import entity.FoodWS;
-import entity.NutrientsWS;
-import entity.PersonWS;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
-import java.util.ArrayList;
-import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import properties.PropertiesLoader;
 
 /**
@@ -37,20 +22,35 @@ import properties.PropertiesLoader;
  */
 public class OntologyProvider {
 
+    private static OntologyProvider instance = null;
     private Model model;
+    
+    private static final String ontologyConfigFile = "files/configuration-file.config";
 
-    public OntologyProvider(String ontologyFile) throws IOException {
-        createModel(ontologyFile);
+    protected OntologyProvider() {
+        try {
+            PropertiesLoader propertiesLoader = new PropertiesLoader(ontologyConfigFile);
+            createModel(propertiesLoader.getProperty("ontology_file"));
+        } catch (IOException ex) {
+            Logger.getLogger(OntologyProvider.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+
+    public static OntologyProvider getInstance() {
+        if (instance == null) {
+            
+            instance = new OntologyProvider();
+        }
+        return instance;
     }
 
     private void createModel(String ontologyFile) throws IOException {
         InputStream in = new FileInputStream(new File(ontologyFile));
         setModel(ModelFactory.createDefaultModel());
         getModel().read(in, null);
-      
+
     }
 
- 
     /**
      * @return the model
      */

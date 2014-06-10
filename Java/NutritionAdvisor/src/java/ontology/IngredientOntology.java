@@ -38,10 +38,10 @@ public final class IngredientOntology {
             + ".?ingredient foaf:vitaminC ?vitaminC"
             + "}";
     
-    public static HashMap<String,NutrientsWS> getAllIngredients(Model model) {
+    public static HashMap<String,NutrientsWS> getAllIngredients() {
         
         Query query = QueryFactory.create(SELECT_ALL_INGREDIENTS_QUERY);
-        QueryExecution qe = QueryExecutionFactory.create(query, model);
+        QueryExecution qe = QueryExecutionFactory.create(query, OntologyProvider.getInstance().getModel());
         ResultSet result = qe.execSelect();
         HashMap<String,NutrientsWS> ingredients = new HashMap<String,NutrientsWS>();
         while (result.hasNext()) {
